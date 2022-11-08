@@ -304,9 +304,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <ul class="links">
-                                            <li><a href="demo18-about.html">About us</a></li>
-                                            <li><a href="demo18-contact.html">Contact us</a></li>
-                                            <li><a href="dashboard.html">My Account</a></li>
+                                            <li><a href="{{ route('about') }}">About us</a></li>
+                                            <li><a href="{{ route('contact') }}">Contact us</a></li>
+                                            @auth
+                                                <li><a href="{{ route('dashboard') }}">My Account</a></li>
+                                            @endauth
                                             <li><a href="#">Payment Methods</a></li>
                                         </ul>
                                     </div>
@@ -314,7 +316,9 @@
                                         <ul class="links">
                                             <li><a href="order.html">Order history</a></li>
                                             <li><a href="#">Advanced search</a></li>
-                                            <li><a href="{{ route('login') }}">Login</a></li>
+                                            @guest
+                                                <li><a href="{{ route('login') }}">Login</a></li>
+                                            @endguest
                                         </ul>
                                     </div>
                                 </div>
@@ -330,7 +334,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <ul class="links">
-                                            <li><a href="demo18-about.html">About LoveBites</a></li>
+                                            <li><a href="{{ route('about') }}">About LoveBites</a></li>
                                             <li><a href="#">Our Guarantees</a></li>
                                             <li><a href="#">Terms And Conditions</a></li>
                                             <li><a href="#">Privacy Policy</a></li>

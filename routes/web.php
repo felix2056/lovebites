@@ -48,9 +48,13 @@ Route::get('register', 'AuthController@register')->name('register');
 
 // dashboard
 Route::middleware(['auth'])->group(function () {
+    Route::get('logout', 'AuthController@logout')->name('logout');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::prefix('dashboard')->group(function () {
+        Route::post('update-profile', 'DashboardController@updateProfile')->name('dashboard.update-profile');
+        Route::post('update-billing', 'DashboardController@updateBilling')->name('dashboard.update-billing');
+
         Route::get('orders', 'DashboardController@orders')->name('dashboard.orders');
         Route::get('orders/{id}', 'DashboardController@order')->name('dashboard.order');
         Route::get('addresses', 'DashboardController@addresses')->name('dashboard.addresses');

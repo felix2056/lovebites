@@ -111,30 +111,31 @@
 
                 <div class="col-lg-10">
                     <div class="row product-ajax-grid mb-2">
+                        @foreach ($popular as $product)
                         <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
                             <div class="product-default inner-quickview inner-icon appear-animate"
                                 data-animation-name="fadeIn">
                                 <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-7.jpg" width="205" height="205" alt="product">
+                                    <a href="{{ route('products.show', $product->slug) }}">
+                                        <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->name }}">
                                     </a>
                                     <div class="btn-icon-group">
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple">
+                                        <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple">
                                             <i class="icon-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"title="Quick View">Quick View</a>
+                                    <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview"title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
                                     <div class="category-wrap">
                                         <div class="category-list">
                                             <a href="{{ route('products.index') }}" class="product-category">category</a>
                                         </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
+                                        <a href="wishlist.html" class="btn-icon-wish">
+                                            <i class="icon-heart"></i></a>
                                     </div>
                                     <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Backpack Sfs Responder</a>
+                                        <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
                                     </h3>
                                     <div class="ratings-container">
                                         <div class="product-ratings">
@@ -146,411 +147,46 @@
                                     </div>
                                     <!-- End .product-container -->
                                     <div class="price-box">
-                                        <span class="product-price">$185.00</span>
+                                        <span class="product-price">${{ $product->price }}</span>
                                     </div>
                                     <!-- End .price-box -->
                                 </div>
                                 <!-- End .product-details -->
                             </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-15.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Converse Chuck Quarter</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$14.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-13.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Football Vapor 24/7</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$25.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-8.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Hot Black Suits</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$30.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-6.jpg" width="205" height="205" alt="product">
-                                        <img src="/images/product-19.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Hyperadapt Shield Lite</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$39.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-4.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Hyperadapt Shield Lite Half-Zip</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:100%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$299.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-19.jpg" width="205" height="205" alt="product">
-                                        <img src="/images/product-10.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Jordan Flight</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$99.00 - $109.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-11.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Jordan Hyper Grip Ot</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$50.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-9.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Long-Length 2.0</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:20%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$22.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
-                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                            <div class="product-default inner-quickview inner-icon appear-animate"
-                                data-animation-name="fadeIn">
-                                <figure>
-                                    <a href="{{ route('products.show') }}">
-                                        <img src="/images/product-16.jpg" width="205" height="205" alt="product">
-                                    </a>
-                                    <div class="btn-icon-group">
-                                        <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i></a>
-                                    </div>
-                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
-                                        title="Quick View">Quick View</a>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="category-wrap">
-                                        <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                        </div>
-                                        <a href="wishlist.html" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.show') }}">Man Black Pants</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:0%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <span class="product-price">$89.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-lg-3 -->
+                        </div><!-- End .col-lg-3 -->
+                        @endforeach
                     </div>
                     <!-- End .row -->
 
+                    @php
+                        $current_page = $popular->currentPage();
+                        
+                        $current_url = Request::fullUrl();
+                        $next_url = $popular->nextPageUrl();
+                        $prev_url = $popular->previousPageUrl();
+
+                        // determine if current url already has a query string
+                        if (strpos($current_url, '?sort') !== false || strpos($current_url, '&sort') !== false) {
+                            $next_url = $next_url . '&sort=' . $sort;
+                        }
+
+                        if (strpos($current_url, '?sort') !== false || strpos($current_url, '&sort') !== false) {
+                            $prev_url = $prev_url . '&sort=' . $sort;
+                        }
+                    @endphp
+
+                    @unless($popular->currentPage() == $popular->lastPage())
+                        <div class="product-more-container d-flex justify-content-center">
+                            <!-- change load-more to loadmore for ajax -->
+                            <a href="{{ $next_url }}" class="btn btn-outline-dark load-more">Load More...</a>
+                        </div><!-- End .product-more-container -->
+
+                    @else
                     <div class="product-more-container d-flex justify-content-center">
-                        <a href="demo18-ajax-products.html" class="btn btn-outline-dark loadmore">Load
-                            More...</a>
-                    </div>
-                    <!-- End .product-more-container -->
+                        <!-- change load-more to loadmore for ajax -->
+                        <a href="{{ $prev_url }}" class="btn btn-outline-dark load-more">Load Prev...</a>
+                    </div><!-- End .product-more-container -->
+                    @endunless
                 </div>
                 <!-- End .col-lg-9 -->
             </div>
@@ -603,358 +239,47 @@
                     }
                 } 
             }" data-animation-name="fadeIn">
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-7.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
+                @foreach ($latest as $product)
+                    <div class="product-default inner-quickview inner-icon">
+                        <figure>
+                            <a href="{{ route('products.show', $product->slug) }}">
+                                <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->name }}">
+                            </a>
+                            <div class="btn-icon-group">
+                                <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple">
+                                    <i class="icon-shopping-cart"></i>
+                                </a>
                             </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Backpack Sfs Responder</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:100%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
+                            <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View">Quick View</a>
+                        </figure>
+                        <div class="product-details">
+                            <div class="category-wrap">
+                                <div class="category-list">
+                                    <a href="{{ route('products.index') }}" class="product-category">category</a>
+                                </div>
+                                <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
+                                        class="icon-heart"></i></a>
                             </div>
-                            <!-- End .product-ratings -->
+                            <h3 class="product-title">
+                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                            </h3>
+                            <div class="ratings-container">
+                                <div class="product-ratings">
+                                    <span class="ratings" style="width:100%"></span>
+                                    <!-- End .ratings -->
+                                    <span class="tooltiptext tooltip-top"></span>
+                                </div>
+                                <!-- End .product-ratings -->
+                            </div>
+                            <!-- End .product-container -->
+                            <div class="price-box">
+                                <span class="product-price">${{ $product->price }}</span>
+                            </div>
+                            <!-- End .price-box -->
                         </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$185.00</span>
-                        </div>
-                        <!-- End .price-box -->
+                        <!-- End .product-details -->
                     </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-15.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Converse Chuck Quarter</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$14.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-13.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Football Vapor 24/7</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$25.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-8.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Hot Black Suits</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$30.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-4.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Hyperadapt Shield Lite Half-Zip</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:100%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$299.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-19.jpg" width="205" height="205" alt="product">
-                            <img src="/images/product-10.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
-                                    class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Jordan Flight</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$99.00 - $109.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-11.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Jordan Hyper Grip Ot</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$50.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-9.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Long-Length 2.0</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:20%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$22.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="{{ route('products.show') }}">
-                            <img src="/images/product-16.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
-                                    class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="{{ route('products.index') }}" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
-                                    class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.show') }}">Man Black Pants</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:0%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$89.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
+                @endforeach
             </div>
             <!-- End .featured-produts -->
 

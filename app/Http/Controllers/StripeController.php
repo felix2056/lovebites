@@ -35,8 +35,8 @@ class StripeController extends Controller
             $subtotal += $item['price'] * $item['quantity'];
         }
 
-        $shipping_fee = 10;
-        $tax = 0.15 * $subtotal;
+        $shipping_fee = 3.99;
+        $tax = $subtotal * 0.15;
         $total_amount = $subtotal + $shipping_fee + $tax;
 
         try {

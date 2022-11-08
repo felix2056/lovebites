@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Product;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $popular = Product::orderBy('views', 'desc')->paginate(10);
+        $featured = Product::where('featured', true)->take(10)->get();
+        $latest = Product::orderBy('created_at', 'desc')->take(10)->get();
+
+        return view('index', compact('popular', 'featured', 'latest'));
     }
 
     public function about()

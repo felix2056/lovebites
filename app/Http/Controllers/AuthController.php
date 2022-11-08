@@ -82,7 +82,7 @@ class AuthController extends Controller
 
         Auth::login($user);
         
-        return redirect()->route('home');
+        return redirect()->route('index');
 
         return response()->json([
             'success' => $user ? true : false,
@@ -90,115 +90,11 @@ class AuthController extends Controller
         ], $user ? 200 : 422);
     }
 
-    public function login(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
-
-        $remember_me = ( !empty( $request->remember_me ) ) ? true : false;
-
-        $location = geoip()->getLocation($request->ip());
-
-        $is_authenticated = false;
-        $guard = null;
-
-        if(Auth::guard('doctors')->attempt($request->all(), $remember_me )) {
-            config(['sanctum.guard' => 'doctors']);
-            Auth::shouldUse('doctors');
-            $doctor = Doctor::find(Auth::user()->id);
-            $doctor->lat = $location->lat;
-            $doctor->lng = $location->lon;
-            $doctor->state = $location->state;
-            $doctor->city = $location->city;
-            $doctor->zip = $location->postal_code;
-            $doctor->country = $location->country;
-            $doctor->iso_code = $location->iso_code;
-            $doctor->timezone = $location->timezone;
-            $doctor->save();
-
-            $is_authenticated = true;
-        }
-
-        elseif(Auth::guard('users')->attempt($request->all(), $remember_me )) {
-            config(['sanctum.guard' => 'users']);
-            Auth::shouldUse('users');
-            $user = User::find(Auth::user()->id);
-            $user->state = $location->state;
-            $user->city = $location->city;
-            $user->zip = $location->postal_code;
-            $user->country = $location->country;
-            $user->iso_code = $location->iso_code;
-            $user->timezone = $location->timezone;
-            $user->save();
-
-            $is_authenticated = true;
-        }
-    
-        if($is_authenticated) {
-            $request->session()->regenerate();
-            return response()->json([
-                'success' => true, 
-                'message' => 'Logged in successfully!', 
-                'guard' => config('sanctum.guard'),
-                'user' => Auth::user()
-            ], 200);
-        } 
-
-        return response()->json(['success' => false, 'message' => 'Invalid credentials!'], 402);
-    }
-
     public function logout(Request $request)
     {
         Auth::logout();
-        $request->session()->invalidate();
 
-        return response()->json(['success' => true, 'message' => 'Logged out successfully!'], 200);
-    }
-
-    public function checkUserEmailUnique(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'email' => ['required', 'string']
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
-
-        $user = User::where('email', $request->email)->exists();
-        $doctor = Doctor::where('email', $request->email)->exists();
-
-        if($user || $doctor) {
-            return response()->json(['success' => false, 'message' => 'Email is already taken!']);
-        }
-
-        return response()->json(['success' => true, 'message' => 'Email is valid!']);
-    }
-
-    public function checkUserPhoneUnique(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'phone' => ['required', 'numeric']
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
-
-        $user = User::where('phone', $request->phone)->first();
-        $doctor = Doctor::where('phone', $request->phone)->first();
-
-        if($user || $doctor) {
-            return response()->json(['success' => false, 'message' => 'Phone already exists!']);
-        }
-
-        return response()->json(['success' => true, 'message' => 'Phone is valid!']);
+        return redirect()->route('index');
     }
 
     public function changePassword(Request $request)
@@ -249,21 +145,5 @@ class AuthController extends Controller
         $user->save();
 
         return response()->json(['success' => true, 'message' => 'Password changed successfully!'], 200);
-    }
-
-    public function user()
-    {
-        $user = Auth::user();
-        return response()->json($user, 200);
-    }
-
-    public function get_guard()
-    {
-        if(Auth::guard('admins')->check())
-            {return "admins";}
-        elseif(Auth::guard('doctors')->check())
-            {return "doctors";}
-        elseif(Auth::guard('users')->check())
-            {return "users";}
     }
 }

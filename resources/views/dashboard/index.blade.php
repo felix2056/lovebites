@@ -15,8 +15,8 @@
 			<nav aria-label="breadcrumb" class="breadcrumb-nav">
 				<div class="container">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="demo4.html">Home</a></li>
-						<li class="breadcrumb-item"><a href="category.html">Shop</a></li>
+						<li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+						<li class="breadcrumb-item"><a href="{{ route('products.index') }}">Shop</a></li>
 						<li class="breadcrumb-item active" aria-current="page">
 							My Account
 						</li>
@@ -50,8 +50,7 @@
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" aria-selected="false">Account
-							details</a>
+						<a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" aria-selected="false">Account details</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" id="shop-address-tab" data-toggle="tab" href="#shipping" role="tab" aria-controls="edit" aria-selected="false">Shopping Addres</a>
@@ -68,9 +67,9 @@
 				<div class="tab-pane fade show active" id="dashboard" role="tabpanel">
 					<div class="dashboard-content">
 						<p>
-							Hello <strong class="text-dark">Editor</strong> (not
-							<strong class="text-dark">Editor</strong>?
-							<a href="login.html" class="btn btn-link ">Log out</a>)
+							Hello <strong class="text-dark">{{ $user->full_name }}</strong> (not
+							<strong class="text-dark">{{ $user->full_name }}</strong>?
+							<a href="{{ route('logout') }}" class="btn btn-link ">Log out</a>)
 						</p>
 
 						<p>
@@ -88,52 +87,57 @@
 						<div class="row row-lg">
 							<div class="col-6 col-md-4">
 								<div class="feature-box text-center pb-4">
-									<a href="#order" class="link-to-tab"><i class="sicon-social-dropbox"></i></a>
+									<a href="#order" class="link-to-tab"><i class="fa fa-shopping-cart"></i></a>
 									<div class="feature-box-content">
 										<h3>ORDERS</h3>
+										<p>{{ $orders->count() }}</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-6 col-md-4">
 								<div class="feature-box text-center pb-4">
-									<a href="#download" class="link-to-tab"><i class="sicon-cloud-download"></i></a>
+									<a href="#download" class="link-to-tab"><i class="fa fa-download"></i></a>
 									<div class=" feature-box-content">
 										<h3>DOWNLOADS</h3>
+										<p>0</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-6 col-md-4">
 								<div class="feature-box text-center pb-4">
-									<a href="#address" class="link-to-tab"><i class="sicon-location-pin"></i></a>
+									<a href="#address" class="link-to-tab"><i class="fa fa-map-marker"></i></a>
 									<div class="feature-box-content">
 										<h3>ADDRESSES</h3>
+										<p>2</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-6 col-md-4">
 								<div class="feature-box text-center pb-4">
-									<a href="#edit" class="link-to-tab"><i class="icon-user-2"></i></a>
+									<a href="#edit" class="link-to-tab"><i class="fa fa-user-circle"></i></a>
 									<div class="feature-box-content p-0">
 										<h3>ACCOUNT DETAILS</h3>
+										<p>Change your password and account details.</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-6 col-md-4">
 								<div class="feature-box text-center pb-4">
-									<a href="wishlist.html"><i class="sicon-heart"></i></a>
+									<a href="wishlist.html"><i class="fa fa-heart"></i></a>
 									<div class="feature-box-content">
 										<h3>WISHLIST</h3>
+										<p>0</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-6 col-md-4">
 								<div class="feature-box text-center pb-4">
-									<a href="login.html"><i class="sicon-logout"></i></a>
+									<a href="{{ route('logout') }}"><i class="fa fa-door-open"></i></a>
 									<div class="feature-box-content">
 										<h3>LOGOUT</h3>
 									</div>
@@ -157,19 +161,46 @@
 										<th class="order-action">ACTIONS</th>
 									</tr>
 								</thead>
+								@if($orders->count() > 0)
 								<tbody>
+									@foreach ($orders as $order)
 									<tr>
-										<td class="text-center p-0" colspan="5">
-											<p class="mb-5 mt-5">
-												No Order has been made yet.
-											</p>
+										<td class="order-id">
+											<a href="#">{{ $order->id }}</a>
+										</td>
+										<td class="order-date">
+											{{ $order->created_at->format('d/m/Y') }}
+										</td>
+										<td class="order-status">
+											<span class="badge badge-success">{{ $order->status }}</span>
+										</td>
+										<td class="order-price">
+											{{ number_format($order->payment_intent_amount, 2) }} €
+										</td>
+										<td class="order-action">
+											<a href="#" class="btn btn-sm btn-outline-primary-2">
+												<span>VIEW</span>
+												<i class="icon-long-arrow-right"></i>
+											</a>
 										</td>
 									</tr>
+									@endforeach
 								</tbody>
+								@else
+									<tbody>
+										<tr>
+											<td class="text-center p-0" colspan="5">
+												<p class="mb-5 mt-5">
+													No Order has been made yet.
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								@endif
 							</table>
 							<hr class="mt-0 mb-3 pb-2">
 
-							<a href="category.html" class="btn btn-dark">Go Shop</a>
+							<a href="{{ route('products.index') }}" class="btn btn-dark">Go Shop</a>
 						</div>
 					</div>
 				</div><!-- End .tab-pane -->
@@ -226,55 +257,54 @@
 				<div class="tab-pane fade" id="edit" role="tabpanel">
 					<h3 class="account-sub-title d-none d-md-block mt-0 pt-1 ml-1"><i class="icon-user-2 align-middle mr-3 pr-1"></i>Account Details</h3>
 					<div class="account-content">
-						<form action="#">
+						<form action="{{ route('dashboard.update-profile') }}" method="POST">
+							@csrf
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="acc-name">First name <span class="required">*</span></label>
-										<input type="text" class="form-control" placeholder="Editor" id="acc-name" name="acc-name" required>
+										<input type="text" class="form-control" placeholder="First name" id="acc-name" name="first_name" required value="{{ $user->first_name }}">
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="acc-lastname">Last name <span class="required">*</span></label>
-										<input type="text" class="form-control" id="acc-lastname" name="acc-lastname" required>
+										<input type="text" class="form-control" id="acc-lastname" name="last_name" required value="{{ $user->last_name }}">
 									</div>
 								</div>
 							</div>
 
-							<div class="form-group mb-2">
+							{{-- <div class="form-group mb-2">
 								<label for="acc-text">Display name <span class="required">*</span></label>
 								<input type="text" class="form-control" id="acc-text" name="acc-text" placeholder="Editor" required>
 								<p>This will be how your name will be displayed in the account section and
 									in
 									reviews</p>
-							</div>
+							</div> --}}
 
 
 							<div class="form-group mb-4">
 								<label for="acc-email">Email address <span class="required">*</span></label>
-								<input type="email" class="form-control" id="acc-email" name="acc-email" placeholder="editor@gmail.com" required>
+								<input type="email" class="form-control" id="acc-email" name="email" placeholder="Email" required value="{{ $user->email }}">
 							</div>
 
 							<div class="change-password">
 								<h3 class="text-uppercase mb-2">Password Change</h3>
 
 								<div class="form-group">
-									<label for="acc-password">Current Password (leave blank to leave
-										unchanged)</label>
-									<input type="password" class="form-control" id="acc-password" name="acc-password">
+									<label for="acc-password">Current Password (leave blank to leave unchanged)</label>
+									<input type="password" class="form-control" id="acc-password" name="old_password">
 								</div>
 
 								<div class="form-group">
-									<label for="acc-password">New Password (leave blank to leave
-										unchanged)</label>
-									<input type="password" class="form-control" id="acc-new-password" name="acc-new-password">
+									<label for="acc-password">New Password (leave blank to leave unchanged)</label>
+									<input type="password" class="form-control" id="acc-new-password" name="new_password">
 								</div>
 
 								<div class="form-group">
 									<label for="acc-password">Confirm New Password</label>
-									<input type="password" class="form-control" id="acc-confirm-password" name="acc-confirm-password">
+									<input type="password" class="form-control" id="acc-confirm-password" name="confirm_password">
 								</div>
 							</div>
 
@@ -291,31 +321,32 @@
 					<div class="address account-content mt-0 pt-2">
 						<h4 class="title">Billing address</h4>
 
-						<form class="mb-2" action="#">
-							<div class="row">
+						<form class="mb-2" action="{{ route('dashboard.update-billing') }}" method="POST">
+							@csrf
+							{{-- <div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>First name <span class="required">*</span></label>
-										<input type="text" class="form-control" required>
+										<input type="text" class="form-control" required name="first_name" value="{{ $user->first_name }}">
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Last name <span class="required">*</span></label>
-										<input type="text" class="form-control" required>
+										<input type="text" class="form-control" required name="last_name" value="{{ $user->last_name }}">
 									</div>
 								</div>
-							</div>
+							</div> --}}
 
 							<div class="form-group">
 								<label>Company </label>
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" name="company_name" value="{{ $user->company_name }}">
 							</div>
 
 							<div class="select-custom">
 								<label>Country / Region <span class="required">*</span></label>
-								<select name="orderby" class="form-control">
+								<select name="country" class="form-control">
 									<option value selected="selected">British Indian Ocean Territory
 									</option>
 									<option value="1">Brunei</option>
@@ -328,33 +359,28 @@
 
 							<div class="form-group">
 								<label>Street address <span class="required">*</span></label>
-								<input type="text" class="form-control" placeholder="House number and street name" required>
-								<input type="text" class="form-control" placeholder="Apartment, suite, unit, etc. (optional)" required>
+								<input type="text" class="form-control" placeholder="House number and street name" required name="address_1" value="{{ $user->address_1 }}">
+								<input type="text" class="form-control" placeholder="Apartment, suite, unit, etc. (optional)" name="address_2" value="{{ $user->address_2 }}">
 							</div>
 
 							<div class="form-group">
 								<label>Town / City <span class="required">*</span></label>
-								<input type="text" class="form-control" required>
+								<input type="text" class="form-control" required name="city" value="{{ $user->city }}">
 							</div>
 
 							<div class="form-group">
 								<label>State / Country <span class="required">*</span></label>
-								<input type="text" class="form-control" required>
+								<input type="text" class="form-control" required name="state" value="{{ $user->state }}">
 							</div>
 
 							<div class="form-group">
 								<label>Postcode / ZIP <span class="required">*</span></label>
-								<input type="text" class="form-control" required>
+								<input type="text" class="form-control" required name="zip" value="{{ $user->zip }}">
 							</div>
 
 							<div class="form-group mb-3">
 								<label>Phone <span class="required">*</span></label>
-								<input type="number" class="form-control" required>
-							</div>
-
-							<div class="form-group mb-3">
-								<label>Email address <span class="required">*</span></label>
-								<input type="email" class="form-control" placeholder="editor@gmail.com" required>
+								<input type="number" class="form-control" required name="phone" value="{{ $user->phone }}">
 							</div>
 
 							<div class="form-footer mb-0">
