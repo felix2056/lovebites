@@ -55,7 +55,8 @@
             <div class="col-lg-9 main-content shop-content">
                 <nav class="toolbox sticky-header" data-sticky-options="{'mobile': true}">
                     <div class="toolbox-left">
-                        <a href="#" class="sidebar-toggle"><svg data-name="Layer 3" id="Layer_3" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <a href="#" class="sidebar-toggle">
+                            <svg data-name="Layer 3" id="Layer_3" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="15" x2="26" y1="9" y2="9" class="cls-1"/>
                                 <line x1="6" x2="9" y1="9" y2="9" class="cls-1"/>
                                 <line x1="23" x2="26" y1="16" y2="16" class="cls-1"/>
@@ -76,11 +77,13 @@
                             <div class="select-custom">
                                 <select name="orderby" class="form-control">
                                     <option value="menu_order" selected="selected">Default sorting</option>
+                                    <option value="name-asc">Sort by name: A - Z</option>
+                                    <option value="name-desc">Sort by name: Z - A</option>
+                                    <option value="price-asc">Sort by price: low to high</option>
+                                    <option value="price-desc">Sort by price: high to low</option>
                                     <option value="popularity">Sort by popularity</option>
                                     <option value="rating">Sort by average rating</option>
-                                    <option value="date">Sort by newness</option>
-                                    <option value="price">Sort by price: low to high</option>
-                                    <option value="price-desc">Sort by price: high to low</option>
+                                    <option value="date">Sort by recency</option>
                                 </select>
                             </div><!-- End .select-custom -->
 
@@ -101,510 +104,72 @@
                 </nav>
 
                 <div class="row product-ajax-grid mb-2">
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-7.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
+                    @foreach($products as $product)
+                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
+                            <div class="product-default inner-quickview inner-icon">
+                                <figure>
+                                    <a href="{{ route('products.show', $product->slug) }}">
+                                        <img src="{{ $product->featured_image }}" width="205" height="205" alt="product">
+                                    </a>
+                                    <div class="btn-icon-group">
+                                        <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
                                     </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Backpack Sfs Responder</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$185.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-15.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
+                                    <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View">Quick View</a>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="category-wrap">
+                                        <div class="category-list">
+                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
+                                        </div>
+                                        <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
                                     </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Converse Chuck Quarter</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$14.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-13.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Football Vapor 24/7</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$25.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-8.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Hot Black Suits</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$30.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-6.jpg" width="205" height="205" alt="product">
-                                    <img src="/images/product-19.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart product-type-simple"><i class="fa fa-arrow-right"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Hyperadapt Shield Lite</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$39.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-4.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Hyperadapt Shield Lite Half-Zip</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$299.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-19.jpg" width="205" height="205" alt="product">
-                                    <img src="/images/product-10.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Jordan Flight</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$99.00 - $109.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-11.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Jordan Hyper Grip Ot</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$50.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-9.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Long-Length 2.0</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:20%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$22.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-16.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Man Black Pants</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:0%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$89.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-1_5.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Nike Air Zoom Odyssey 2</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:70%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$150.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-10.jpg" width="205" height="205" alt="product">
-                                    <img src="/images/product-4.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Pro Cool t-shirt</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$101.00 - $111.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-14_1.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Speed 500 Ignite</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$229.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-18_1.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Swimming Cap Slim</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:40%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$99.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="{{ route('products.show') }}">
-                                    <img src="/images/product-20_1.jpg" width="205" height="205" alt="product">
-                                </a>
-                                <div class="btn-icon-group">
-                                    <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i></a>
-                                </div>
-                                <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="{{ route('products.index') }}" class="product-category">category</a>
-                                    </div>
-                                    <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="{{ route('products.show') }}">Yard Bicycle</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:0%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="product-price">$149.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
-                        </div>
-                    </div><!-- End .col-lg-3 -->
+                                    <h3 class="product-title">
+                                        <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                                    </h3>
+                                    <div class="ratings-container">
+                                        <div class="product-ratings">
+                                            <span class="ratings" style="width:100%"></span><!-- End .ratings -->
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div><!-- End .product-ratings -->
+                                    </div><!-- End .product-container -->
+                                    <div class="price-box">
+                                        <span class="product-price">{{ $product->currencyPrice() }}</span>
+                                    </div><!-- End .price-box -->
+                                </div><!-- End .product-details -->
+                            </div>
+                        </div><!-- End .col-lg-3 -->
+                    @endforeach
                 </div><!-- End .row -->
 
+                @php
+                    $current_page = $products->currentPage();
+                    
+                    $current_url = Request::fullUrl();
+                    $next_url = $products->nextPageUrl();
+                    $prev_url = $products->previousPageUrl();
+
+                    // determine if current url already has a query string
+                    if (strpos($current_url, '?sort') !== false || strpos($current_url, '&sort') !== false) {
+                        $next_url = $next_url . '&sort=' . $sort;
+                    }
+
+                    if (strpos($current_url, '?sort') !== false || strpos($current_url, '&sort') !== false) {
+                        $prev_url = $prev_url . '&sort=' . $sort;
+                    }
+                @endphp
+
+                @unless($products->currentPage() == $products->lastPage())
+                    <div class="product-more-container d-flex justify-content-center">
+                        <!-- change load-more to loadmore for ajax -->
+                        <a href="{{ $next_url }}" class="btn btn-outline-dark load-more">Load More...</a>
+                    </div><!-- End .product-more-container -->
+
+                @else
                 <div class="product-more-container d-flex justify-content-center">
-                    <a href="demo18-ajax-products.html" class="btn btn-outline-dark loadmore">Load
-                        More...</a>
+                    <!-- change load-more to loadmore for ajax -->
+                    <a href="{{ $prev_url }}" class="btn btn-outline-dark load-more">Load Prev...</a>
                 </div><!-- End .product-more-container -->
+                @endunless
             </div><!-- End .col-lg-9 -->
 
             <div class="sidebar-overlay"></div>
@@ -748,7 +313,7 @@
                         </div><!-- End .collapse -->
                     </div>
 
-                    <div class="widget widget-featured">
+                    {{-- <div class="widget widget-featured">
                         <h3 class="widget-title">Featured</h3>
 
                         <div class="widget-body">
@@ -891,10 +456,33 @@
                                 </div><!-- End .featured-col -->
                             </div><!-- End .widget-featured-slider -->
                         </div><!-- End .widget-body -->
-                    </div><!-- End .widget -->
+                    </div><!-- End .widget --> --}}
                 </div><!-- End .sidebar-wrapper -->
             </aside><!-- End .col-lg-3 -->
         </div><!-- End .row -->
     </div><!-- End .container-fluid -->
 </main>
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            // on select change
+            $('select[name="orderby"]').on('change', function() {
+                var selected = $(this).val();
+                
+                // if selected is not empty
+                if (selected != '') {
+                    // get the url
+                    var url = '{{ route("products.index") }}';
+                    
+                    // append the selected value to the url
+                    url += '?sort=' + selected;
+                    
+                    // redirect to the url
+                    window.location.href = url;
+                }
+            });
+        });
+    </script>
 @endsection

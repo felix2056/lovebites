@@ -12,6 +12,9 @@
     <meta name="description" content="@yield('title') - LoveBites">
     <meta name="author" content="felix-codebreaker">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/images/logo/lovebites-favicon.png">
 
@@ -24,7 +27,7 @@
         (function (d) {
             var wf = d.createElement('script'),
                 s = d.scripts[0];
-            wf.src = 'assets/js/webfont.js';
+            wf.src = '/js/webfont.js';
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
         })(document);
@@ -108,10 +111,9 @@
                         </div>
                         <!-- End .header-dropdowns -->
 
-                        <a href="login.html" class="header-icon" title="login"><i class="icon-user-2"></i></a>
+                        <a href="{{ route('dashboard') }}" class="header-icon" title="dashboard"><i class="icon-user-2"></i></a>
 
-                        <a href="wishlist.html" class="header-icon" title="Wishlist"><i class="icon-wishlist-2"><span
-                                    class="badge-circle">2</span></i></a>
+                        <a href="{{ route('wishlist') }}" class="header-icon" title="Wishlist"><i class="icon-wishlist-2"><span class="badge-circle">2</span></i></a>
 
                         <div class="header-icon header-search header-search-popup header-search-category text-right">
                             <a href="#" class="search-toggle" role="button"><i class="icon-magnifier"></i></a>
@@ -148,11 +150,24 @@
                         </div>
                         <!-- End .header-search -->
 
+                        @php
+                            $cart = session()->get('cart');
+                            $subtotal = 0.00;
+
+                            if ($cart) {
+                                foreach ($cart as $item) {
+                                    $subtotal += $item['price'] * $item['quantity'];
+                                }
+                            }
+                        @endphp
+
                         <div class="dropdown cart-dropdown">
                             <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="minicart-icon"></i>
-                                <span class="cart-count badge-circle">3</span>
+                                @if (session()->has('cart'))
+                                    <span class="cart-count badge-circle">{{ count($cart) }}</span>
+                                @endif
                             </a>
 
                             <div class="cart-overlay"></div>
@@ -164,90 +179,63 @@
                                     <div class="dropdown-cart-header">Shopping Cart</div>
                                     <!-- End .dropdown-cart-header -->
 
-                                    <div class="dropdown-cart-products">
-                                        <div class="product">
-                                            <div class="product-details">
-                                                <h4 class="product-title">
-                                                    <a href="demo18-product.html">Ultimate 3D Bluetooth Speaker</a>
-                                                </h4>
+                                    @if (session()->has('cart') && count($cart) > 0)
+                                        <div class="dropdown-cart-products">
+                                            @foreach ($cart as $item)
+                                                <div class="product">
+                                                    <div class="product-details">
+                                                        <h4 class="product-title">
+                                                            <a href="{{ route('products.show', $item['slug']) }}">
+                                                                {{ $item['name'] }}
+                                                            </a>
+                                                        </h4>
 
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $99.00
-                                                </span>
-                                            </div>
-                                            <!-- End .product-details -->
+                                                        <span class="cart-product-info">
+                                                            <span class="cart-product-qty">{{ $item['quantity'] }}</span>
+                                                            x ${{ $item['price'] }}
+                                                        </span>
+                                                    </div>
+                                                    <!-- End .product-details -->
 
-                                            <figure class="product-image-container">
-                                                <a href="demo18-product.html" class="product-image">
-                                                    <img src="/images/product-1.jpg" alt="product" width="80"
-                                                        height="80">
-                                                </a>
-
-                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                            </figure>
+                                                    <figure class="product-image-container">
+                                                        <a href="{{ route('products.show', $item['slug']) }}" class="product-image">
+                                                            <img src="{{ $item['featured_image'] }}" alt="product">
+                                                        </a>
+                                                        <a href="{{ route('products.remove-from-cart', $item['slug']) }}" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                                    </figure>
+                                                </div>
+                                                <!-- End .product -->
+                                            @endforeach
                                         </div>
-                                        <!-- End .product -->
+                                        <!-- End .cart-product -->
 
-                                        <div class="product">
-                                            <div class="product-details">
-                                                <h4 class="product-title">
-                                                    <a href="demo18-product.html">Brown Women Casual HandBag</a>
-                                                </h4>
+                                        <div class="dropdown-cart-total">
+                                            <span>SUBTOTAL:</span>
 
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $35.00
-                                                </span>
-                                            </div>
-                                            <!-- End .product-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="demo18-product.html" class="product-image">
-                                                    <img src="/images/product-2.jpg" alt="product" width="80"
-                                                        height="80">
-                                                </a>
-
-                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                            </figure>
+                                            <span class="cart-total-price float-right">${{ $subtotal }}</span>
                                         </div>
-                                        <!-- End .product -->
+                                        <!-- End .dropdown-cart-total -->
 
-                                        <div class="product">
-                                            <div class="product-details">
-                                                <h4 class="product-title">
-                                                    <a href="demo18-product.html">Circled Ultimate 3D Speaker</a>
-                                                </h4>
-
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $35.00
-                                                </span>
-                                            </div>
-                                            <!-- End .product-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="demo18-product.html" class="product-image">
-                                                    <img src="/images/product-3.jpg" alt="product" width="80"
-                                                        height="80">
-                                                </a>
-                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                            </figure>
+                                        <div class="dropdown-cart-action">
+                                            <a href="{{ route('cart') }}" class="btn btn-gray btn-block view-cart">View Cart</a>
+                                            <a href="{{ route('checkout') }}"" class="btn btn-dark btn-block">Checkout</a>
                                         </div>
-                                        <!-- End .product -->
-                                    </div>
-                                    <!-- End .cart-product -->
+                                        <!-- End .dropdown-cart-total -->
 
-                                    <div class="dropdown-cart-total">
-                                        <span>SUBTOTAL:</span>
-
-                                        <span class="cart-total-price float-right">$134.00</span>
-                                    </div>
-                                    <!-- End .dropdown-cart-total -->
-
-                                    <div class="dropdown-cart-action">
-                                        <a href="cart.html" class="btn btn-gray btn-block view-cart">View
-                                            Cart</a>
-                                        <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
-                                    </div>
-                                    <!-- End .dropdown-cart-total -->
+                                    @else
+                                        <div class="dropdown-cart-products">
+                                            <div class="product">
+                                                <div class="product-details">
+                                                    <h4 class="product-title">
+                                                        <a href="#">No items in cart</a>
+                                                    </h4>
+                                                </div>
+                                                <!-- End .product-details -->
+                                            </div>
+                                            <!-- End .product -->
+                                        </div>
+                                        <!-- End .cart-product -->
+                                    @endif
                                 </div>
                                 <!-- End .dropdownmenu-wrapper -->
                             </div>
@@ -326,7 +314,7 @@
                                         <ul class="links">
                                             <li><a href="order.html">Order history</a></li>
                                             <li><a href="#">Advanced search</a></li>
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="{{ route('login') }}">Login</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -463,7 +451,7 @@
                         <a href="#">Pages<span class="tip tip-hot">Hot!</span></a>
                         <ul>
                             <li>
-                                <a href="wishlist.html">Wishlist</a>
+                                <a href="{{ route('wishlist') }}">Wishlist</a>
                             </li>
                             <li>
                                 <a href="cart.html">Shopping Cart</a>
@@ -475,7 +463,7 @@
                                 <a href="dashboard.html">Dashboard</a>
                             </li>
                             <li>
-                                <a href="login.html">Login</a>
+                                <a href="{{ route('login') }}">Login</a>
                             </li>
                             <li>
                                 <a href="forgot-password.html">Forgot Password</a>
@@ -521,12 +509,12 @@
                 </ul>
 
                 <ul class="mobile-menu">
-                    <li><a href="login.html">My Account</a></li>
+                    <li><a href="{{ route('login') }}">My Account</a></li>
                     <li><a href="demo18-contact.html">Contact Us</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="wishlist.html">My Wishlist</a></li>
+                    <li><a href="{{ route('wishlist') }}">My Wishlist</a></li>
                     <li><a href="cart.html">Cart</a></li>
-                    <li><a href="login.html" class="login-link">Log In</a></li>
+                    <li><a href="{{ route('login') }}" class="login-link">Log In</a></li>
                 </ul>
             </nav>
             <!-- End .mobile-nav -->
@@ -561,12 +549,12 @@
             </a>
         </div>
         <div class="sticky-info">
-            <a href="wishlist.html" class>
+            <a href="{{ route('wishlist') }}" class>
                 <i class="icon-wishlist-2"></i>Wishlist
             </a>
         </div>
         <div class="sticky-info">
-            <a href="login.html" class>
+            <a href="{{ route('dashboard') }}" class>
                 <i class="icon-user-2"></i>Account
             </a>
         </div>
@@ -580,7 +568,7 @@
     </div>
 
     <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form"
-        style="background: #f1f1f1 no-repeat center/cover url(images/newsletter_popup_bg.jpg)">
+        style="background: #f1f1f1 no-repeat center/cover url(/images/newsletter_popup_bg.jpg)">
         <div class="newsletter-popup-content">
             <img src="/images/logo/lovebites-logo-black.png" alt="Logo" class="logo-newsletter" width="111" height="44">
             <h2>Subscribe to newsletter</h2>
@@ -623,7 +611,11 @@
     <script src="/js/jquery.appear.min.js"></script>
 
     <!-- Main JS File -->
-    <script src="/js/main.min.js"></script>
+    {{-- <script src="/js/main.min.js"></script> --}}
+    <script src="/js/main.js"></script>
+
+    <!-- Extra JS Includes -->
+    @yield('scripts')
 </body>
 
 </html>

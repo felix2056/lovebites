@@ -123,7 +123,7 @@
                                             <i class="icon-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"title="Quick View">Quick View</a>
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
                                     <div class="category-wrap">
@@ -165,7 +165,7 @@
                                         <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                                 class="icon-shopping-cart"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -208,7 +208,7 @@
                                         <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                                 class="icon-shopping-cart"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -251,7 +251,7 @@
                                         <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                                 class="icon-shopping-cart"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -295,7 +295,7 @@
                                         <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
                                                 class="fa fa-arrow-right"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -338,7 +338,7 @@
                                         <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                                 class="icon-shopping-cart"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -382,7 +382,7 @@
                                         <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
                                                 class="fa fa-arrow-right"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -425,7 +425,7 @@
                                         <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                                 class="icon-shopping-cart"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -468,7 +468,7 @@
                                         <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                                 class="icon-shopping-cart"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -511,7 +511,7 @@
                                         <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
                                                 class="fa fa-arrow-right"></i></a>
                                     </div>
-                                    <a href="product-quick-view.html" class="btn-quickview"
+                                    <a href="{{ route('products.quick-view') }}" class="btn-quickview"
                                         title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
@@ -612,7 +612,7 @@
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">
@@ -651,7 +651,7 @@
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">
@@ -690,7 +690,7 @@
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">
@@ -729,7 +729,7 @@
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">
@@ -768,7 +768,7 @@
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">
@@ -808,7 +808,7 @@
                             <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
                                     class="fa fa-arrow-right"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">
@@ -847,7 +847,7 @@
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">
@@ -886,7 +886,7 @@
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">
@@ -925,7 +925,7 @@
                             <a href="{{ route('products.show') }}" class="btn-icon btn-add-cart"><i
                                     class="fa fa-arrow-right"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
+                        <a href="{{ route('products.quick-view') }}" class="btn-quickview" title="Quick View">Quick
                             View</a>
                     </figure>
                     <div class="product-details">

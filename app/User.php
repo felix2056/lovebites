@@ -16,7 +16,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name',
+        'last_name',
+        'company_name',
+        'country',
+        'address_1',
+        'address_2',
+        'city',
+        'state',
+        'zip',
+        'phone',
+        'email',
+        'password'
     ];
 
     /**
@@ -36,4 +47,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function shippingInformation()
+    {
+        return $this->hasOne(ShippingInformation::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
