@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $popular = Product::orderBy('views', 'desc')->paginate(10);
+        $popular = Product::orderBy('views', 'desc')->paginate(20);
         $featured = Product::where('featured', true)->take(10)->get();
         $latest = Product::orderBy('created_at', 'desc')->take(10)->get();
 

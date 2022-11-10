@@ -12,12 +12,12 @@
                 <div class="col-lg-6">
                     <div class="banner mb-2 mb-lg-0" style="background-color: #fff;">
                         <figure>
-                            <img src="/images/banner1.jpg" alt="banner" width="873" height="151">
+                            <img class="h-100px" src="/images/site/womanizer-toys-Fls8Q8fgF9o-unsplash-2.jpg" alt="banner" width="873" height="151">
                         </figure>
                         <div class="banner-layer banner-layer-middle d-flex align-items-center justify-content-between">
                             <div class="content-left">
-                                <h4 class="mb-0">Summer Sale</h4>
-                                <h5 class="text-uppercase mb-0">20% off</h5>
+                                <h4 class="text-white mb-0">Summer Sale</h4>
+                                <h5 class="text-uppercase text-white mb-0">20% off</h5>
                             </div>
                             <a href="{{ route('products.index') }}" class="btn btn-dark">Shop now</a>
                         </div>
@@ -26,7 +26,7 @@
                 <div class="col-lg-6">
                     <div class="banner" style="background-color: #111;">
                         <figure>
-                            <img src="/images/banner2.jpg" alt="banner" width="873" height="151">
+                            <img class="h-100px" src="/images/site/C5-HIW-Banner-DESKTOP.webp" alt="banner" width="873" height="151">
                         </figure>
                         <div class="banner-layer banner-layer-middle d-flex align-items-center justify-content-between">
                             <div class="content-left">
@@ -44,7 +44,7 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
         <div class="container-fluid">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Shop</li>
             </ol>
         </div>
@@ -183,47 +183,13 @@
                         <div class="collapse show" id="widget-body-2">
                             <div class="widget-body">
                                 <ul class="cat-list">
+                                    @foreach ($categories as $category)
                                     <li>
-                                        <a href="#widget-category-1" class="collapsed" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="widget-category-1">
-                                            Accessories<span class="products-count">(3)</span>
-                                            <span class="toggle"></span>
-                                        </a>
-                                        <div class="collapse" id="widget-category-1">
-                                            <ul class="cat-sublist">
-                                                <li>Caps<span class="products-count">(1)</span></li>
-                                                <li>Watches<span class="products-count">(2)</span></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#widget-category-2">
-                                            Electronics<span class="products-count">(8)</span>
+                                        <a href="#">
+                                            {{ $category->name }}<span class="products-count">({{ $category->products_count }})</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#widget-category-3" class="collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="widget-category-3">
-                                            Men<span class="products-count">(4)</span>
-                                            <span class="toggle"></span>
-                                        </a>
-                                        <div class="collapse" id="widget-category-3">
-                                            <ul class="cat-sublist">
-                                                <li>Boys<span class="products-count">(4)</span>
-                                            </li></ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">Shoes<span class="products-count">(2)</span></a></li>
-                                    <li>
-                                        <a href="#widget-category-4" class="collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="widget-category-4">
-                                            Women<span class="products-count">(5)</span>
-                                            <span class="toggle"></span>
-                                        </a>
-                                        <div class="collapse" id="widget-category-4">
-                                            <ul class="cat-sublist">
-                                                <li>Girls<span class="products-count">(4)</span></li>
-                                                <li>Trousers<span class="products-count">(1)</span></li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div><!-- End .widget-body -->
                         </div><!-- End .collapse -->
@@ -282,7 +248,7 @@
                         </div><!-- End .collapse -->
                     </div><!-- End .widget -->
 
-                    <div class="widget widget-size">
+                    {{-- <div class="widget widget-size">
                         <h3 class="widget-title">
                             <a data-toggle="collapse" href="#widget-body-5" role="button" aria-expanded="true" aria-controls="widget-body-5">Size</a>
                         </h3>
@@ -297,9 +263,9 @@
                                 </ul>
                             </div><!-- End .widget-body -->
                         </div><!-- End .collapse -->
-                    </div><!-- End .widget -->
+                    </div><!-- End .widget --> --}}
 
-                    <div class="widget">
+                    {{-- <div class="widget">
                         <h3 class="widget-title">
                             <a data-toggle="collapse" href="#widget-body-6" role="button" aria-expanded="true" aria-controls="widget-body-6">Brand</a>
                         </h3>
@@ -311,23 +277,24 @@
                                 </ul>
                             </div><!-- End .widget-body -->
                         </div><!-- End .collapse -->
-                    </div>
+                    </div> --}}
 
-                    {{-- <div class="widget widget-featured">
+                    <div class="widget widget-featured">
                         <h3 class="widget-title">Featured</h3>
 
                         <div class="widget-body">
                             <div class="owl-carousel widget-featured-products">
                                 <div class="featured-col">
+                                    @foreach ($featuredProducts as $product)
                                     <div class="product-default left-details product-widget">
                                         <figure>
-                                            <a href="{{ route('products.show') }}">
-                                                <img src="/images/product-1_6.jpg" width="75" height="75" alt="product">
+                                            <a href="{{ route('products.show', $product->slug) }}">
+                                                <img src="{{ $product->featured_image }}" width="75" height="75" alt="product">
                                             </a>
                                         </figure>
                                         <div class="product-details">
                                             <h3 class="product-title">
-                                                <a href="{{ route('products.show') }}">Backpack Sfs Responder</a>
+                                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
                                             </h3>
                                             <div class="ratings-container">
                                                 <div class="product-ratings">
@@ -337,65 +304,23 @@
                                                 </div><!-- End .product-ratings -->
                                             </div><!-- End .product-container -->
                                             <div class="price-box">
-                                                <span class="product-price">$185.00</span>
+                                                <span class="product-price">${{ $product->price }}</span>
                                             </div><!-- End .price-box -->
                                         </div><!-- End .product-details -->
                                     </div>
-                                    <div class="product-default left-details product-widget">
-                                        <figure>
-                                            <a href="{{ route('products.show') }}">
-                                                <img src="/images/product-2_4.jpg" width="75" height="75" alt="product">
-                                            </a>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h3 class="product-title">
-                                                <a href="{{ route('products.show') }}">Hot Black Suits</a>
-                                            </h3>
-                                            <div class="ratings-container">
-                                                <div class="product-ratings">
-                                                    <span class="ratings" style="width:80%"></span>
-                                                    <!-- End .ratings -->
-                                                    <span class="tooltiptext tooltip-top"></span>
-                                                </div><!-- End .product-ratings -->
-                                            </div><!-- End .product-container -->
-                                            <div class="price-box">
-                                                <span class="product-price">$30.00</span>
-                                            </div><!-- End .price-box -->
-                                        </div><!-- End .product-details -->
-                                    </div>
-                                    <div class="product-default left-details product-widget">
-                                        <figure>
-                                            <a href="{{ route('products.show') }}">
-                                                <img src="/images/product-3_4.jpg" width="75" height="75" alt="product">
-                                            </a>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h3 class="product-title">
-                                                <a href="{{ route('products.show') }}">Long-Length 2.0</a>
-                                            </h3>
-                                            <div class="ratings-container">
-                                                <div class="product-ratings">
-                                                    <span class="ratings" style="width:75%"></span>
-                                                    <!-- End .ratings -->
-                                                    <span class="tooltiptext tooltip-top"></span>
-                                                </div><!-- End .product-ratings -->
-                                            </div><!-- End .product-container -->
-                                            <div class="price-box">
-                                                <span class="product-price">$49.00</span>
-                                            </div><!-- End .price-box -->
-                                        </div><!-- End .product-details -->
-                                    </div>
+                                    @endforeach
                                 </div><!-- End .featured-col -->
                                 <div class="featured-col">
+                                    @foreach ($popularProducts as $product)
                                     <div class="product-default left-details product-widget">
                                         <figure>
-                                            <a href="{{ route('products.show') }}">
-                                                <img src="/images/product-1_6.jpg" width="75" height="75" alt="product">
+                                            <a href="{{ route('products.show', $product->slug) }}">
+                                                <img src="{{ $product->featured_image }}" width="75" height="75" alt="{{ $product->name }}">
                                             </a>
                                         </figure>
                                         <div class="product-details">
                                             <h3 class="product-title">
-                                                <a href="{{ route('products.show') }}">Backpack Sfs Responder</a>
+                                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
                                             </h3>
                                             <div class="ratings-container">
                                                 <div class="product-ratings">
@@ -405,58 +330,15 @@
                                                 </div><!-- End .product-ratings -->
                                             </div><!-- End .product-container -->
                                             <div class="price-box">
-                                                <span class="product-price">$185.00</span>
+                                                <span class="product-price">${{ $product->price }}</span>
                                             </div><!-- End .price-box -->
                                         </div><!-- End .product-details -->
                                     </div>
-                                    <div class="product-default left-details product-widget">
-                                        <figure>
-                                            <a href="{{ route('products.show') }}">
-                                                <img src="/images/product-2_4.jpg" width="75" height="75" alt="product">
-                                            </a>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h3 class="product-title">
-                                                <a href="{{ route('products.show') }}">Hot Black Suits</a>
-                                            </h3>
-                                            <div class="ratings-container">
-                                                <div class="product-ratings">
-                                                    <span class="ratings" style="width:80%"></span>
-                                                    <!-- End .ratings -->
-                                                    <span class="tooltiptext tooltip-top"></span>
-                                                </div><!-- End .product-ratings -->
-                                            </div><!-- End .product-container -->
-                                            <div class="price-box">
-                                                <span class="product-price">$30.00</span>
-                                            </div><!-- End .price-box -->
-                                        </div><!-- End .product-details -->
-                                    </div>
-                                    <div class="product-default left-details product-widget">
-                                        <figure>
-                                            <a href="{{ route('products.show') }}">
-                                                <img src="/images/product-3_4.jpg" width="75" height="75" alt="product">
-                                            </a>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h3 class="product-title">
-                                                <a href="{{ route('products.show') }}">Long-Length 2.0</a>
-                                            </h3>
-                                            <div class="ratings-container">
-                                                <div class="product-ratings">
-                                                    <span class="ratings" style="width:75%"></span>
-                                                    <!-- End .ratings -->
-                                                    <span class="tooltiptext tooltip-top"></span>
-                                                </div><!-- End .product-ratings -->
-                                            </div><!-- End .product-container -->
-                                            <div class="price-box">
-                                                <span class="product-price">$49.00</span>
-                                            </div><!-- End .price-box -->
-                                        </div><!-- End .product-details -->
-                                    </div>
+                                    @endforeach
                                 </div><!-- End .featured-col -->
                             </div><!-- End .widget-featured-slider -->
                         </div><!-- End .widget-body -->
-                    </div><!-- End .widget --> --}}
+                    </div><!-- End .widget -->
                 </div><!-- End .sidebar-wrapper -->
             </aside><!-- End .col-lg-3 -->
         </div><!-- End .row -->
@@ -465,6 +347,7 @@
 @endsection
 
 @section('scripts')
+    <script src="/js/nouislider.min.js"></script>
     <script>
         $(document).ready(function() {
             // on select change

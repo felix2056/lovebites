@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Spatie\Sluggable\HasSlug;
@@ -25,6 +24,10 @@ class Product extends Model
         'images'
     ];
 
+    protected $with = [
+        'category'
+    ];
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
@@ -39,14 +42,19 @@ class Product extends Model
         return 'slug';
     }
 
-    public function ratings()
+    public function category()
     {
-        return $this->hasMany(ProductRating::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function orders()
     {
         return $this->belongsToMany(Order::class)->withPivot('quantity');
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(ProductRating::class);
     }
 
     public function currencyPrice()
@@ -69,12 +77,30 @@ class Product extends Model
         return '/storage/products/' . $this->attributes['featured_image'];
     }
 
-    public function getImagesAttribute($value)
+    public function getImagesAttribute()
+    {
+        $images = json_decode($this->attributes['images']);
+
+        if ($images) {
+            foreach ($images as $key => $image) {
+                $images[$key] = '/storage/products/' . $image;
+            }
+        }
+
+        return $images;
+    }
+
+    public function getMetaAttribute($value)
     {
         return json_decode($value);
     }
 
-    public function getMetaAttribute($value)
+    public function getFeaturesAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+    public function getTechAttribute($value)
     {
         return json_decode($value);
     }

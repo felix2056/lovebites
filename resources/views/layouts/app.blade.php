@@ -40,6 +40,14 @@
     <link rel="stylesheet" href="/css/demo18.min.css">
     <link rel="stylesheet" type="text/css" href="/css/all.min.css">
 
+    <style>
+        .h-100px { height: 100px;}
+        .h-200px { height: 200px;}
+        .h-300px { height: 300px;}
+        .h-400px { height: 400px;}
+        .h-500px { height: 500px;}
+    </style>
+
     @yield('styles')
 </head>
 

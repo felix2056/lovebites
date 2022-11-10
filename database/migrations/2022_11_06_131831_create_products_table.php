@@ -15,11 +15,14 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('category_id')->unsigned();
             $table->string('name');
             $table->string('slug');
-            $table->text('details');
-            $table->decimal('price', 8, 2);
+            $table->text('details')->nullable();
             $table->text('description')->nullable();
+            $table->json('features')->nullable();
+            $table->json('tech')->nullable();
+            $table->decimal('price', 8, 2);
             $table->string('featured_image')->nullable();
             $table->json('images')->nullable();
             $table->json('meta')->nullable();
@@ -28,6 +31,8 @@ class CreateProductsTable extends Migration
             $table->integer('views')->default(0);
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

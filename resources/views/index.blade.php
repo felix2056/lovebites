@@ -7,46 +7,13 @@
 @section('content')
 <main class="main">
     <section class="home-slider-container">
-        <div class="home-slider owl-carousel with-dots-container" data-owl-options="{'nav': false}">
-            <div class="home-slide home-slide1 banner" style="background-color: #111">
-                <div class="slide-bg" src="assets/images/demoes/demo18/slider/home-slide-back.jpg"></div>
-                <!-- End .slide-bg !-->
-                <ul class="slide-bg scene" style="width: 100%; height: 100%;">
-                    <li class="layer" data-depth="0.05"><img src="/images/white-shoes.png" alt></li>
-                    <li class="layer" data-depth="0.06"><img style="position: absolute; top: 31%; left: 46.5%;"
-                            src="/images/blurflake1.png" alt></li>
-                    <li class="layer" data-depth="0.07"><img class="animation-spin"
-                            style="position: absolute; top: 25%; left: 66%;" src="/images/blurflake2.png" alt>
-                    </li>
-                    <li class="layer" data-depth="0.10"><img class="animation-wave"
-                            style="position: absolute; top: 50%; left: 80%;" src="/images/blurflake3.png" alt>
-                    </li>
-                    <li class="layer" data-depth="0.15"><img style="position: absolute; top: 70%; left: 55%;"
-                            src="/images/blurflake4.png" alt></li>
-                </ul>
-                <div class="home-slide-content">
-                    <h2 class="text-white text-transform-uppercase line-height-1">Spring / Summer Season</h2>
-                    <h3 class="text-white d-inline-block line-height-1 ls-0 text-center">up<br> to
-                    </h3>
-                    <h4 class="text-white text-uppercase line-height-1 d-inline-block">50% off</h4>
-                    <div></div>
-                    <h5 class="float-left text-white text-uppercase line-height-1 ls-n-20">Starting At</h5>
-                    <h6
-                        class="float-left coupon-sale-text line-height-1 ls-n-20 font-weight-bold text-secondary">
-                        <sup>$</sup>19<sup>99</sup>
-                    </h6>
-                    <a href="{{ route('products.index') }}" class="btn btn-light d-inline-block">Shop Now</a>
-                </div>
-                <!-- End .home-slide-content -->
-            </div>
-            <!-- End .home-slide -->
-
+        <div class="home-slider owl-carousel with-dots-container" data-owl-options="{'nav': false, 'loop': true, 'autoplay': true, 'autoplayTimeout': 7000}">
             <div class="home-slide home-slide2 banner" style="background-color: #111;">
                 <div class="slide-bg" src="assets/images/demoes/demo18/slider/home-slide-back.jpg"
                     style="transform: scaleX(-1);"></div>
                 <!-- End .slide-bg !-->
                 <ul class="slide-bg scene" style="width: 100%; height: 100%;">
-                    <li class="layer" data-depth="0.05"><img src="/images/ball2.png" alt></li>
+                    <li class="layer" data-depth="0.05"><img src="/images/site/womanizer-toys.jpg" alt></li>
                     <li class="layer" data-depth="0.06"><img style="position: absolute; top: 70%; left: 42%;"
                             src="/images/blurflake1.png" alt></li>
                     <li class="layer" data-depth="0.07"><img class="animation-spin"
@@ -59,15 +26,48 @@
                             src="/images/blurflake4.png" alt></li>
                 </ul>
                 <div class="home-slide-content">
-                    <h2 class="text-white text-transform-uppercase line-height-1">Spring / Summer Season</h2>
+                    <h2 class="text-white text-transform-uppercase line-height-1">100% Waterproof LILY™ 2</h2>
                     <h3 class="text-white d-inline-block line-height-1 ls-0 text-center">up<br> to
                     </h3>
-                    <h4 class="text-white text-uppercase line-height-1 d-inline-block">50% off</h4>
+                    <h4 class="text-white text-uppercase line-height-1 d-inline-block">20% off</h4>
                     <div></div>
                     <h5 class="float-left text-white text-uppercase line-height-1 ls-n-20">Starting At</h5>
                     <h6
                         class="float-left coupon-sale-text line-height-1 ls-n-20 font-weight-bold text-secondary">
-                        <sup>$</sup>19<sup>99</sup>
+                        <sup>$</sup>149<sup>99</sup>
+                    </h6>
+                    <a href="{{ route('products.index') }}" class="btn btn-light d-inline-block">Shop Now</a>
+                </div>
+                <!-- End .home-slide-content -->
+            </div>
+            <!-- End .home-slide -->
+
+            <div class="home-slide home-slide1 banner" style="background-color: #111">
+                <div class="slide-bg" src="/images/home-slide-back.jpg"></div>
+                <!-- End .slide-bg !-->
+                <ul class="slide-bg scene" style="width: 100%; height: 100%;">
+                    <li class="layer" data-depth="0.05"><img src="/images/site/woman-in-bedroom-holding-vibrator-in-hand-royalty-free-image-1635204448.jpg" alt></li>
+                    <li class="layer" data-depth="0.06"><img style="position: absolute; top: 31%; left: 46.5%;"
+                            src="/images/blurflake1.png" alt></li>
+                    <li class="layer" data-depth="0.07"><img class="animation-spin"
+                            style="position: absolute; top: 25%; left: 66%;" src="/images/blurflake2.png" alt>
+                    </li>
+                    <li class="layer" data-depth="0.10"><img class="animation-wave"
+                            style="position: absolute; top: 50%; left: 80%;" src="/images/blurflake3.png" alt>
+                    </li>
+                    <li class="layer" data-depth="0.15"><img style="position: absolute; top: 70%; left: 55%;"
+                            src="/images/blurflake4.png" alt></li>
+                </ul>
+                <div class="home-slide-content">
+                    <h2 class="text-white text-transform-uppercase line-height-1">INA™ 3 Dual-Action Massager</h2>
+                    <h3 class="text-white d-inline-block line-height-1 ls-0 text-center">up<br> to
+                    </h3>
+                    <h4 class="text-white text-uppercase line-height-1 d-inline-block">25% off</h4>
+                    <div></div>
+                    <h5 class="float-left text-white text-uppercase line-height-1 ls-n-20">Starting At</h5>
+                    <h6
+                        class="float-left coupon-sale-text line-height-1 ls-n-20 font-weight-bold text-secondary">
+                        <sup>$</sup>179<sup>99</sup>
                     </h6>
                     <a href="{{ route('products.index') }}" class="btn btn-light d-inline-block">Shop Now</a>
                 </div>
@@ -79,10 +79,10 @@
 
         <div class="home-slider-thumbs owl-dots">
             <a href="#" class="owl-dot">
-                <img src="/images/slide-1-thumb.jpg" alt="Slide Thumb">
+                <img src="/images/site/lily3-3.jpg" alt="Slide Thumb">
             </a>
             <a href="#" class="owl-dot">
-                <img src="/images/slide-2-thumb.jpg" alt="Slide Thumb">
+                <img src="/images/site/ina3-3.jpg" alt="Slide Thumb">
             </a>
         </div>
         <!-- End .home-slide-thumbs -->
@@ -199,7 +199,7 @@
     <section class="product-banner-section">
         <div class="banner" style="background-color: #111;">
             <figure class="w-100 appear-animate" data-animation-name="fadeIn">
-                <img src="/images/slide-1.jpg" alt="product banner">
+                <img class="w-100 h-400px" src="/images/site/21.webp" alt="product banner">
             </figure>
             <div class="container-fluid">
                 <div class="position-relative h-100">
@@ -208,7 +208,7 @@
                             data-animation-name="fadeInUpShorter" data-animation-duration="1000"
                             data-animation-delay="200">Ultra Boost</h3>
                         <img class="m-b-4 appear-animate" data-animation-name="fadeInUpShorter"
-                            data-animation-duration="1000" data-animation-delay="400" src="/images/img-1.png"
+                            data-animation-duration="1000" data-animation-delay="400" src="/images/site/img-1.jpg"
                             alt="img" width="540" height="100">
                         <a href="{{ route('products.index') }}" class="btn btn-light appear-animate"
                             data-animation-name="fadeInUpShorter" data-animation-duration="1000"
@@ -285,30 +285,26 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="banner appear-animate" data-animation-name="fadeInLeftShorter"
-                        style="background-color: #fff;">
+                    <div class="banner mb-2 mb-lg-0" style="background-color: #fff;">
                         <figure>
-                            <img src="/images/banner1.jpg" alt="banner" width="873" height="151">
+                            <img class="h-100px" src="/images/site/womanizer-toys-Fls8Q8fgF9o-unsplash-2.jpg" alt="banner" width="873" height="151">
                         </figure>
-                        <div
-                            class="banner-layer banner-layer-middle d-flex align-items-center justify-content-between">
-                            <div class>
-                                <h4 class="mb-0">Summer Sale</h4>
-                                <h5 class="text-uppercase mb-0">20% off</h5>
+                        <div class="banner-layer banner-layer-middle d-flex align-items-center justify-content-between">
+                            <div class="content-left">
+                                <h4 class="text-white mb-0">Summer Sale</h4>
+                                <h5 class="text-uppercase text-white mb-0">20% off</h5>
                             </div>
                             <a href="{{ route('products.index') }}" class="btn btn-dark">Shop now</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="banner appear-animate" data-animation-name="fadeInRightShorter"
-                        data-animation-delay="400" style="background-color: #111;">
+                    <div class="banner" style="background-color: #111;">
                         <figure>
-                            <img src="/images/banner2.jpg" alt="banner" width="873" height="151">
+                            <img class="h-100px" src="/images/site/C5-HIW-Banner-DESKTOP.webp" alt="banner" width="873" height="151">
                         </figure>
-                        <div
-                            class="banner-layer banner-layer-middle d-flex align-items-center justify-content-between">
-                            <div class>
+                        <div class="banner-layer banner-layer-middle d-flex align-items-center justify-content-between">
+                            <div class="content-left">
                                 <h4 class="text-white mb-0">Flash Sale</h4>
                                 <h5 class="text-uppercase text-white mb-0">30% off</h5>
                             </div>

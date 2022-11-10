@@ -4,6 +4,277 @@
 {{ $product->name }}
 @endsection
 
+@section('styles')
+<style>
+    .w-100px { width: 100px; }
+    .w-110px { width: 110px; }
+    .w-120px { width: 120px; }
+    .w-130px { width: 130px; }
+    .w-140px { width: 140px; }
+    .w-150px { width: 150px; }
+    .w-160px { width: 160px; }
+    .w-170px { width: 170px; }
+    .w-180px { width: 180px; }
+    .w-190px { width: 190px; }
+    .w-200px { width: 200px; }
+
+    .layout--onecol .layout__region {
+        width: 100%;
+    }
+
+    .layout .block.block-inline_block {
+        margin: auto;
+        max-width: 1920px;
+    }
+
+    .layout.black-bg .block,
+    .layout.black-border .block {
+        border-color: #0c0c0c;
+    }
+
+    /** Highlights **/
+    .block.product_technologies {
+        border-color: transparent;
+        border-style: solid;
+        border-width: 80px 0 100px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .block.product_technologies .field_product_technologies__tagline {
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .block.product_technologies .field_product_technologies__tagline h6 {
+        font-family: Lab Grotesque, Helvetica, Arial, sans-serif;
+        font-size: 1.4rem;
+        font-weight: 900;
+        letter-spacing: 5px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .block.product_technologies .product-technologies-inner {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    .block.product_technologies .technologies_item__image img {
+        max-height: 60px;
+        max-width: 60px;
+        width: 60px;
+    }
+
+    @media screen and (min-width: 992px) and (max-width: 1919px) {
+        .block.product_technologies .product-technologies-inner picture {
+            width: 50%;
+        }
+    }
+
+    .block.product_technologies .product-technologies-inner picture {
+        display: flex;
+        max-width: 730px;
+    }
+
+    @media screen and (min-width: 992px) and (max-width: 1599px) {
+        .block.product_technologies .technologies_items {
+            padding-left: 50px;
+        }
+    }
+
+    .block.product_technologies .technologies_item {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 50px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        .block.product_technologies .technologies_item__image {
+            margin-right: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        .block.product_technologies .technologies_item__image {
+            border-right: 1px solid #fff;
+            margin-right: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    .block.product_technologies .technologies_item__image {
+        margin-right: 20px;
+    }
+
+    .block.product_technologies .technologies_item__text {
+        max-width: 645px;
+    }
+
+    .block.product_technologies .field_product_technologies__title {
+        position: relative;
+    }
+
+    .block.product_technologies .field_product_technologies__title h2 {
+        font-family: Lab Grotesque, Helvetica, Arial, sans-serif;
+        font-size: 2.4rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        line-height: 3.5rem;
+        margin-bottom: 0;
+    }
+
+    .block.product_technologies .field_product_technologies__body p {
+        font-family: Lab Grotesque, Helvetica, Arial, sans-serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        letter-spacing: .75px;
+        line-height: 2.2rem;
+        margin: 20px 0 3px;
+    }
+
+    /* How To Use */
+    .layout .block.block-inline_block {
+        margin: auto;
+        max-width: 1920px;
+    }
+
+    .layout.black-bg .block,
+    .layout.black-border .block {
+        border-color: #0c0c0c;
+    }
+
+    .block.how-to-use-block {
+        background-color: #0c0c0c;
+        border-color: #0c0c0c !important;
+        border-style: solid;
+        border-width: 80px 0 60px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .field_how_to_use_tagline {
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .field_how_to_use_tagline h6 {
+        font-family: Lab Grotesque, Helvetica, Arial, sans-serif;
+        font-size: 1.4rem;
+        font-weight: 900;
+        letter-spacing: 5px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .swiper-container-pointer-events {
+        touch-action: pan-y;
+    }
+
+    @media screen and (min-width: 992px) {
+        .block.how-to-use-block .container .how-to-use__wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .block.how-to-use-block .container .how-to-use__wrapper {
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+
+    /* Features */
+    .features_block .field_features_tagline {
+        margin-bottom: 40px;
+        position: relative;
+    }
+    .features_block .field_features_tagline h6 {
+        font-family: Lab Grotesque,Helvetica,Arial,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 900;
+        letter-spacing: 3.5px;
+        margin: 0;
+    }
+    .features_block .features__wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 0;
+        position: relative;
+        width: 100%;
+    }
+    @media screen and (max-width: 1599px) {
+        .features_block .features-item {
+            flex-direction: column;
+            padding: 40px;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 1919px) {
+        .features_block .features-item {
+            padding: 40px;
+        }
+    }
+    .features_block .features-item {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 65px;
+        position: relative;
+        width: 33.33%;
+    }
+    @media screen and (max-width: 1599px) {
+        .features_block .features-item {
+            flex-direction: column;
+            padding: 40px;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 1919px) {
+        .features_block .features-item {
+            padding: 40px;
+        }
+    }
+    .features_block .features-item {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 65px;
+        position: relative;
+        width: 33.33%;
+    }
+    .features_block .features-item .features-item-icon img {
+        display: block;
+        max-height: 80px;
+        max-width: 80px;
+        width: 80px;
+    }
+    .features_block .field_features_title {
+        margin-bottom: 5px;
+    }
+    .features_block .field_features_title h6 {
+        font-family: Lab Grotesque,Helvetica,Arial,sans-serif;
+        font-size: 1.8rem;
+        font-weight: 900;
+        letter-spacing: 3px;
+        line-height: 2.1rem;
+        margin: 0;
+        text-transform: uppercase;
+    }
+</style>
+@endsection
+
 @section('content')
 <main class="main bg-gray">
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
@@ -22,10 +293,10 @@
                 <div class="product-single-container product-single-default">
 
                     @if (session()->has('success'))
-                        <div class="cart-message">
-                            <strong class="single-cart-notice">“{{ $product->name }}”</strong>
-                            <span>has been added to your cart.</span>
-                        </div>
+                    <div class="cart-message">
+                        <strong class="single-cart-notice">“{{ $product->name }}”</strong>
+                        <span>has been added to your cart.</span>
+                    </div>
                     @endif
 
                     <div class="row">
@@ -46,6 +317,11 @@
                                 <div class="owl-dot">
                                     <img src="{{ $product->featured_image }}" width="110" height="110" alt="product-thumbnail">
                                 </div>
+                                @foreach ($product->images as $image)
+                                    <div class="owl-dot">
+                                        <img src="{{ $image }}" width="110" height="110" alt="product-thumbnail">
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <!-- End .product-single-gallery -->
@@ -109,18 +385,20 @@
 
                             <div class="product-desc">
                                 <p>
-                                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
-                                    placerat eleifend leo.
+                                    {{ $product->description }}
                                 </p>
                             </div>
                             <!-- End .product-desc -->
 
                             <ul class="single-info-list">
                                 <!---->
+                                @foreach ($product->meta as $item)
                                 <li>
-                                    SKU:
-                                    <strong>654613612</strong>
+                                    {{ $item->title }}:
+                                    <strong>{{ $item->description }}</strong>
                                 </li>
+                                @endforeach
+                                
 
                                 <li>
                                     CATEGORY:
@@ -137,7 +415,7 @@
                             </ul>
 
                             @php
-                                $cart = session()->get('cart');
+                            $cart = session()->get('cart');
                             @endphp
 
                             <div class="product-action">
@@ -149,16 +427,16 @@
                                     <!-- End .product-single-qty -->
 
                                     <!-- change add-to-cart to add-cart if you want to use ajax -->
-                                    <button type="submit" class="btn btn-dark icon-shopping-cart mr-2 @if($cart && isset($cart[$product->slug])) added-to-cart @else add-to-cart @endif" title="Add to Cart"> 
+                                    <button type="submit" class="btn btn-dark icon-shopping-cart mr-2 @if($cart && isset($cart[$product->slug])) added-to-cart @else add-to-cart @endif" title="Add to Cart">
                                         @if($cart && isset($cart[$product->slug]))
                                         Added to Cart
                                         @else
                                         Add to Cart
                                         @endif
                                     </button>
-                                
+
                                     @if($cart && isset($cart[$product->slug]))
-                                        <a href="{{ route('cart') }}" class="btn btn-gray view-cart">View cart</a>
+                                    <a href="{{ route('cart') }}" class="btn btn-gray view-cart">View cart</a>
                                     @endif
                                 </form>
                             </div>
@@ -191,16 +469,15 @@
                 <div class="product-single-tabs">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Description</a>
+                            <a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Highlights</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content" role="tab" aria-controls="product-size-content" aria-selected="true">Size Guide</a>
+                            <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-features-content" role="tab" aria-controls="product-features-content" aria-selected="true">Features</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab" aria-controls="product-tags-content" aria-selected="false">Additional
-                                Information</a>
+                            <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab" aria-controls="product-tags-content" aria-selected="false">Additional Information</a>
                         </li>
 
                         <li class="nav-item">
@@ -211,99 +488,91 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel" aria-labelledby="product-tab-desc">
                             <div class="product-desc-content">
-                                {!! $product->details !!}
+                                <p>{{ $product->details }}</p>
+                                
+                                <div class="layout__region layout__region--content">
+                                    <div id="technologies" spy-title="HIGHLIGHTS" class="block block-layout-builder block-inline_block product-technologies product_technologies slider-blocked scrollspy">
+                                        <div class="container product-technologies-container">
+                                            <div class="field_product_technologies__tagline">
+                                                <h6>HIGHLIGHTS</h6>
+                                            </div>
+                                            <div class="product-technologies-inner">
+                                                <picture>
+                                                    <source media="(max-width: 575px)" data-srcset="{{ $product->images[0] }}" srcset="{{ $product->images[0] }}" class="animate">
+                                                    <source media="(min-width: 576px)" data-srcset="{{ $product->images[0] }}" srcset="{{ $product->images[0] }}" class="animate">
+                                                    <img class="animate" data-src="{{ $product->images[0] }}" loading="lazy">
+                                                </picture>
+                                                
+                                                <div class="technologies_items">
+                                                    @foreach ($product->tech as $item)
+                                                    <div class="technologies_item">
+                                                        <div class="technologies_item__image">
+                                                            <div class="field_product_technologies__icon" style="background: #4ec6e0;">
+                                                                <img class="animate w-120px" src="{{ $item->icon }}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="technologies_item__text">
+                                                            <div class="field_product_technologies__title" style="pointer-events:none">
+                                                                <h2>{{ $item->title }}</h2>
+                                                            </div>
+                                                            <div class="field_product_technologies__body">
+                                                                <p>{{ $item->description }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="helper-class"><span class="helper-inline-blockproduct-technologies"></span></div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- End .product-desc-content -->
                         </div>
                         <!-- End .tab-pane -->
 
-                        <div class="tab-pane fade" id="product-size-content" role="tabpanel" aria-labelledby="product-tab-size">
-                            <div class="product-size-content">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="/images/body-shape.png" alt="body shape">
-                                    </div>
-                                    <!-- End .col-md-4 -->
+                        <div class="tab-pane fade" id="product-features-content" role="tabpanel" aria-labelledby="product-tab-feat">
+                            <div class="layout__region layout__region--content">
+                                <div class="block block-layout-builder block-inline_block product-features features_block swiper-slide tagline">
+                                    <div class="container">
+                                        <div class="field_features_tagline">
+                                            <h6>FEATURES</h6>
+                                        </div>
 
-                                    <div class="col-md-8">
-                                        <table class="table table-size">
-                                            <thead>
-                                                <tr>
-                                                    <th>SIZE</th>
-                                                    <th>CHEST (in.)</th>
-                                                    <th>WAIST (in.)</th>
-                                                    <th>HIPS (in.)</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>XS</td>
-                                                    <td>34-36</td>
-                                                    <td>27-29</td>
-                                                    <td>34.5-36.5</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>S</td>
-                                                    <td>36-38</td>
-                                                    <td>29-31</td>
-                                                    <td>36.5-38.5</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>M</td>
-                                                    <td>38-40</td>
-                                                    <td>31-33</td>
-                                                    <td>38.5-40.5</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>L</td>
-                                                    <td>40-42</td>
-                                                    <td>33-36</td>
-                                                    <td>40.5-43.5</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XL</td>
-                                                    <td>42-45</td>
-                                                    <td>36-40</td>
-                                                    <td>43.5-47.5</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XLL</td>
-                                                    <td>45-48</td>
-                                                    <td>40-44</td>
-                                                    <td>47.5-51.5</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="features__wrapper">
+                                            @foreach ($product->features as $feature)
+                                            <div class="features-item">
+                                                <div class="features-item-icon">
+                                                    <img class="animate" src="{{ $feature->icon }}">
+                                                </div>
+                                                <div class="text-inner-container">
+                                                    <div class="field_features_title">
+                                                        <h6>{{ $feature->title }}</h6>
+                                                    </div>
+                                                    <div class="field_features_subtitle">
+                                                        <h6>{{ $feature->description }}</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- End .row -->
                             </div>
-                            <!-- End .product-size-content -->
+                            <!-- End .product-features-content -->
                         </div>
                         <!-- End .tab-pane -->
 
                         <div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
                             <table class="table table-striped mt-2">
                                 <tbody>
+                                    @foreach ($product->meta as $item)
                                     <tr>
-                                        <th>Weight</th>
-                                        <td>23 kg</td>
+                                        <th>{{ $item->title }}:</th>
+                                        <td>{{ $item->description }}</td>
                                     </tr>
-
-                                    <tr>
-                                        <th>Dimensions</th>
-                                        <td>12 × 24 × 35 cm</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>Color</th>
-                                        <td>Black, Green, Indigo</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>Size</th>
-                                        <td>Large, Medium, Small</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -468,15 +737,15 @@
 
                         <div class="widget-body">
                             <div class="featured-col">
+                                @foreach ($featuredProducts as $product)
                                 <div class="product-default left-details product-widget">
                                     <figure>
-                                        <a href="demo18-product.html">
-                                            <img src="/images/product-1_6.jpg" width="75" height="75" alt="product">
+                                        <a href="{{ route('products.show', $product->slug) }}">
+                                            <img src="{{ $product->featured_image }}" width="75" height="75" alt="product">
                                         </a>
                                     </figure>
                                     <div class="product-details">
-                                        <h3 class="product-title"> <a href="demo18-product.html">Backpack Sfs
-                                                Responder</a> </h3>
+                                        <h3 class="product-title"> <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a></h3>
                                         <div class="ratings-container">
                                             <div class="product-ratings">
                                                 <span class="ratings" style="width:100%"></span>
@@ -487,62 +756,13 @@
                                         </div>
                                         <!-- End .product-container -->
                                         <div class="price-box">
-                                            <span class="product-price">$185.00</span>
+                                            <span class="product-price">${{ $product->price }}</span>
                                         </div>
                                         <!-- End .price-box -->
                                     </div>
                                     <!-- End .product-details -->
                                 </div>
-                                <div class="product-default left-details product-widget">
-                                    <figure>
-                                        <a href="demo18-product.html">
-                                            <img src="/images/product-2_4.jpg" width="75" height="75" alt="product">
-                                        </a>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h3 class="product-title"> <a href="demo18-product.html">Hot Black
-                                                Suits</a> </h3>
-                                        <div class="ratings-container">
-                                            <div class="product-ratings">
-                                                <span class="ratings" style="width:80%"></span>
-                                                <!-- End .ratings -->
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <!-- End .product-ratings -->
-                                        </div>
-                                        <!-- End .product-container -->
-                                        <div class="price-box">
-                                            <span class="product-price">$30.00</span>
-                                        </div>
-                                        <!-- End .price-box -->
-                                    </div>
-                                    <!-- End .product-details -->
-                                </div>
-                                <div class="product-default left-details product-widget">
-                                    <figure>
-                                        <a href="demo18-product.html">
-                                            <img src="/images/product-3_4.jpg" width="75" height="75" alt="product">
-                                        </a>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h3 class="product-title"> <a href="demo18-product.html">Long-Length
-                                                2.0</a> </h3>
-                                        <div class="ratings-container">
-                                            <div class="product-ratings">
-                                                <span class="ratings" style="width:75%"></span>
-                                                <!-- End .ratings -->
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <!-- End .product-ratings -->
-                                        </div>
-                                        <!-- End .product-container -->
-                                        <div class="price-box">
-                                            <span class="product-price">$49.00</span>
-                                        </div>
-                                        <!-- End .price-box -->
-                                    </div>
-                                    <!-- End .product-details -->
-                                </div>
+                                @endforeach
                             </div>
                             <!-- End .featured-col -->
                         </div>
@@ -559,31 +779,31 @@
             <h2 class="section-title">Related Products</h2>
 
             <div class="products-slider owl-carousel owl-theme dots-top dots-small" data-owl-options="{ 
-                        'responsive': {
-                            '1200': {
-                                'items': 5
-                            }
-                        } }">
+            'responsive': {
+                '1200': {
+                    'items': 5
+                }
+            } }">
+                @foreach ($relateProducts as $product)
                 <div class="product-default inner-quickview inner-icon">
                     <figure>
-                        <a href="demo18-product.html">
-                            <img src="/images/product-7.jpg" width="205" height="205" alt="product">
+                        <a href="{{ route('products.show', $product->slug) }}">
+                            <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->name }}">
                         </a>
                         <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
+                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
                         </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
-                            View</a>
+                        <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View">Quick View</a>
                     </figure>
                     <div class="product-details">
                         <div class="category-wrap">
                             <div class="category-list">
-                                <a href="demo18-shop.html" class="product-category">category</a>
+                                <a href="{{ route('products.index') }}" class="product-category">category</a>
                             </div>
                             <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
                         </div>
                         <h3 class="product-title">
-                            <a href="demo18-product.html">Backpack Sfs Responder</a>
+                            <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -595,198 +815,13 @@
                         </div>
                         <!-- End .product-container -->
                         <div class="price-box">
-                            <span class="product-price">$185.00</span>
+                            <span class="product-price">${{ $product->price }}</span>
                         </div>
                         <!-- End .price-box -->
                     </div>
                     <!-- End .product-details -->
                 </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="demo18-product.html">
-                            <img src="/images/product-15.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="demo18-shop.html" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="demo18-product.html">Converse Chuck Quarter</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$14.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="demo18-product.html">
-                            <img src="/images/product-13.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="demo18-shop.html" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="demo18-product.html">Football Vapor 24/7</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$25.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="demo18-product.html">
-                            <img src="/images/product-8.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="demo18-shop.html" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="demo18-product.html">Hot Black Suits</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$30.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="demo18-product.html">
-                            <img src="/images/product-4.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
-                        </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="demo18-shop.html" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="demo18-product.html">Hyperadapt Shield Lite Half-Zip</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:100%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$299.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
-                <div class="product-default inner-quickview inner-icon">
-                    <figure>
-                        <a href="demo18-product.html">
-                            <img src="/images/product-19.jpg" width="205" height="205" alt="product">
-                            <img src="/images/product-10.jpg" width="205" height="205" alt="product">
-                        </a>
-                        <div class="btn-icon-group">
-                            <a href="demo18-product.html" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <a href="product-quick-view.html" class="btn-quickview" title="Quick View">Quick
-                            View</a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-wrap">
-                            <div class="category-list">
-                                <a href="demo18-shop.html" class="product-category">category</a>
-                            </div>
-                            <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="demo18-product.html">Jordan Flight</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <span class="product-price">$99.00 - $109.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                    </div>
-                    <!-- End .product-details -->
-                </div>
+                @endforeach
             </div>
             <!-- End .products-slider -->
         </div>

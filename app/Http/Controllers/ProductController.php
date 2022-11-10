@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 use App\Product;
@@ -10,8 +11,13 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
+        $categories = Category::withCount('products')->get();
+
         // fetch products
-        $products = Product::paginate(10);
+        $products = Product::paginate(20);
+        $featuredProducts = Product::where('featured', true)->take(4)->get();
+        $popularProducts = Product::orderBy('views', 'desc')->take(4)->get();
+        
         $sort = NULL;
 
         if ($request->has('sort')) {
@@ -38,14 +44,14 @@ class ProductController extends Controller
                 } else {
                     $query->orderBy('created_at', 'desc');
                 }
-            })->paginate(10);
+            })->paginate(20);
         }
         
         if (request()->ajax()) {
-            return view('products.load-more', compact('products', 'sort'));
+            return view('products.load-more', compact('categories', 'products', 'featuredProducts', 'popularProducts', 'sort'));
         }
 
-        return view('products.index', compact('products', 'sort'));
+        return view('products.index', compact('categories', 'products', 'featuredProducts', 'popularProducts', 'sort'));
     }
 
     public function search(Request $request)
@@ -90,18 +96,13 @@ class ProductController extends Controller
 
     public function show(Request $request, $slug)
     {
-        // destroy cart
-        // session()->forget('cart');
-
-        // $cart = session()->get('cart');
-
-        // return response()->json([
-        //     'cart' => $cart
-        // ]);
         $product = Product::where('slug', $slug)->firstOrFail();
         $product->increment('views');
 
-        return view('products.single', compact('product'));
+        $featuredProducts = Product::where('featured', true)->take(4)->get();
+        $relateProducts = Product::where('category_id', $product->category_id)->take(5)->get();
+
+        return view('products.single', compact('product', 'featuredProducts', 'relateProducts'));
     }
 
     public function quickview(Request $request, $slug)

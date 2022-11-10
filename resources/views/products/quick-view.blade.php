@@ -23,21 +23,11 @@
 				<!-- End .product-single-carousel -->
 			</div>
 			<div class="prod-thumbnail owl-dots">
+				@foreach ($product->images as $image)
 				<div class="owl-dot">
-					<img src="/images/product-1_1.jpg">
+					<img src="{{ $image }}">
 				</div>
-				<div class="owl-dot">
-					<img src="/images/product-2_1.jpg">
-				</div>
-				<div class="owl-dot">
-					<img src="/images/product-3_1.jpg">
-				</div>
-				<div class="owl-dot">
-					<img src="/images/product-4_1.jpg">
-				</div>
-				<div class="owl-dot">
-					<img src="/images/product-5.jpg">
-				</div>
+				@endforeach
 			</div>
 		</div><!-- End .product-single-gallery -->
 
@@ -67,17 +57,12 @@
 
 				<ul class="single-info-list">
 					<!---->
+					@foreach ($product->meta as $item)
 					<li>
-						SKU:
-						<strong>654613612</strong>
+						{{ $item->title }}:
+						<strong>{{ $item->description }}</strong>
 					</li>
-
-					<li>
-						CATEGORY:
-						<strong>
-							<a href="#" class="product-category">SHOES</a>
-						</strong>
-					</li>
+					@endforeach
 				</ul>
 
 				<div class="product-filters-container">
@@ -101,17 +86,17 @@
 
 				<div class="product-action">
 					<div class="price-box product-filtered-price">
-						<del class="old-price"><span>$286.00</span></del>
-						<span class="product-price">$245.00</span>
+						<del class="old-price"><span>${{ $product->price * 1.2 }}</span></del>
+						<span class="product-price">${{ $product->price }}</span>
 					</div>
 
 					<div class="product-single-qty">
 						<input class="horizontal-quantity form-control" type="text">
 					</div><!-- End .product-single-qty -->
 
-					<a href="javascript:;" class="btn btn-dark add-cart mr-2" title="Add to Cart">Add to Cart</a>
+					<a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn btn-dark add-cart mr-2" title="Add to Cart">Add to Cart</a>
 
-					<a href="cart_1.html" class="btn view-cart d-none">View cart</a>
+					<a href="{{ route('cart') }}" class="btn view-cart d-none">View cart</a>
 				</div><!-- End .product-action -->
 
 				<hr class="divider mb-0 mt-0">
