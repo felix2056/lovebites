@@ -60,6 +60,16 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "copy-products-to-storage": "cp -r ./public/products ./public/storage/products",
+        "copy:env": "cp .env.example .env",
+        "generate:key": "php artisan key:generate",
+        "install": [
+            "@copy:env",
+            "@generate:key",
+            "composer install",
+            "npm install",
+            "npm run dev"
         ]
     }
 }
