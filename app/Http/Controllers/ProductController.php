@@ -16,6 +16,7 @@ class ProductController extends Controller
         
         // fetch products
         $products = Product::paginate(40);
+        return response()->json($products);
         $featuredProducts = Product::where('featured', true)->take(4)->get();
         $popularProducts = Product::orderBy('views', 'desc')->take(4)->get();
         
