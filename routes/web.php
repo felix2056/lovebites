@@ -99,8 +99,8 @@ Route::prefix('products')->group(function () {
 });
 
 Route::prefix('subcategories')->group(function () {
-    Route::get('/', 'SubcategoryController@index')->name('subcategories.index');
-    Route::get('/{slug}', 'SubcategoryController@show')->name('subcategories.show');
+    Route::get('/', 'SubCategoryController@index')->name('subcategories.index');
+    Route::get('/{slug}', 'SubCategoryController@show')->name('subcategories.show');
 });
 
 Route::get('login', 'AuthController@login')->name('login');
