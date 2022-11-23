@@ -25,19 +25,48 @@ class CategorySeeder extends Seeder
 
         $categories = [
             [
-                'name' => 'Sex Toys for Women',
-                'slug' => 'sex-toys-for-women',
-                'description' => 'If you’re looking to settle for the very best in luxury pleasure, LELO offers the world’s highest quality selection of sex toys for women. Choose from a wide array of sex toys designed to satisfy all your needs, often simultaneously.'
+                'name' => 'sex toys',
+                'slug' => 'sex-toys',
+                'description' => 'If you’re looking to settle for the very best in luxury pleasure, LELO offers the world’s highest quality selection of sex toys for women. Choose from a wide array of sex toys designed to satisfy all your needs, often simultaneously.',
+                'subcategory' => [
+                    [
+                        'name' => 'vibrators',
+                        'slug' => 'vibrators',
+                    ],
+                    [
+                        'name' => 'penis toys',
+                        'slug' => 'penis-toys',
+                    ],
+                    [
+                        'name' => 'anal',
+                        'slug' => 'anal',
+                    ],
+                    [
+                        'name' => 'dildos',
+                        'slug' => 'dildos',
+                    ]
+                ]
             ]
         ];
 
         foreach ($categories as $category) {
-            DB::table('categories')->insert([
+            $catid = DB::table('categories')->insertGetId([
                 'name' => $category['name'],
                 'slug' => $category['slug'],
-                'description' => $category['description'],
+                'description' => NULL,
+                'icon' => NULL,
                 'created_at' => now()
             ]);
+
+            foreach($category['subcategory'] as $subcategory) {
+                DB::table('sub_categories')->insert([
+                    'category_id' => $catid,
+                    'name' => $subcategory['name'],
+                    'slug' => $subcategory['slug'],
+                    'icon' => NULL,
+                    'created_at' => now()
+                ]);
+            }
         }
     }
 }

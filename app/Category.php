@@ -15,12 +15,17 @@ class Category extends Model
     protected $fillable = [
         'name',
         'slug',
-        'description'
+        'description',
+        'icon'
     ];
 
-    public function products()
+    protected $with = [
+        'subcategories'
+    ];
+
+    public function subcategories()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(SubCategory::class);
     }
 
     public function getSlugOptions() : SlugOptions

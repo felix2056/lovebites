@@ -308,7 +308,7 @@
                 $subtotal = 0.00;
 
                 foreach ($cart as $item) {
-                    $subtotal += $item['price'] * $item['quantity'];
+                    $subtotal += (float) $item['price'] * $item['quantity'];
                 }
 
                 $shipping = 3.99;
@@ -337,7 +337,7 @@
                                 </td>
 
                                 <td class="price-col">
-                                    <span>${{ $item['price'] }}</span>
+                                    <span>{{ $item['price'] }}</span>
                                 </td>
                             </tr>
                             @endforeach

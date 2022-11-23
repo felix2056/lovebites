@@ -117,7 +117,7 @@
                                 data-animation-name="fadeIn">
                                 <figure>
                                     <a href="{{ route('products.show', $product->slug) }}">
-                                        <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->name }}">
+                                        <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->title }}">
                                     </a>
                                     <div class="btn-icon-group">
                                         <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple">
@@ -135,11 +135,11 @@
                                             <i class="icon-heart"></i></a>
                                     </div>
                                     <h3 class="product-title">
-                                        <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                                        <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                                     </h3>
                                     <div class="ratings-container">
                                         <div class="product-ratings">
-                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="ratings" style="width:{{ $product->ratings }}"></span>
                                             <!-- End .ratings -->
                                             <span class="tooltiptext tooltip-top"></span>
                                         </div>
@@ -147,7 +147,7 @@
                                     </div>
                                     <!-- End .product-container -->
                                     <div class="price-box">
-                                        <span class="product-price">${{ $product->price }}</span>
+                                        <span class="product-price">{{ $product->sale_price }}</span>
                                     </div>
                                     <!-- End .price-box -->
                                 </div>
@@ -243,7 +243,7 @@
                     <div class="product-default inner-quickview inner-icon">
                         <figure>
                             <a href="{{ route('products.show', $product->slug) }}">
-                                <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->name }}">
+                                <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->title }}">
                             </a>
                             <div class="btn-icon-group">
                                 <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple">
@@ -261,11 +261,11 @@
                                         class="icon-heart"></i></a>
                             </div>
                             <h3 class="product-title">
-                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                             </h3>
                             <div class="ratings-container">
                                 <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span>
+                                    <span class="ratings" style="width:{{ $product->ratings }}"></span>
                                     <!-- End .ratings -->
                                     <span class="tooltiptext tooltip-top"></span>
                                 </div>
@@ -273,7 +273,7 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <span class="product-price">${{ $product->price }}</span>
+                                <span class="product-price">{{ $product->sale_price }}</span>
                             </div>
                             <!-- End .price-box -->
                         </div>
@@ -319,7 +319,7 @@
 
     <section class="explore-section d-flex align-items-center"
         data-parallax="{'speed': 1.8,  'enableOnMobile': true}"
-        data-image-src="assets/images/demoes/demo18/bg-2.jpg" style="background-color: #111;">
+        data-image-src="/assets/images/demoes/demo18/bg-2.jpg" style="background-color: #111;">
         <div class="container-fluid text-center position-relative appear-animate"
             data-animation-name="fadeInUpShorter">
             <h3 class="line-height-1 ls-n-25 text-white text-uppercase m-b-4">Explore the best of you</h3>

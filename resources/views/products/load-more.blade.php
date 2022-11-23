@@ -18,16 +18,16 @@
                 <a href="wishlist_1.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
             </div>
             <h3 class="product-title">
-                <a href="demo18-product_1.html">{{ $product->name }}</a>
+                <a href="demo18-product_1.html">{{ $product->title }}</a>
             </h3>
             <div class="ratings-container">
                 <div class="product-ratings">
-                    <span class="ratings" style="width:70%"></span><!-- End .ratings -->
+                    <span class="ratings" style="width:{{ $product->ratings }}"></span><!-- End .ratings -->
                     <span class="tooltiptext tooltip-top"></span>
                 </div><!-- End .product-ratings -->
             </div><!-- End .product-container -->
             <div class="price-box">
-                <span class="product-price">${{ $product->price }}</span>
+                <span class="product-price">{{ $product->sale_price }}</span>
             </div><!-- End .price-box -->
         </div><!-- End .product-details -->
     </div>

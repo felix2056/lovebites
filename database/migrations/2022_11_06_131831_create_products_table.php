@@ -15,24 +15,27 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('category_id')->unsigned();
-            $table->string('name');
+            $table->bigInteger('subcategory_id')->unsigned();
+            $table->string('title');
             $table->string('slug');
-            $table->text('details')->nullable();
-            $table->text('description')->nullable();
-            $table->json('features')->nullable();
-            $table->json('tech')->nullable();
-            $table->decimal('price', 8, 2);
+            $table->string('productId');
+            $table->string('currency');
+            $table->decimal('original_price', 8, 2);
+            $table->decimal('sale_price', 8, 2);
             $table->string('featured_image')->nullable();
             $table->json('images')->nullable();
-            $table->json('meta')->nullable();
+            $table->string('url')->nullable();
+            $table->integer('totalAvailableQuantity')->nullable();
+            $table->text('description')->nullable();
+            $table->json('storeInfo')->nullable();
+            $table->json('specs')->nullable();
+            $table->json('ratings')->nullable();
             $table->boolean('featured')->default(false);
-            $table->boolean('in_stock')->default(true);
             $table->integer('views')->default(0);
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('sub_categories')->onDelete('cascade');
         });
     }
 

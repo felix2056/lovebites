@@ -32,7 +32,7 @@ class StripeController extends Controller
         
         $subtotal = 0;
         foreach($cart as $item) {
-            $subtotal += $item['price'] * $item['quantity'];
+            $subtotal += (float) $item['price'] * $item['quantity'];
         }
 
         $shipping_fee = 3.99;
@@ -306,7 +306,7 @@ class StripeController extends Controller
         
         $subtotal = 0;
         foreach($cart as $item) {
-            $subtotal += $item['price'] * $item['quantity'];
+            $subtotal += (float) $item['price'] * $item['quantity'];
         }
 
         $shipping_fee = 10;

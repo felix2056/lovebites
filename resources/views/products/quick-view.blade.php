@@ -33,34 +33,34 @@
 
 		<div class="col-md-6">
 			<div class="product-single-details mb-0 ml-md-4">
-				<h1 class="product-title">{{ $product->name }}</h1>
+				<h1 class="product-title">{{ $product->title }}</h1>
 
 				<div class="ratings-container">
 					<div class="product-ratings">
-						<span class="ratings" style="width:60%"></span><!-- End .ratings -->
+						<span class="ratings" style="width:{{ $product->ratings }}"></span><!-- End .ratings -->
 					</div><!-- End .product-ratings -->
 
-					<a href="#" class="rating-link">( 6 Reviews )</a>
+					<a href="#" class="rating-link">( {{ $product->total_ratings }} Reviews )</a>
 				</div><!-- End .ratings-container -->
 
 				<hr class="short-divider">
 
 				<div class="price-box">
-					<span class="product-price"> ${{ $product->price }}</span>
+					<span class="product-price">{{ $product->sale_price }}</span>
 				</div><!-- End .price-box -->
 
 				<div class="product-desc">
 					<p>
-						{{ $product->description }}
+						{!! $product->description !!}
 					</p>
 				</div><!-- End .product-desc -->
 
 				<ul class="single-info-list">
 					<!---->
-					@foreach ($product->meta as $item)
+					@foreach ($product->specs as $item)
 					<li>
-						{{ $item->title }}:
-						<strong>{{ $item->description }}</strong>
+						{{ $item->attrName }}:
+						<strong>{{ $item->attrValue }}</strong>
 					</li>
 					@endforeach
 				</ul>
@@ -86,8 +86,8 @@
 
 				<div class="product-action">
 					<div class="price-box product-filtered-price">
-						<del class="old-price"><span>${{ $product->price * 1.2 }}</span></del>
-						<span class="product-price">${{ $product->price }}</span>
+						<del class="old-price"><span>{{ $product->original_price }}</span></del>
+						<span class="product-price">{{ $product->sale_price }}</span>
 					</div>
 
 					<div class="product-single-qty">

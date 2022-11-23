@@ -164,7 +164,7 @@
 
                             if ($cart) {
                                 foreach ($cart as $item) {
-                                    $subtotal += $item['price'] * $item['quantity'];
+                                    $subtotal += (float) $item['price'] * $item['quantity'];
                                 }
                             }
                         @endphp
@@ -200,7 +200,7 @@
 
                                                         <span class="cart-product-info">
                                                             <span class="cart-product-qty">{{ $item['quantity'] }}</span>
-                                                            x ${{ $item['price'] }}
+                                                            x {{ $item['price'] }}
                                                         </span>
                                                     </div>
                                                     <!-- End .product-details -->

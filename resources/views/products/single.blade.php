@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-{{ $product->name }}
+{{ $product->title }}
 @endsection
 
 @section('styles')
@@ -18,259 +18,8 @@
     .w-190px { width: 190px; }
     .w-200px { width: 200px; }
 
-    .layout--onecol .layout__region {
-        width: 100%;
-    }
-
-    .layout .block.block-inline_block {
-        margin: auto;
-        max-width: 1920px;
-    }
-
-    .layout.black-bg .block,
-    .layout.black-border .block {
-        border-color: #0c0c0c;
-    }
-
-    /** Highlights **/
-    .block.product_technologies {
-        border-color: transparent;
-        border-style: solid;
-        border-width: 80px 0 100px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .block.product_technologies .field_product_technologies__tagline {
-        margin-bottom: 30px;
-        position: relative;
-    }
-
-    .block.product_technologies .field_product_technologies__tagline h6 {
-        font-family: Lab Grotesque, Helvetica, Arial, sans-serif;
-        font-size: 1.4rem;
-        font-weight: 900;
-        letter-spacing: 5px;
-        margin: 0;
-        text-transform: uppercase;
-    }
-
-    .block.product_technologies .product-technologies-inner {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        position: relative;
-    }
-
-    .block.product_technologies .technologies_item__image img {
-        max-height: 60px;
-        max-width: 60px;
-        width: 60px;
-    }
-
-    @media screen and (min-width: 992px) and (max-width: 1919px) {
-        .block.product_technologies .product-technologies-inner picture {
-            width: 50%;
-        }
-    }
-
-    .block.product_technologies .product-technologies-inner picture {
-        display: flex;
-        max-width: 730px;
-    }
-
-    @media screen and (min-width: 992px) and (max-width: 1599px) {
-        .block.product_technologies .technologies_items {
-            padding-left: 50px;
-        }
-    }
-
-    .block.product_technologies .technologies_item {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 50px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        .block.product_technologies .technologies_item__image {
-            margin-right: 30px;
-            padding-right: 30px;
-        }
-    }
-
-    @media screen and (min-width: 992px) {
-        .block.product_technologies .technologies_item__image {
-            border-right: 1px solid #fff;
-            margin-right: 20px;
-            padding-right: 20px;
-        }
-    }
-
-    .block.product_technologies .technologies_item__image {
-        margin-right: 20px;
-    }
-
-    .block.product_technologies .technologies_item__text {
-        max-width: 645px;
-    }
-
-    .block.product_technologies .field_product_technologies__title {
-        position: relative;
-    }
-
-    .block.product_technologies .field_product_technologies__title h2 {
-        font-family: Lab Grotesque, Helvetica, Arial, sans-serif;
-        font-size: 2.4rem;
-        font-weight: 900;
-        letter-spacing: 2px;
-        line-height: 3.5rem;
-        margin-bottom: 0;
-    }
-
-    .block.product_technologies .field_product_technologies__body p {
-        font-family: Lab Grotesque, Helvetica, Arial, sans-serif;
-        font-size: 1.6rem;
-        font-weight: 400;
-        letter-spacing: .75px;
-        line-height: 2.2rem;
-        margin: 20px 0 3px;
-    }
-
-    /* How To Use */
-    .layout .block.block-inline_block {
-        margin: auto;
-        max-width: 1920px;
-    }
-
-    .layout.black-bg .block,
-    .layout.black-border .block {
-        border-color: #0c0c0c;
-    }
-
-    .block.how-to-use-block {
-        background-color: #0c0c0c;
-        border-color: #0c0c0c !important;
-        border-style: solid;
-        border-width: 80px 0 60px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .field_how_to_use_tagline {
-        margin-bottom: 40px;
-        position: relative;
-    }
-
-    .field_how_to_use_tagline h6 {
-        font-family: Lab Grotesque, Helvetica, Arial, sans-serif;
-        font-size: 1.4rem;
-        font-weight: 900;
-        letter-spacing: 5px;
-        margin: 0;
-        text-transform: uppercase;
-    }
-
-    .swiper-container-pointer-events {
-        touch-action: pan-y;
-    }
-
-    @media screen and (min-width: 992px) {
-        .block.how-to-use-block .container .how-to-use__wrapper {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-    }
-
-    .block.how-to-use-block .container .how-to-use__wrapper {
-        display: flex;
-        position: relative;
-        width: 100%;
-    }
-
-    /* Features */
-    .features_block .field_features_tagline {
-        margin-bottom: 40px;
-        position: relative;
-    }
-    .features_block .field_features_tagline h6 {
-        font-family: Lab Grotesque,Helvetica,Arial,sans-serif;
-        font-size: 1.4rem;
-        font-weight: 900;
-        letter-spacing: 3.5px;
-        margin: 0;
-    }
-    .features_block .features__wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        padding: 0;
-        position: relative;
-        width: 100%;
-    }
-    @media screen and (max-width: 1599px) {
-        .features_block .features-item {
-            flex-direction: column;
-            padding: 40px;
-            text-align: center;
-        }
-    }
-
-    @media screen and (max-width: 1919px) {
-        .features_block .features-item {
-            padding: 40px;
-        }
-    }
-    .features_block .features-item {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        margin: 0;
-        padding: 65px;
-        position: relative;
-        width: 33.33%;
-    }
-    @media screen and (max-width: 1599px) {
-        .features_block .features-item {
-            flex-direction: column;
-            padding: 40px;
-            text-align: center;
-        }
-    }
-
-    @media screen and (max-width: 1919px) {
-        .features_block .features-item {
-            padding: 40px;
-        }
-    }
-    .features_block .features-item {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        margin: 0;
-        padding: 65px;
-        position: relative;
-        width: 33.33%;
-    }
-    .features_block .features-item .features-item-icon img {
-        display: block;
-        max-height: 80px;
-        max-width: 80px;
-        width: 80px;
-    }
-    .features_block .field_features_title {
-        margin-bottom: 5px;
-    }
-    .features_block .field_features_title h6 {
-        font-family: Lab Grotesque,Helvetica,Arial,sans-serif;
-        font-size: 1.8rem;
-        font-weight: 900;
-        letter-spacing: 3px;
-        line-height: 2.1rem;
-        margin: 0;
-        text-transform: uppercase;
+    .product-desc-content span, .product-desc-content p {
+        font-size: inherit !important;
     }
 </style>
 @endsection
@@ -282,7 +31,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Shop</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $product->title }}</li>
             </ol>
         </div>
     </nav>
@@ -294,7 +43,7 @@
 
                     @if (session()->has('success'))
                     <div class="cart-message">
-                        <strong class="single-cart-notice">“{{ $product->name }}”</strong>
+                        <strong class="single-cart-notice">“{{ $product->title }}”</strong>
                         <span>has been added to your cart.</span>
                     </div>
                     @endif
@@ -327,7 +76,7 @@
                         <!-- End .product-single-gallery -->
 
                         <div class="col-md-6 product-single-details">
-                            <h1 class="product-title">{{ $product->name }}</h1>
+                            <h1 class="product-title">{{ $product->title }}</h1>
 
                             <div class="product-nav">
                                 @if($product->previous())
@@ -365,57 +114,64 @@
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
-                                    <span class="ratings" style="width:60%"></span>
+                                    <span class="ratings" style="width:{{ $product->ratings }}"></span>
                                     <!-- End .ratings -->
                                     <span class="tooltiptext tooltip-top"></span>
                                 </div>
                                 <!-- End .product-ratings -->
 
-                                <a href="#" class="rating-link">( 6 Reviews )</a>
+                                <a href="#" class="rating-link">( {{ $product->total_ratings }} Reviews )</a>
                             </div>
                             <!-- End .ratings-container -->
 
                             <hr class="short-divider">
 
                             <div class="price-box">
-                                <span class="old-price">${{ $product->price * 1.2 }}</span>
-                                <span class="new-price">${{ $product->price }}</span>
+                                <span class="old-price">{{ $product->original_price }}</span>
+                                <span class="new-price">{{ $product->sale_price }}</span>
                             </div>
                             <!-- End .price-box -->
 
                             <div class="product-desc">
                                 <p>
-                                    {{ $product->description }}
+                                    {{ $product->short_description }}
                                 </p>
                             </div>
                             <!-- End .product-desc -->
 
                             <ul class="single-info-list">
                                 <!---->
-                                @foreach ($product->meta as $item)
-                                <li>
-                                    {{ $item->title }}:
-                                    <strong>{{ $item->description }}</strong>
-                                </li>
+                                @foreach ($product->specs as $item)
+                                    <li>
+                                        {{ $item->attrName }}:
+                                        <strong>{{ $item->attrValue }}</strong>
+                                    </li>
                                 @endforeach
                                 
 
                                 <li>
                                     CATEGORY:
                                     <strong>
-                                        <a href="#" class="product-category">SHOES</a>
+                                        <a href="#" class="product-category">{{ $product->subcategory->category->name }}</a>
                                     </strong>
                                 </li>
 
                                 <li>
+                                    SUBCATEGORY:
+                                    <strong>
+                                        <a href="#" class="product-category">{{ $product->subcategory->name }}</a>
+                                    </strong>
+                                </li>
+
+                                {{-- <li>
                                     TAGs:
                                     <strong><a href="#" class="product-category">CLOTHES</a></strong>,
                                     <strong><a href="#" class="product-category">SWEATER</a></strong>
-                                </li>
+                                </li> --}}
                             </ul>
 
                             @php
-                            $cart = session()->get('cart');
+                                $cart = session()->get('cart');
                             @endphp
 
                             <div class="product-action">
@@ -469,112 +225,24 @@
                 <div class="product-single-tabs">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Highlights</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-features-content" role="tab" aria-controls="product-features-content" aria-selected="true">Features</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab" aria-controls="product-tags-content" aria-selected="false">Additional Information</a>
+                            <a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Description</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" id="product-tab-reviews" data-toggle="tab" href="#product-reviews-content" role="tab" aria-controls="product-reviews-content" aria-selected="false">Reviews (1)</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab" aria-controls="product-tags-content" aria-selected="false">Specifications</a>
                         </li>
                     </ul>
 
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel" aria-labelledby="product-tab-desc">
                             <div class="product-desc-content">
-                                <p>{{ $product->details }}</p>
-                                
-                                <div class="layout__region layout__region--content">
-                                    <div id="technologies" spy-title="HIGHLIGHTS" class="block block-layout-builder block-inline_block product-technologies product_technologies slider-blocked scrollspy">
-                                        <div class="container product-technologies-container">
-                                            <div class="field_product_technologies__tagline">
-                                                <h6>HIGHLIGHTS</h6>
-                                            </div>
-                                            <div class="product-technologies-inner">
-                                                <picture>
-                                                    <source media="(max-width: 575px)" data-srcset="{{ $product->images[0] }}" srcset="{{ $product->images[0] }}" class="animate">
-                                                    <source media="(min-width: 576px)" data-srcset="{{ $product->images[0] }}" srcset="{{ $product->images[0] }}" class="animate">
-                                                    <img class="animate" data-src="{{ $product->images[0] }}" loading="lazy">
-                                                </picture>
-                                                
-                                                <div class="technologies_items">
-                                                    @foreach ($product->tech as $item)
-                                                    <div class="technologies_item">
-                                                        <div class="technologies_item__image">
-                                                            <div class="field_product_technologies__icon" style="background: #4ec6e0;">
-                                                                <img class="animate w-120px" src="{{ $item->icon }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="technologies_item__text">
-                                                            <div class="field_product_technologies__title" style="pointer-events:none">
-                                                                <h2>{{ $item->title }}</h2>
-                                                            </div>
-                                                            <div class="field_product_technologies__body">
-                                                                <p>{{ $item->description }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="helper-class"><span class="helper-inline-blockproduct-technologies"></span></div>
-                                    </div>
-                                </div>
+                                <p>{!! $product->description !!}</p>
                             </div>
                             <!-- End .product-desc-content -->
-                        </div>
-                        <!-- End .tab-pane -->
-
-                        <div class="tab-pane fade" id="product-features-content" role="tabpanel" aria-labelledby="product-tab-feat">
-                            <div class="layout__region layout__region--content">
-                                <div class="block block-layout-builder block-inline_block product-features features_block swiper-slide tagline">
-                                    <div class="container">
-                                        <div class="field_features_tagline">
-                                            <h6>FEATURES</h6>
-                                        </div>
-
-                                        <div class="features__wrapper">
-                                            @foreach ($product->features as $feature)
-                                            <div class="features-item">
-                                                <div class="features-item-icon">
-                                                    <img class="animate" src="{{ $feature->icon }}">
-                                                </div>
-                                                <div class="text-inner-container">
-                                                    <div class="field_features_title">
-                                                        <h6>{{ $feature->title }}</h6>
-                                                    </div>
-                                                    <div class="field_features_subtitle">
-                                                        <h6>{{ $feature->description }}</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End .product-features-content -->
-                        </div>
-                        <!-- End .tab-pane -->
-
-                        <div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
-                            <table class="table table-striped mt-2">
-                                <tbody>
-                                    @foreach ($product->meta as $item)
-                                    <tr>
-                                        <th>{{ $item->title }}:</th>
-                                        <td>{{ $item->description }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
                         </div>
                         <!-- End .tab-pane -->
 
@@ -682,6 +350,20 @@
                             <!-- End .product-reviews-content -->
                         </div>
                         <!-- End .tab-pane -->
+
+                        <div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
+                            <table class="table table-striped mt-2">
+                                <tbody>
+                                    @foreach ($product->specs as $item)
+                                    <tr>
+                                        <th>{{ $item->attrName }}:</th>
+                                        <td>{{ $item->attrValue }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- End .tab-pane -->
                     </div>
                     <!-- End .tab-content -->
                 </div>
@@ -745,10 +427,10 @@
                                         </a>
                                     </figure>
                                     <div class="product-details">
-                                        <h3 class="product-title"> <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a></h3>
+                                        <h3 class="product-title"> <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a></h3>
                                         <div class="ratings-container">
                                             <div class="product-ratings">
-                                                <span class="ratings" style="width:100%"></span>
+                                                <span class="ratings" style="width:{{ $product->ratings }}"></span>
                                                 <!-- End .ratings -->
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
@@ -756,7 +438,7 @@
                                         </div>
                                         <!-- End .product-container -->
                                         <div class="price-box">
-                                            <span class="product-price">${{ $product->price }}</span>
+                                            <span class="product-price">{{ $product->sale_price }}</span>
                                         </div>
                                         <!-- End .price-box -->
                                     </div>
@@ -784,11 +466,11 @@
                     'items': 5
                 }
             } }">
-                @foreach ($relateProducts as $product)
+                @foreach ($relatedProducts as $product)
                 <div class="product-default inner-quickview inner-icon">
                     <figure>
                         <a href="{{ route('products.show', $product->slug) }}">
-                            <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->name }}">
+                            <img src="{{ $product->featured_image }}" width="205" height="205" alt="{{ $product->title }}">
                         </a>
                         <div class="btn-icon-group">
                             <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i></a>
@@ -803,11 +485,11 @@
                             <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
                         </div>
                         <h3 class="product-title">
-                            <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                            <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
-                                <span class="ratings" style="width:100%"></span>
+                                <span class="ratings" style="width:{{ $product->ratings }}"></span>
                                 <!-- End .ratings -->
                                 <span class="tooltiptext tooltip-top"></span>
                             </div>
@@ -815,7 +497,7 @@
                         </div>
                         <!-- End .product-container -->
                         <div class="price-box">
-                            <span class="product-price">${{ $product->price }}</span>
+                            <span class="product-price">{{ $product->sale_price }}</span>
                         </div>
                         <!-- End .price-box -->
                     </div>

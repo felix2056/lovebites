@@ -25,7 +25,7 @@ class Product extends Model
     ];
 
     protected $with = [
-        'category'
+        'subcategory'
     ];
 
     public function getSlugOptions() : SlugOptions
@@ -42,9 +42,9 @@ class Product extends Model
         return 'slug';
     }
 
-    public function category()
+    public function subcategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(SubCategory::class, 'subcategory_id');
     }
 
     public function orders()
@@ -57,11 +57,6 @@ class Product extends Model
         return $this->hasMany(ProductRating::class);
     }
 
-    public function currencyPrice()
-    {
-        return '$' . $this->price;
-    }
-
     public function previous()
     {
         return Product::where('id', '<', $this->id)->latest('id')->first();
@@ -72,35 +67,127 @@ class Product extends Model
         return Product::where('id', '>', $this->id)->oldest('id')->first();
     }
 
-    public function getFeaturedImageAttribute()
-    {
-        return '/storage/products/' . $this->attributes['featured_image'];
-    }
+    // public function getFeaturedImageAttribute()
+    // {
+    //     return '/storage/products/' . $this->attributes['featured_image'];
+    // }
 
     public function getImagesAttribute()
     {
         $images = json_decode($this->attributes['images']);
 
-        if ($images) {
-            foreach ($images as $key => $image) {
-                $images[$key] = '/storage/products/' . $image;
-            }
-        }
+        // if ($images) {
+        //     foreach ($images as $key => $image) {
+        //         $images[$key] = '/storage/products/' . $image;
+        //     }
+        // }
 
         return $images;
     }
 
-    public function getMetaAttribute($value)
+    public function getShortDescriptionAttribute()
     {
-        return json_decode($value);
+        return substr(strip_tags($this->attributes['description']), 0, 500) . '...';
     }
 
-    public function getFeaturesAttribute($value)
+    public function getOriginalPriceAttribute()
     {
-        return json_decode($value);
+        switch ($this->attributes['currency']) {
+            case 'USD':
+                // return dollar sign
+                return '$' . $this->attributes['original_price'];
+                break;
+            case 'EUR':
+                // return euro sign
+                return '€' . $this->attributes['original_price'];
+                break;
+            case 'GBP':
+                // return pound sign
+                return '£' . $this->attributes['original_price'];
+                break;
+            case 'SEK':
+                // return swedish krona sign
+                return 'kr' . $this->attributes['original_price'];
+                break;
+            case 'JPY':
+                // return yen sign
+                return '¥' . $this->attributes['original_price'];
+                break;
+            default:
+                // return dollar sign
+                return '$' . $this->attributes['original_price'];
+                break;
+        }
     }
 
-    public function getTechAttribute($value)
+    public function getSalePriceAttribute()
+    {
+        switch ($this->attributes['currency']) {
+            case 'USD':
+                // return dollar sign
+                return '$' . $this->attributes['sale_price'];
+                break;
+            case 'EUR':
+                // return euro sign
+                return '€' . $this->attributes['sale_price'];
+                break;
+            case 'GBP':
+                // return pound sign
+                return '£' . $this->attributes['sale_price'];
+                break;
+            case 'SEK':
+                // return swedish krona sign
+                return 'kr' . $this->attributes['sale_price'];
+                break;
+            case 'JPY':
+                // return yen sign
+                return '¥' . $this->attributes['sale_price'];
+                break;
+            default:
+                // return dollar sign
+                return '$' . $this->attributes['sale_price'];
+                break;
+        }
+    }
+
+    public function getRatingsAttribute()
+    {
+        $ratings = json_decode($this->attributes['ratings']);
+
+        $percent = 0;
+        $star1 = $ratings->oneStarCount;
+        $star2 = $ratings->twoStarCount;
+        $star3 = $ratings->threeStarCount;
+        $star4 = $ratings->fourStarCount;
+        $star5 = $ratings->fiveStarCount;
+
+        // get total ratings as percentage from 10 to 100
+        $totalStars = $star1 + $star2 + $star3 + $star4 + $star5;
+
+        for($i = 1; $i <= 5; $i++) {
+            $var = "star$i";
+            $count = $$var;
+            $percent = $count == 0 ? 0 : ($count * 100 / $totalStars);
+        }
+        
+        return round($percent, -1) . '%';
+    }
+
+    public function getTotalRatingsAttribute()
+    {
+        $ratings = json_decode($this->attributes['ratings']);
+
+        $star1 = $ratings->oneStarCount;
+        $star2 = $ratings->twoStarCount;
+        $star3 = $ratings->threeStarCount;
+        $star4 = $ratings->fourStarCount;
+        $star5 = $ratings->fiveStarCount;
+
+        $total = $star1 + $star2 + $star3 + $star4 + $star5;
+        return (int) $total;
+    }
+
+    public function getSpecsAttribute($value)
     {
         return json_decode($value);
     }

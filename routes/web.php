@@ -98,6 +98,11 @@ Route::prefix('products')->group(function () {
     Route::get('/{slug}/remove-from-cart', 'ProductController@removeFromCart')->name('products.remove-from-cart');
 });
 
+Route::prefix('subcategories')->group(function () {
+    Route::get('/', 'SubcategoryController@index')->name('subcategories.index');
+    Route::get('/{slug}', 'SubcategoryController@show')->name('subcategories.show');
+});
+
 Route::get('login', 'AuthController@login')->name('login');
 Route::get('register', 'AuthController@register')->name('register');
 

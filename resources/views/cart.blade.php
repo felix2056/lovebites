@@ -15,7 +15,7 @@
 
 	if ($cart) {
 		foreach ($cart as $item) {
-			$subtotal += $item['price'] * $item['quantity'];
+			$subtotal += (float) $item['price'] * $item['quantity'];
 		}
 	}
 @endphp
@@ -64,13 +64,13 @@
 												<a href="{{ route('products.show', $item['slug']) }}">{{ $item['name'] }}</a>
 											</h5>
 										</td>
-										<td>${{ $item['price'] }}</td>
+										<td>{{ $item['price'] }}</td>
 										<td>
 											<div class="product-single-qty">
 												<input class="horizontal-quantity form-control" type="text" value="{{ $item['quantity'] }}">
 											</div><!-- End .product-single-qty -->
 										</td>
-										<td class="text-right"><span class="subtotal-price">${{ $item['price'] * $item['quantity'] }}</span></td>
+										<td class="text-right"><span class="subtotal-price">{{ (float) $item['price'] * $item['quantity'] }}</span></td>
 									</tr>
 								@endforeach
 							</tbody>

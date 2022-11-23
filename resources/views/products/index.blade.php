@@ -124,16 +124,16 @@
                                         <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
                                     </div>
                                     <h3 class="product-title">
-                                        <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                                        <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                                     </h3>
                                     <div class="ratings-container">
                                         <div class="product-ratings">
-                                            <span class="ratings" style="width:100%"></span><!-- End .ratings -->
+                                            <span class="ratings" style="width:{{ $product->ratings }}"></span><!-- End .ratings -->
                                             <span class="tooltiptext tooltip-top"></span>
                                         </div><!-- End .product-ratings -->
                                     </div><!-- End .product-container -->
                                     <div class="price-box">
-                                        <span class="product-price">{{ $product->currencyPrice() }}</span>
+                                        <span class="product-price">{{ $product->sale_price }}</span>
                                     </div><!-- End .price-box -->
                                 </div><!-- End .product-details -->
                             </div>
@@ -185,9 +185,25 @@
                                 <ul class="cat-list">
                                     @foreach ($categories as $category)
                                     <li>
-                                        <a href="#">
-                                            {{ $category->name }}<span class="products-count">({{ $category->products_count }})</span>
+                                        <a @if($category->subcategories_count > 0) href="#widget-category-{{ $category->id }}" class="collapsed" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="widget-category-{{ $category->id }}" @else href="#" @endif>
+                                            {{ $category->name }}<span class="products-count">({{ $category->subcategories_count }})</span>
+                                            @if($category->subcategories_count > 0)
+                                            <span class="toggle"></span>
+                                            @endif
                                         </a>
+                                        @if($category->subcategories_count > 0)
+                                        <div class="collapse" id="widget-category-{{ $category->id }}">
+                                            <ul class="cat-sublist">
+                                                @foreach ($category->subcategories as $subcategory)
+                                                <li>
+                                                    <a href="{{ route('subcategories.show', $subcategory->slug) }}">
+                                                        {{ $subcategory->name }}<span class="products-count">({{ count($subcategory->products) }})</span>
+                                                    </a>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @endif
                                     </li>
                                     @endforeach
                                 </ul>
@@ -294,43 +310,44 @@
                                         </figure>
                                         <div class="product-details">
                                             <h3 class="product-title">
-                                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                                             </h3>
                                             <div class="ratings-container">
                                                 <div class="product-ratings">
-                                                    <span class="ratings" style="width:100%"></span>
+                                                    <span class="ratings" style="width:{{ $product->ratings }}"></span>
                                                     <!-- End .ratings -->
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div><!-- End .product-ratings -->
                                             </div><!-- End .product-container -->
                                             <div class="price-box">
-                                                <span class="product-price">${{ $product->price }}</span>
+                                                <span class="product-price">{{ $product->sale_price }}</span>
                                             </div><!-- End .price-box -->
                                         </div><!-- End .product-details -->
                                     </div>
                                     @endforeach
                                 </div><!-- End .featured-col -->
+                                
                                 <div class="featured-col">
                                     @foreach ($popularProducts as $product)
                                     <div class="product-default left-details product-widget">
                                         <figure>
                                             <a href="{{ route('products.show', $product->slug) }}">
-                                                <img src="{{ $product->featured_image }}" width="75" height="75" alt="{{ $product->name }}">
+                                                <img src="{{ $product->featured_image }}" width="75" height="75" alt="{{ $product->title }}">
                                             </a>
                                         </figure>
                                         <div class="product-details">
                                             <h3 class="product-title">
-                                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                                             </h3>
                                             <div class="ratings-container">
                                                 <div class="product-ratings">
-                                                    <span class="ratings" style="width:100%"></span>
+                                                    <span class="ratings" style="width:{{ $product->ratings }}"></span>
                                                     <!-- End .ratings -->
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div><!-- End .product-ratings -->
                                             </div><!-- End .product-container -->
                                             <div class="price-box">
-                                                <span class="product-price">${{ $product->price }}</span>
+                                                <span class="product-price">{{ $product->sale_price }}</span>
                                             </div><!-- End .price-box -->
                                         </div><!-- End .product-details -->
                                     </div>
@@ -357,7 +374,7 @@
                 // if selected is not empty
                 if (selected != '') {
                     // get the url
-                    var url = '{{ route("products.index") }}';
+                    var url = '{{ $url }}';
                     
                     // append the selected value to the url
                     url += '?sort=' + selected;
