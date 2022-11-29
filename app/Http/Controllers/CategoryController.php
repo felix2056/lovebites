@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use App\Category;
-use App\SubCategory;
 
-class SubCategoryController extends Controller
+class CategoryController extends Controller
 {
     public function index(Request $request)
     {
@@ -56,47 +55,35 @@ class SubCategoryController extends Controller
 
     public function show(Request $request, $slug)
     {
-        $subcategory = SubCategory::where('slug', $slug)->first();
+        $category = Category::where('slug', $slug)->first();
 
-        if (!$subcategory) {
+        if (!$category) {
             return redirect()->route('products.index');
         }
 
         $categories = Category::withCount('subcategories')->get();
 
-        $products = $subcategory->products()->paginate(40);
+        $products = [];
+
+        foreach ($category->subcategories as $subcategory) {
+            $products[] = $subcategory->products;
+        }
+
+        $products = collect($products)->flatten()->paginate(40);
+        
         $featuredProducts = Product::where('featured', true)->take(4)->get();
         $popularProducts = Product::orderBy('views', 'desc')->take(4)->get();
         
         $sort = NULL;
-        $url = route("subcategories.show", $slug);
+        $url = route("categories.show", $slug);
 
-        if ($request->has('sort')) {
-            $sort = $request->input('sort');
-
-            // filter products
-            $products = $subcategory->products()->when($sort, function ($query, $sort) {
-                if ($sort == 'price-asc') {
-                    $query->orderByRaw('CONVERT(original_price, SIGNED) asc');
-                } elseif ($sort == 'price-desc') {
-                    $query->orderByRaw('CONVERT(original_price, SIGNED) desc');
-                } elseif ($sort == 'name-asc') {
-                    $query->orderBy('title', 'asc');
-                } elseif ($sort == 'name-desc') {
-                    $query->orderBy('title', 'desc');
-                } elseif ($sort == 'featured') {
-                    $query->where('featured', true);
-                } elseif ($sort == 'popularity') {
-                    $query->orderBy('views', 'desc');
-                } elseif ($sort == 'rating') {
-                    $query->withCount('ratings')->orderBy('ratings_count', 'desc');
-                } elseif ($sort == 'date') {
-                    $query->orderBy('created_at', 'desc');
-                } else {
-                    $query->orderBy('created_at', 'desc');
-                }
-            })->paginate(40);
-        }
+        // return response()->json([
+        //     'products' => $products,
+        //     'featuredProducts' => $featuredProducts,
+        //     'popularProducts' => $popularProducts,
+        //     'sort' => $sort,
+        //     'url' => $url,
+        // ]);
 
         return view('products.index', compact('categories', 'products', 'featuredProducts', 'popularProducts', 'sort', 'url'));
     }

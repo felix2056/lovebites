@@ -98,6 +98,11 @@ Route::prefix('products')->group(function () {
     Route::get('/{slug}/remove-from-cart', 'ProductController@removeFromCart')->name('products.remove-from-cart');
 });
 
+Route::prefix('categories')->group(function () {
+    Route::get('/', 'CategoryController@index')->name('categories.index');
+    Route::get('/{slug}', 'CategoryController@show')->name('categories.show');
+});
+
 Route::prefix('subcategories')->group(function () {
     Route::get('/', 'SubCategoryController@index')->name('subcategories.index');
     Route::get('/{slug}', 'SubCategoryController@show')->name('subcategories.show');

@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
 
         $categories = [
             [
-                'name' => 'sex toys',
+                'name' => 'Sex Toys',
                 'slug' => 'sex-toys',
                 'description' => 'If you’re looking to settle for the very best in luxury pleasure, LELO offers the world’s highest quality selection of sex toys for women. Choose from a wide array of sex toys designed to satisfy all your needs, often simultaneously.',
                 'subcategory' => [
@@ -46,26 +46,104 @@ class CategorySeeder extends Seeder
                         'slug' => 'dildos',
                     ]
                 ]
+            ],
+            [
+                'name' => 'Lingerie & Apparel',
+                'slug' => 'lingerie-apparel',
+                'description' => 'If you’re looking to settle for the very best in luxury pleasure, LELO offers the world’s highest quality selection of sex toys for women. Choose from a wide array of sex toys designed to satisfy all your needs, often simultaneously.',
+                'subcategory' => [
+                    [
+                        'name' => 'women lingerie & apparel',
+                        'slug' => 'women-lingerie-apparel',
+                    ],
+                    [
+                        'name' => 'men lingerie & apparel',
+                        'slug' => 'men-lingerie-apparel',
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Sex Wellness',
+                'slug' => 'sex-wellness',
+                'description' => 'If you’re looking to settle for the very best in luxury pleasure, LELO offers the world’s highest quality selection of sex toys for women. Choose from a wide array of sex toys designed to satisfy all your needs, often simultaneously.',
+                'subcategory' => [
+                    [
+                        'name' => 'women wellness',
+                        'slug' => 'women-wellness',
+                    ],
+                    [
+                        'name' => 'men wellness',
+                        'slug' => 'men-wellness',
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Bondage & Fetish',
+                'slug' => 'bondage-fetish',
+                'description' => 'If you’re looking to settle for the very best in luxury pleasure, LELO offers the world’s highest quality selection of sex toys for women. Choose from a wide array of sex toys designed to satisfy all your needs, often simultaneously.',
+                'subcategory' => [
+                    [
+                        'name' => 'women bdsm',
+                        'slug' => 'women-bdsm',
+                    ],
+                    [
+                        'name' => 'men bdsm',
+                        'slug' => 'men-bdsm',
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Pleasure Accessories',
+                'slug' => 'pleasure-accessories',
+                'description' => 'If you’re looking to settle for the very best in luxury pleasure, LELO offers the world’s highest quality selection of sex toys for women. Choose from a wide array of sex toys designed to satisfy all your needs, often simultaneously.',
+                'subcategory' => [
+                    [
+                        'name' => 'women accessories',
+                        'slug' => 'women-accessories',
+                    ],
+                    [
+                        'name' => 'men accessories',
+                        'slug' => 'men-accessories',
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Seasonal',
+                'slug' => 'seasonal',
+                'description' => 'If you’re looking to settle for the very best in luxury pleasure, LELO offers the world’s highest quality selection of sex toys for women. Choose from a wide array of sex toys designed to satisfy all your needs, often simultaneously.',
+                'subcategory' => [
+                    [
+                        'name' => 'women seasonal',
+                        'slug' => 'women-seasonal',
+                    ],
+                    [
+                        'name' => 'men seasonal',
+                        'slug' => 'men-seasonal',
+                    ]
+                ]
             ]
+
         ];
 
         foreach ($categories as $category) {
             $catid = DB::table('categories')->insertGetId([
                 'name' => $category['name'],
                 'slug' => $category['slug'],
-                'description' => NULL,
+                'description' => $category['description'],
                 'icon' => NULL,
                 'created_at' => now()
             ]);
 
-            foreach($category['subcategory'] as $subcategory) {
-                DB::table('sub_categories')->insert([
-                    'category_id' => $catid,
-                    'name' => $subcategory['name'],
-                    'slug' => $subcategory['slug'],
-                    'icon' => NULL,
-                    'created_at' => now()
-                ]);
+            if(isset($category['subcategory'])) {
+                foreach($category['subcategory'] as $subcategory) {
+                    DB::table('sub_categories')->insert([
+                        'category_id' => $catid,
+                        'name' => $subcategory['name'],
+                        'slug' => $subcategory['slug'],
+                        'icon' => NULL,
+                        'created_at' => now()
+                    ]);
+                }
             }
         }
     }

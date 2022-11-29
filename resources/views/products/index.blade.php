@@ -119,7 +119,7 @@
                                 <div class="product-details">
                                     <div class="category-wrap">
                                         <div class="category-list">
-                                            <a href="{{ route('products.index') }}" class="product-category">category</a>
+                                            <a href="{{ route('subcategories.show', $product->subcategory->slug) }}" class="product-category">{{ $product->subcategory->name }}</a>
                                         </div>
                                         <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i class="icon-heart"></i></a>
                                     </div>

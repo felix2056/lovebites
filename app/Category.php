@@ -41,4 +41,14 @@ class Category extends Model
     {
         return 'slug';
     }
+
+    public function getIconAttribute($value)
+    {
+        return $value ? $value : asset('/images/icons/' . $this->slug . '.png');
+    }
+
+    public function getProductsCountAttribute()
+    {
+        return SubCategory::withCount('products')->where('category_id', $this->id)->get()->sum('products_count');
+    }
 }

@@ -22,4 +22,9 @@ class SubCategory extends Model
     {
         return $this->hasMany(Product::class, 'subcategory_id');
     }
+
+    public function getIconAttribute($value)
+    {
+        return $value ? $value : asset('/images/icons/' . $this->slug . '.png');
+    }
 }

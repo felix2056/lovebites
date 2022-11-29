@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="/css/demo18.min.css">
+    <link rel="stylesheet" href="/css/demo18.css">
     <link rel="stylesheet" type="text/css" href="/css/all.min.css">
 
     <style>
