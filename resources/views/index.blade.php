@@ -4,161 +4,167 @@
 {{-- <link rel="stylesheet" href="/css/demo4.min.css"> --}}
 
 <style>
+    body {
+        background-color: #f5f5f5;
+    }
     .banner-big-sale {
-    margin-top: 21px;
-    margin-bottom: 44px;
-}
-.banner {
-    position: relative;
-    font-size: 1.6rem;
-}
-.banner-big-sale .banner-content {
-    padding-top: 1.6rem;
-    padding-bottom: 1.6rem;
-}
-.banner-content {
-    position: relative;
-}
-.banner-big-sale h2 {
-    font-size: 1.275em;
-    line-height: 1.2;
-}
-.banner-big-sale b {
-    position: relative;
-    padding: 0.4em 0.6em;
-    margin-left: 1px;
-    z-index: 1;
-}
-.banner-big-sale b:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #222529;
-    transform: rotate(-2deg);
-    z-index: -1;
-}
-.banner-big-sale h2 small {
-    font-size: 64%;
-    font-weight: 400;
-    opacity: 0.7;
-    margin-left: 0.8em;
-}
-.banner-big-sale .btn {
-    letter-spacing: 0.01em;
-}
+        margin-top: 21px;
+        margin-bottom: 44px;
+    }
+    .banner {
+        position: relative;
+        font-size: 1.6rem;
+    }
+    .banner-big-sale .banner-content {
+        padding-top: 1.6rem;
+        padding-bottom: 1.6rem;
+    }
+    .banner-content {
+        position: relative;
+    }
+    .banner-big-sale h2 {
+        font-size: 1.275em;
+        line-height: 1.2;
+    }
+    .banner-big-sale b {
+        position: relative;
+        padding: 0.4em 0.6em;
+        margin-left: 1px;
+        z-index: 1;
+    }
+    .banner-big-sale b:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #222529;
+        transform: rotate(-2deg);
+        z-index: -1;
+    }
+    .banner-big-sale h2 small {
+        font-size: 64%;
+        font-weight: 400;
+        opacity: 0.7;
+        margin-left: 0.8em;
+    }
+    .banner-big-sale .btn {
+        letter-spacing: 0.01em;
+    }
 
-.section-title.categories-section-title {
-    margin-bottom: 4.5rem;
-}
-.heading-border.section-title {
-    margin: 0 -2rem 1.9rem;
-    letter-spacing: -0.02em;
-    line-height: 1.4;
-}
-.heading-border.section-title:after, .heading-border.section-title:before {
-    margin: 0 1.5rem;
-    margin-top: 2px;
-}
-.heading-border:after, .heading-border:before {
-    content: "";
-    margin: 0 8px;
-    flex: 1;
-    -ms-flex: 1;
-    height: 0;
-    border-top: 1px solid rgba(0,0,0,0.1);
-}
+    .section-title.categories-section-title {
+        margin-bottom: 4.5rem;
+    }
+    .heading-border.section-title {
+        margin: 0 -2rem 1.9rem;
+        letter-spacing: -0.02em;
+        line-height: 1.4;
+    }
+    .heading-border.section-title:after, .heading-border.section-title:before {
+        margin: 0 1.5rem;
+        margin-top: 2px;
+    }
+    .heading-border:after, .heading-border:before {
+        content: "";
+        margin: 0 8px;
+        flex: 1;
+        -ms-flex: 1;
+        height: 0;
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
 
-.category-content {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
-    background: #fff;
-}
-.category-content h3, .category-content span {
-    color: #1d2127;
-}
+    .category-content {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+        /* background: #fff; */
+    }
+    .category-content h3, .category-content span {
+        color: #1d2127;
+    }
 
-.promo-section {
-    padding: 6.1rem 0;
-    margin-top: -1px;
-}
-.promo-section .parallax-background {
-    background-color: #22252A;
-}
-.promo-section h2 {
-    font-size: 2.25em;
-    line-height: 1.15;
-}
-.promo-section .btn {
-    padding: 1.5rem 3.92rem;
-}
-.promo-section h4 {
-    font-size: 0.7em;
-    line-height: 1.4;
-}
-.promo-section h5 {
-    font-size: 1em;
-    font-family: "Open Sans",sans-serif;
-}
-.coupon-sale-text b {
-    display: inline-block;
-    padding: 5px 8px;
-    font-size: 1.6em;
-    background-color: #fff;
-}
-.coupon-sale-text i {
-    position: absolute;
-    left: -2.25em;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-    font-size: 0.65em;
-    font-style: normal;
-    opacity: 0.6;
-    letter-spacing: 0;
-}
+    .promo-section {
+        padding: 6.1rem 0;
+        margin-top: -1px;
+    }
+    .promo-section .parallax-background {
+        background-color: #22252A;
+    }
+    .promo-section h2 {
+        font-size: 2.25em;
+        line-height: 1.15;
+    }
+    .promo-section .btn {
+        padding: 1.5rem 3.92rem;
+    }
+    .promo-section h4 {
+        font-size: 0.7em;
+        line-height: 1.4;
+    }
+    .promo-section h5 {
+        font-size: 1em;
+        font-family: "Open Sans",sans-serif;
+    }
+    .coupon-sale-text b {
+        display: inline-block;
+        padding: 5px 8px;
+        font-size: 1.6em;
+        background-color: #222529;
+    }
+    .coupon-sale-text i {
+        position: absolute;
+        left: -2.25em;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        font-size: 0.65em;
+        font-style: normal;
+        opacity: 0.6;
+        letter-spacing: 0;
+    }
 
-.info-boxes-slider .owl-item.active {
-    margin-right: -1px;
-    margin-left: 1px;
-}
-.info-boxes-slider .active:not(:last-of-type) .info-box {
-    border-right: 1px solid #e7e7e7;
-}
+    .info-boxes-slider .owl-item.active {
+        margin-right: -1px;
+        margin-left: 1px;
+    }
+    .info-boxes-slider .active:not(:last-of-type) .info-box {
+        border-right: 1px solid #e7e7e7;
+    }
 
-.info-boxes-slider .info-box {
-    padding: 1.6rem 0;
-}
-.info-boxes-slider i.icon-shipping {
-    font-size: 35px;
-}
+    .info-boxes-slider .info-box {
+        padding: 1.6rem 0;
+    }
+    .info-boxes-slider i.icon-shipping {
+        font-size: 35px;
+    }
 
-.info-boxes-slider i {
-    line-height: 35px;
-}
-.info-boxes-slider i:before {
-    margin: 0 3px 0 2px;
-}
+    .info-boxes-slider i {
+        line-height: 35px;
+    }
+    .info-boxes-slider i:before {
+        margin: 0 3px 0 2px;
+    }
 
-.info-box i:before {
-    width: auto;
-    margin: 0 0.1em;
-}
-.info-boxes-slider .info-box-content {
-    margin-top: -1px;
-    margin-left: 1px;
-}
-.info-boxes-slider .info-box h4 {
-    margin-bottom: 3px;
-    line-height: 14px;
-}
-.info-boxes-slider .info-box p {
-    line-height: 17px;
-    letter-spacing: 0;
-}
+    .info-box i:before {
+        width: auto;
+        margin: 0 0.1em;
+    }
+    .info-boxes-slider .info-box-content {
+        margin-top: -1px;
+        margin-left: 1px;
+    }
+    .info-boxes-slider .info-box h4 {
+        margin-bottom: 3px;
+        line-height: 14px;
+    }
+    .info-boxes-slider .info-box p {
+        line-height: 17px;
+        letter-spacing: 0;
+    }
+    .product-price {
+        color: #fff !important;
+    }
 </style>
 @endsection
 
@@ -167,7 +173,7 @@
 @endsection
 
 @section('content')
-<main class="main">
+<main class="main bg-black">
     <section class="home-slider-container">
         <div class="home-slider owl-carousel with-dots-container" data-owl-options="{'nav': false, 'loop': true, 'autoplay': true, 'autoplayTimeout': 7000}">
             <div class="home-slide home-slide2 banner" style="background-color: #111;">
@@ -198,7 +204,7 @@
                         class="float-left coupon-sale-text line-height-1 ls-n-20 font-weight-bold text-secondary">
                         <sup>$</sup>149<sup>99</sup>
                     </h6>
-                    <a href="{{ route('products.index') }}" class="btn btn-light d-inline-block">Shop Now</a>
+                    <a href="{{ route('products.index') }}" class="btn btn-dark d-inline-block">Shop Now</a>
                 </div>
                 <!-- End .home-slide-content -->
             </div>
@@ -231,7 +237,7 @@
                         class="float-left coupon-sale-text line-height-1 ls-n-20 font-weight-bold text-secondary">
                         <sup>$</sup>179<sup>99</sup>
                     </h6>
-                    <a href="{{ route('products.index') }}" class="btn btn-light d-inline-block">Shop Now</a>
+                    <a href="{{ route('products.index') }}" class="btn btn-dark d-inline-block">Shop Now</a>
                 </div>
                 <!-- End .home-slide-content -->
             </div>
@@ -266,7 +272,7 @@
                 }
             }
         }">
-            <div class="info-box info-box-icon-left">
+            <div class="info-box info-box-icon-left text-white">
                 <i class="icon-shipping"></i>
 
                 <div class="info-box-content">
@@ -277,7 +283,7 @@
             </div>
             <!-- End .info-box -->
 
-            <div class="info-box info-box-icon-left">
+            <div class="info-box info-box-icon-left text-white">
                 <i class="icon-money"></i>
 
                 <div class="info-box-content">
@@ -288,7 +294,7 @@
             </div>
             <!-- End .info-box -->
 
-            <div class="info-box info-box-icon-left">
+            <div class="info-box info-box-icon-left text-white">
                 <i class="icon-support"></i>
 
                 <div class="info-box-content">
@@ -314,12 +320,12 @@
                         </h2>
                     </div>
                     <div class="col-md-3 col-sm-4 text-center text-sm-right">
-                        <a class="btn btn-light btn-white btn-lg" href="{{ route('products.index') }}">View Sale</a>
+                        <a class="btn btn-dark btn-black btn-lg" href="{{ route('products.index') }}">View Sale</a>
                     </div>
                 </div>
             </div>
 
-            <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate" data-animation-delay="100" data-animation-name="fadeInUpShorter">Browse Our Categories</h2>
+            <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate text-white" data-animation-delay="100" data-animation-name="fadeInUpShorter">Browse Our Categories</h2>
 
             <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
                 @foreach (\App\Category::with('subcategories')->get() as $category)
@@ -417,9 +423,9 @@
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
-                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                            <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart text-dark"></i></a>
+                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart text-dark"></i><span class="text-dark">ADD TO CART</span></a>
+                            <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt text-dark"></i></a>
                         </div>
                     </div>
                     <!-- End .product-details -->
@@ -444,7 +450,7 @@
                         <img class="m-b-4 appear-animate" data-animation-name="fadeInUpShorter"
                             data-animation-duration="1000" data-animation-delay="400" src="/images/site/img-1.jpg"
                             alt="img" width="540" height="100">
-                        <a href="{{ route('products.index') }}" class="btn btn-light appear-animate"
+                        <a href="{{ route('products.index') }}" class="btn btn-dark appear-animate"
                             data-animation-name="fadeInUpShorter" data-animation-duration="1000"
                             data-animation-delay="600">Shop Now</a>
                     </div>
@@ -505,9 +511,9 @@
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
-                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                            <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart text-dark"></i></a>
+                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart text-dark"></i><span class="text-dark">ADD TO CART</span></a>
+                            <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt text-dark"></i></a>
                         </div>
                     </div>
                     <!-- End .product-details -->
@@ -524,7 +530,7 @@
         <div class="container-fluid text-center position-relative appear-animate"
             data-animation-name="fadeInUpShorter">
             <h3 class="line-height-1 ls-n-25 text-white text-uppercase m-b-4">Explore the best of you</h3>
-            <a href="{{ route('products.index') }}" class="btn btn-light">Shop Now</a>
+            <a href="{{ route('products.index') }}" class="btn btn-dark">Shop Now</a>
         </div>
         <!-- End .container -->
     </section>
@@ -617,7 +623,7 @@
         <div class="promo-banner banner container text-uppercase">
             <div class="banner-content row align-items-center text-center">
                 <div class="col-md-4 ml-xl-auto text-md-right appear-animate" data-animation-name="fadeInRightShorter" data-animation-delay="600">
-                    <h2 class="mb-md-0 text-white">Top Fashion<br>Deals</h2>
+                    <h2 class="mb-md-0 text-white">Top Sex Toy<br>Bundles</h2>
                 </div>
                 <div class="col-md-4 col-xl-3 pb-4 pb-md-0 appear-animate" data-animation-name="fadeIn" data-animation-delay="300">
                     <a href="{{ route('products.index') }}" class="btn btn-dark btn-black ls-10">View Sale</a>
@@ -792,7 +798,7 @@
                                 <h4 class="text-white mb-0">Flash Sale</h4>
                                 <h5 class="text-uppercase text-white mb-0">30% off</h5>
                             </div>
-                            <a href="{{ route('products.index') }}" class="btn btn-light">Shop now</a>
+                            <a href="{{ route('products.index') }}" class="btn btn-dark">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -962,4 +968,5 @@
         </div>
     </section>
 </main>
+<!-- End .main -->
 @endsection

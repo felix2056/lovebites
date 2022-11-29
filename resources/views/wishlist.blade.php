@@ -130,5 +130,6 @@
             </table>
         </div><!-- End .cart-table-container -->
     </div><!-- End .container -->
-</main><!-- End .main -->
+</main>
+<!-- End .main -->
 @endsection

@@ -480,6 +480,39 @@
     background-color: #2f3946 !important
 }
 
+.bg-black {
+    background-color: #222529 !important
+}
+
+.bg-black2 {
+    background-color: #141414 !important
+}
+
+.bg-black h1,
+.bg-black h2,
+.bg-black h3,
+.bg-black h4,
+.bg-black h5,
+.bg-black h6,
+.bg-black p,
+.bg-black a,
+.bg-black li {
+    color: #fff !important
+}
+
+.bg-black2 h1,
+.bg-black2 h2,
+.bg-black2 h3,
+.bg-black2 h4,
+.bg-black2 h5,
+.bg-black2 h6,
+.bg-black2 p,
+.bg-black2 a,
+.bg-black2 li {
+    color: #fff !important
+}
+
+
 .bg-primary {
     background-color: #000 !important
 }

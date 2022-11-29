@@ -122,4 +122,5 @@
         </div><!-- End .row -->
     </div><!-- End .container -->
 </main>
+<!-- End .main -->
 @endsection

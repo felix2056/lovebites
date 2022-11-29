@@ -259,10 +259,7 @@
         </header>
         <!-- End .header -->
 
-        <main class="main">
-            @yield('content')
-        </main>
-        <!-- End .main -->
+        @yield('content')
 
         <footer class="footer font2">
             <div class="container-fluid">

@@ -180,5 +180,6 @@
             </div><!-- End .row -->
         </div><!-- End .container-fluid -->
     </div><!-- End .info-boxes-container -->
-</main><!-- End .main -->
+</main>
+<!-- End .main -->
 @endsection

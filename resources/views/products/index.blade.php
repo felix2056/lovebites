@@ -361,6 +361,7 @@
         </div><!-- End .row -->
     </div><!-- End .container-fluid -->
 </main>
+<!-- End .main -->
 @endsection
 
 @section('scripts')
