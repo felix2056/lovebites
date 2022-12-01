@@ -6,9 +6,9 @@
 
 @section('content')
 <main class="main about">
-    <div class="page-header page-header-bg text-left" style="background-image: url(images/page-header-bg.jpg); background-color: #111">
+    <div class="page-header page-header-bg text-left" style="background-image: url(/images/site/dark-surface-with-reflections-smooth-minimal-black-waves-background-blurry-silk-waves-minimal-soft-grayscale-ripples-flow.jpg); background-color: #111">
         <div class="container-fluid">
-            <h1 class="text-white"><span>History</span>About Us</h1>
+            <h1 class="text-white"><span>About</span>Lovebites</h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
 
@@ -16,23 +16,22 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
-                    <img src="/images/about.jpg" alt="About">
+                    <img src="/images/site/HP_KV_desktop_1920x839_DOT.jpg" alt="About">
                 </div><!-- End .col-lg-6 -->
 
                 <div class="col-lg-6 padding-left-lg">
                     <h2 class="subtitle">WHO WE ARE</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the industry’s standard dummy text ever since the 1500s, when an unknown
-                        printer toofa k a galley of type and scrambled it to make a type specimen book. It has
-                        survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of
-                        Letraset sheets containing Lorem Ipsum passages</p>
+                    <p>Lovebites.com</p>
+                    <p>
+                        We deliver sexual happiness straight to your door through our wide selection of products made for adults.
+                        Our experienced and passionate team is always up-to-date and selecting the best products for grown-ups for all tastes.
+                    </p>
 
-                    <ul>
+                    {{-- <ul>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                         <li>Nulla id nisi a nulla rhoncus sodales et ac lectus.</li>
                         <li>In sagittis diam et lorem egestas, ac sodales dolor venenatis.</li>
-                    </ul>
+                    </ul> --}}
                 </div><!-- End .col-lg-6 -->
             </div><!-- End .row -->
 
@@ -41,23 +40,27 @@
             <div class="row">
                 <div class="col-md-4">
                     <h2 class="subtitle mb-2">OUR MISSION</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a Finibus Bonorum et Malorum,</p>
+                    <p>We aim to make you happy and satisfied.
+
+                        We keep high standards of excellence and strive for 100% customer satisfaction.
+                        
+                        We love to sharing with us your experience with our products and receiving your reviews.
+                        
+                        Our customer service team is always available for you!</p>
                 </div><!-- End .col-md-4 -->
 
                 <div class="col-md-4">
                     <h2 class="subtitle mb-2">OUR VISION</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a Finibus Bonorum et Malorum,</p>
+                    <p>Sexual education is very important for us and we aim to be part of an inclusive society where all adults feel happy with their sexuality and free to explore their pleasures. We embrace inclusion, we commit to support diversity and sexual wellness for all.</p>
                 </div><!-- End .col-md-4 -->
 
                 <div class="col-md-4">
                     <h2 class="subtitle mb-2">OUR VALUE</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a Finibus Bonorum et Malorum,</p>
+                    <p>
+                        USP (Unique Selling Proposition).
+                        What makes Lovebites different?
+                        Our team is carefully selecting the best products at a fair pricing that delivered directly to your door in discreet packaging for all tastes.
+                    </p>
                 </div><!-- End .col-md-4 -->
             </div><!-- End .row -->
         </div><!-- End .container-fluid -->
@@ -68,28 +71,28 @@
             <div class="row">
                 <div class="col-6 col-md-4 count-container text-center">
                     <div class="count-wrapper">
-                        <span class="count-to" data-from="0" data-to="32561" data-speed="2000" data-refresh-interval="50">32561</span><span>M+</span>
+                        <span class="count-to" data-from="0" data-to="150" data-speed="1000" data-refresh-interval="50">100</span><span>+</span>
                     </div><!-- End .count-wrapper -->
                     <h4 class="count-title">Sold Products</h4>
                 </div><!-- End .col-md-4 -->
 
                 <div class="col-6 col-md-4 count-container text-center">
                     <div class="count-wrapper">
-                        <span class="count-to" data-from="0" data-to="42561" data-speed="2000" data-refresh-interval="50">42561</span><span>M+</span>
+                        <span class="count-to" data-from="0" data-to="280" data-speed="1000" data-refresh-interval="50">280</span><span>+</span>
                     </div><!-- End .count-wrapper -->
                     <h4 class="count-title">Happy Buyers</h4>
                 </div><!-- End .col-md-4 -->
 
                 <div class="col-6 col-md-4 count-container text-center">
                     <div class="count-wrapper">
-                        <span class="count-to" data-from="0" data-to="866" data-speed="2000" data-refresh-interval="50">866</span><span>M+</span>
+                        <span class="count-to" data-from="0" data-to="50" data-speed="1000" data-refresh-interval="50">50</span><span>+</span>
                     </div><!-- End .count-wrapper -->
                     <h4 class="count-title">Employees</h4>
                 </div><!-- End .col-md-4 -->
 
                 <div class="col-6 col-md-4 count-container text-center">
                     <div class="count-wrapper">
-                        <span class="count-to" data-from="0" data-to="58584" data-speed="2000" data-refresh-interval="50">58584</span>+
+                        <span class="count-to" data-from="0" data-to="300" data-speed="1000" data-refresh-interval="50">300</span>+
                     </div><!-- End .count-wrapper -->
                     <h4 class="count-title">Products</h4>
                 </div><!-- End .col-md-4 -->

@@ -75,7 +75,7 @@
     }
 
     .category-content {
-        position: absolute;
+        /* position: absolute; */
         bottom: 0;
         width: 100%;
         z-index: 1;
@@ -327,7 +327,7 @@
 
             <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate text-white" data-animation-delay="100" data-animation-name="fadeInUpShorter">Browse Our Categories</h2>
 
-            <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
+            {{-- <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
                 @foreach (\App\Category::with('subcategories')->get() as $category)
                 <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
                     <a href="{{ route('categories.show', $category->slug) }}">
@@ -341,11 +341,66 @@
                     </a>
                 </div>
                 @endforeach
+            </div> --}}
+
+            @php
+                $categories = \App\Category::with('subcategories')->get();
+            @endphp
+
+            <div class="row">
+                @foreach ($categories as $category)
+                <div class="col-md-2 col-6 product-category appear-animate" data-animation-name="fadeInUpShorter">
+                    <a href="{{ route('categories.show', $category->slug) }}">
+                        <figure>
+                            <img src="{{ $category->icon }}" alt="category" width="280" height="240">
+                        </figure>
+                        <div class="category-content p-0">
+                            <h3>{{ $category->name }}</h3>
+                            <span><mark class="count">{{ $category->products_count }}</mark> products</span>
+                        </div>
+                    </a>
+
+                    <div class="product-subcategory sub-menu" style="display: none;">
+                        <div class="side-menu-wrapper">
+                            <h2 class="side-menu-title ls-10" style="color: #000 !important;">Top Categories</h2>
+
+                            <div class="side-menu-body mb-2 px-3 mx-3">
+                                <ul class="side-menu pb-1">
+                                    @foreach($category->subcategories as $subcategory)
+                                        <li>
+                                            <a href="{{ route('subcategories.show', $subcategory->slug) }}" class="text-capitalize">
+                                            @if(!is_null($subcategory->icon))
+                                                <img src="{{ $subcategory->icon }}" alt="" style="width: 25px;margin-right: 1.2rem;font-size: 20px;line-height: 1;vertical-align: middle;float: left;">
+                                            @else
+                                                <!-- check if category name has word "women" -->
+                                                @if (strpos(strtolower($subcategory->name), 'women') !== false)
+                                                    <i class="icon-category-women"></i>
+                                                @elseif (strpos(strtolower($subcategory->name), 'men') !== false)
+                                                    <i class="icon-category-men"></i>
+                                                @endif
+                                            @endif
+                                            
+                                            {{ $subcategory->name }}
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+
+                                <a href="{{ route('categories.show', $category->slug) }}" class="btn btn-block btn-dark btn-lg px-0 ls-10">
+                                    View <strong>all</strong>
+                                </a>
+                            </div>
+                            <!-- End .side-menu-body -->
+                        </div>
+                        <!-- End .side-custom-menu -->
+                    </div>
+                </div>
+                @endforeach
             </div>
 
             <hr class="mt-0 m-b-5">
 
-            <div class="banners-container mb-2">
+            {{-- <div class="banners-container mb-2">
                 <div class="banners-slider owl-carousel owl-theme" data-owl-options="{
                     'loop':true,
                     'autoplay': true,
@@ -372,9 +427,10 @@
                     <!-- End .banner -->
                     @endforeach
                 </div>
-            </div>
+            </div> 
 
             <hr class="mt-0 m-b-5">
+            --}}
 
             <h2 class="section-title heading-border ls-20 border-0">New Arrivals</h2>
 
@@ -424,7 +480,7 @@
                         <!-- End .price-box -->
                         <div class="product-action">
                             <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart text-dark"></i></a>
-                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart text-dark"></i><span class="text-dark">ADD TO CART</span></a>
+                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart text-pink"></i><span class="text-pink">ADD TO CART</span></a>
                             <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt text-dark"></i></a>
                         </div>
                     </div>
@@ -512,7 +568,7 @@
                         <!-- End .price-box -->
                         <div class="product-action">
                             <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart text-dark"></i></a>
-                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart text-dark"></i><span class="text-dark">ADD TO CART</span></a>
+                            <a href="{{ route('products.add-to-cart', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i class="icon-shopping-cart text-pink"></i><span class="text-pink">ADD TO CART</span></a>
                             <a href="{{ route('products.quick-view', $product->slug) }}" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt text-dark"></i></a>
                         </div>
                     </div>
@@ -529,8 +585,8 @@
         data-image-src="/images/site/dainis-graveris-04qxvvRE8Mo-unsplash.jpg" style="background-color: #111;">
         <div class="container-fluid text-center position-relative appear-animate"
             data-animation-name="fadeInUpShorter">
-            <h3 class="line-height-1 ls-n-25 text-white text-uppercase m-b-4">Explore the best of you</h3>
-            <a href="{{ route('products.index') }}" class="btn btn-dark">Shop Now</a>
+            <h3 class="line-height-1 ls-n-25 text-white text-uppercase m-b-4">BITES ROYALITY PROGRAM</h3>
+            <a href="{{ route('login') }}" class="btn btn-dark">Signup Now</a>
         </div>
         <!-- End .container -->
     </section>
@@ -619,11 +675,11 @@
     </section>
     <!-- End .feature-boxes-container -->
 
-    <section class="promo-section bg-dark" data-parallax="{'speed': 2, 'enableOnMobile': true}" data-image-src="/images/site/dark-surface-with-reflections-smooth-minimal-black-waves-background-blurry-silk-waves-minimal-soft-grayscale-ripples-flow.jpg">
+    {{-- <section class="promo-section bg-dark" data-parallax="{'speed': 2, 'enableOnMobile': true}" data-image-src="/images/site/dark-surface-with-reflections-smooth-minimal-black-waves-background-blurry-silk-waves-minimal-soft-grayscale-ripples-flow.jpg">
         <div class="promo-banner banner container text-uppercase">
             <div class="banner-content row align-items-center text-center">
                 <div class="col-md-4 ml-xl-auto text-md-right appear-animate" data-animation-name="fadeInRightShorter" data-animation-delay="600">
-                    <h2 class="mb-md-0 text-white">Top Sex Toy<br>Bundles</h2>
+                    <h2 class="mb-md-0 text-white">Top Toy<br>Bundles</h2>
                 </div>
                 <div class="col-md-4 col-xl-3 pb-4 pb-md-0 appear-animate" data-animation-name="fadeIn" data-animation-delay="300">
                     <a href="{{ route('products.index') }}" class="btn btn-dark btn-black ls-10">View Sale</a>
@@ -635,7 +691,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <hr class="mt-0 m-b-5">
 
@@ -771,7 +827,7 @@
                 <!-- End .post -->
             </div>
 
-            <hr class="mt-0 m-b-5">
+            {{-- <hr class="mt-0 m-b-5">
 
             <div class="row">
                 <div class="col-lg-6">
@@ -802,7 +858,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <hr class="mt-0 m-b-5">
 
@@ -819,7 +875,7 @@
 
             <hr class="mt-4 m-b-5">
 
-            <div class="product-widgets-container row pb-2">
+            {{-- <div class="product-widgets-container row pb-2">
                 <div class="col-lg-3 col-sm-6 pb-5 pb-md-0 appear-animate" data-animation-name="fadeInLeftShorter" data-animation-delay="200">
                     <h4 class="section-sub-title">Featured Products</h4>
                     @foreach (\App\Product::where('featured', true)->take(3)->get() as $product)
@@ -963,10 +1019,22 @@
                     </div>
                     @endforeach
                 </div>
-            </div>
+            </div> --}}
             <!-- End .row -->
         </div>
     </section>
 </main>
 <!-- End .main -->
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.product-category').hover(function() {
+                $(this).find('.product-subcategory').slideDown(300);
+            }, function() {
+                $(this).find('.product-subcategory').slideUp(300);
+            });
+        });
+    </script>
 @endsection

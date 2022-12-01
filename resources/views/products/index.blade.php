@@ -218,7 +218,7 @@
 
                         <div class="collapse show" id="widget-body-3">
                             <div class="widget-body pb-0">
-                                <form action="#">
+                                <form method="GET">
                                     <div class="price-slider-wrapper">
                                         <div id="price-slider"></div><!-- End #price-slider -->
                                     </div><!-- End .price-slider-wrapper -->
@@ -236,7 +236,7 @@
                         </div><!-- End .collapse -->
                     </div><!-- End .widget -->
 
-                    <div class="widget widget-color">
+                    {{-- <div class="widget widget-color">
                         <h3 class="widget-title">
                             <a data-toggle="collapse" href="#widget-body-4" role="button" aria-expanded="true" aria-controls="widget-body-4">Color</a>
                         </h3>
@@ -262,7 +262,7 @@
                                 </ul>
                             </div><!-- End .widget-body -->
                         </div><!-- End .collapse -->
-                    </div><!-- End .widget -->
+                    </div><!-- End .widget --> --}}
 
                     {{-- <div class="widget widget-size">
                         <h3 class="widget-title">
@@ -295,7 +295,7 @@
                         </div><!-- End .collapse -->
                     </div> --}}
 
-                    <div class="widget widget-featured">
+                    {{-- <div class="widget widget-featured">
                         <h3 class="widget-title">Featured</h3>
 
                         <div class="widget-body">
@@ -355,7 +355,7 @@
                                 </div><!-- End .featured-col -->
                             </div><!-- End .widget-featured-slider -->
                         </div><!-- End .widget-body -->
-                    </div><!-- End .widget -->
+                    </div><!-- End .widget --> --}}
                 </div><!-- End .sidebar-wrapper -->
             </aside><!-- End .col-lg-3 -->
         </div><!-- End .row -->

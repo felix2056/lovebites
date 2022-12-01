@@ -19,8 +19,30 @@ class ProductController extends Controller
         $featuredProducts = Product::where('featured', true)->take(4)->get();
         $popularProducts = Product::orderBy('views', 'desc')->take(4)->get();
         
+        $search = Null;
         $sort = NULL;
         $url = route("products.index");
+
+        if ($request->has('search')) {
+            $search = $request->search;
+            $products = Product::where('title', 'like', "%$search%")->orWhere('description', 'like', "%$search%")->paginate(40);
+            $url = route("products.index") . "?search=$search";
+        }
+
+        if ($request->has('api-search')) {
+            $search = $request->search;
+            $product = Product::where('title', 'like', "%$search%")->orWhere('description', 'like', "%$search%")->first();
+
+            if ($product) {
+                return response()->json([
+                    'status' => 'success',
+                    'title' => $product->title,
+                    'description' => substr($product->description, 0, 100),
+                    'featured_image' => $product->featured_image,
+                    'url' => route('products.show', $product->slug)
+                ], 200);
+            }
+        }
 
         if ($request->has('sort')) {
             $sort = $request->input('sort');
