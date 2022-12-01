@@ -37,7 +37,7 @@ class ProductController extends Controller
                 return response()->json([
                     'status' => 'success',
                     'title' => $product->title,
-                    'description' => substr($product->description, 0, 100),
+                    'description' => substr(strip_tags($product->description), 0, 100),
                     'featured_image' => $product->featured_image,
                     'url' => route('products.show', $product->slug)
                 ], 200);
