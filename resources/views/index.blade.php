@@ -474,8 +474,8 @@
                         </div>
                         <!-- End .product-container -->
                         <div class="price-box">
-                            <del class="old-price">{{ $product->original_price }}</del>
-                            <span class="product-price">{{ $product->sale_price }}</span>
+                            <del class="old-price">{{ $product->original_price_cur }}</del>
+                            <span class="product-price">{{ $product->sale_price_cur }}</span>
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
@@ -562,8 +562,8 @@
                         </div>
                         <!-- End .product-container -->
                         <div class="price-box">
-                            <del class="old-price">{{ $product->original_price }}</del>
-                            <span class="product-price">{{ $product->sale_price }}</span>
+                            <del class="old-price">{{ $product->original_price_cur }}</del>
+                            <span class="product-price">{{ $product->sale_price_cur }}</span>
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">

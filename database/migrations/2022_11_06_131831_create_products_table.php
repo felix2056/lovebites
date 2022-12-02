@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->string('currency');
             $table->decimal('original_price', 8, 2);
             $table->decimal('sale_price', 8, 2);
+            $table->decimal('retailer_original_price', 8, 2);
+            $table->decimal('retailer_sale_price', 8, 2);
             $table->string('featured_image')->nullable();
             $table->json('images')->nullable();
             $table->string('url')->nullable();

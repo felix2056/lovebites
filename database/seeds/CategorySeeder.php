@@ -55,10 +55,12 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'women lingerie & apparel',
                         'slug' => 'women-lingerie-apparel',
+                        'icon' => '/images/icons/women.png'
                     ],
                     [
                         'name' => 'men lingerie & apparel',
                         'slug' => 'men-lingerie-apparel',
+                        'icon' => '/images/icons/men.png'
                     ]
                 ]
             ],
@@ -70,10 +72,12 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'women wellness',
                         'slug' => 'women-wellness',
+                        'icon' => '/images/icons/women.png'
                     ],
                     [
                         'name' => 'men wellness',
                         'slug' => 'men-wellness',
+                        'icon' => '/images/icons/men.png'
                     ]
                 ]
             ],
@@ -85,10 +89,12 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'women bdsm',
                         'slug' => 'women-bdsm',
+                        'icon' => '/images/icons/women.png'
                     ],
                     [
                         'name' => 'men bdsm',
                         'slug' => 'men-bdsm',
+                        'icon' => '/images/icons/men.png'
                     ]
                 ]
             ],
@@ -100,10 +106,12 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'women accessories',
                         'slug' => 'women-accessories',
+                        'icon' => '/images/icons/women.png'
                     ],
                     [
                         'name' => 'men accessories',
                         'slug' => 'men-accessories',
+                        'icon' => '/images/icons/men.png'
                     ]
                 ]
             ],
@@ -115,10 +123,12 @@ class CategorySeeder extends Seeder
                     [
                         'name' => 'women seasonal',
                         'slug' => 'women-seasonal',
+                        'icon' => '/images/icons/women.png'
                     ],
                     [
                         'name' => 'men seasonal',
                         'slug' => 'men-seasonal',
+                        'icon' => '/images/icons/men.png'
                     ]
                 ]
             ]

@@ -46,7 +46,7 @@
 				<hr class="short-divider">
 
 				<div class="price-box">
-					<span class="product-price">{{ $product->sale_price }}</span>
+					<span class="product-price">{{ $product->sale_price_cur }}</span>
 				</div><!-- End .price-box -->
 
 				<div class="product-desc">
@@ -86,8 +86,8 @@
 
 				<div class="product-action">
 					<div class="price-box product-filtered-price">
-						<del class="old-price"><span>{{ $product->original_price }}</span></del>
-						<span class="product-price">{{ $product->sale_price }}</span>
+						<del class="old-price"><span>{{ $product->original_price_cur }}</span></del>
+						<span class="product-price">{{ $product->sale_price_cur }}</span>
 					</div>
 
 					<div class="product-single-qty">

@@ -90,7 +90,7 @@ class Product extends Model
         return substr(strip_tags($this->attributes['description']), 0, 500) . '...';
     }
 
-    public function getOriginalPriceAttribute()
+    public function getOriginalPriceCurAttribute()
     {
         switch ($this->attributes['currency']) {
             case 'USD':
@@ -120,7 +120,7 @@ class Product extends Model
         }
     }
 
-    public function getSalePriceAttribute()
+    public function getSalePriceCurAttribute()
     {
         switch ($this->attributes['currency']) {
             case 'USD':

@@ -127,8 +127,8 @@
                             <hr class="short-divider">
 
                             <div class="price-box">
-                                <span class="old-price">{{ $product->original_price }}</span>
-                                <span class="new-price">{{ $product->sale_price }}</span>
+                                <span class="old-price">{{ $product->original_price_cur }}</span>
+                                <span class="new-price">{{ $product->sale_price_cur }}</span>
                             </div>
                             <!-- End .price-box -->
 
@@ -438,7 +438,7 @@
                                         </div>
                                         <!-- End .product-container -->
                                         <div class="price-box">
-                                            <span class="product-price">{{ $product->sale_price }}</span>
+                                            <span class="product-price">{{ $product->sale_price_cur }}</span>
                                         </div>
                                         <!-- End .price-box -->
                                     </div>
@@ -497,7 +497,7 @@
                         </div>
                         <!-- End .product-container -->
                         <div class="price-box">
-                            <span class="product-price">{{ $product->sale_price }}</span>
+                            <span class="product-price">{{ $product->sale_price_cur }}</span>
                         </div>
                         <!-- End .price-box -->
                     </div>

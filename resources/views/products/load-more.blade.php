@@ -27,7 +27,7 @@
                 </div><!-- End .product-ratings -->
             </div><!-- End .product-container -->
             <div class="price-box">
-                <span class="product-price">{{ $product->sale_price }}</span>
+                <span class="product-price">{{ $product->sale_price_cur }}</span>
             </div><!-- End .price-box -->
         </div><!-- End .product-details -->
     </div>

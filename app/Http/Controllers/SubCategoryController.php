@@ -77,9 +77,9 @@ class SubCategoryController extends Controller
             // filter products
             $products = $subcategory->products()->when($sort, function ($query, $sort) {
                 if ($sort == 'price-asc') {
-                    $query->orderByRaw('CONVERT(original_price, SIGNED) asc');
+                    $query->orderBy('original_price', 'asc');
                 } elseif ($sort == 'price-desc') {
-                    $query->orderByRaw('CONVERT(original_price, SIGNED) desc');
+                    $query->orderBy('original_price', 'desc');
                 } elseif ($sort == 'name-asc') {
                     $query->orderBy('title', 'asc');
                 } elseif ($sort == 'name-desc') {
