@@ -860,7 +860,7 @@
                 </div>
             </div> --}}
 
-            <hr class="mt-0 m-b-5">
+            {{-- <hr class="mt-0 m-b-5">
 
             <div class="brands-slider owl-carousel owl-theme images-center appear-animate" data-animation-name="fadeIn" data-animation-duration="500" data-owl-options="{
             'margin': 0}">
@@ -871,11 +871,11 @@
                 <img src="/images/brand5.png" width="130" height="56" alt="brand">
                 <img src="/images/brand6.png" width="130" height="56" alt="brand">
             </div>
-            <!-- End .brands-slider -->
+            <!-- End .brands-slider --> --}}
 
-            <hr class="mt-4 m-b-5">
+            {{-- <hr class="mt-4 m-b-5">
 
-            {{-- <div class="product-widgets-container row pb-2">
+            <div class="product-widgets-container row pb-2">
                 <div class="col-lg-3 col-sm-6 pb-5 pb-md-0 appear-animate" data-animation-name="fadeInLeftShorter" data-animation-delay="200">
                     <h4 class="section-sub-title">Featured Products</h4>
                     @foreach (\App\Product::where('featured', true)->take(3)->get() as $product)
