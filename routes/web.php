@@ -68,21 +68,6 @@ Route::get('db_dump', function () {
     echo "DB backup ready";
 });
 
-Route::get('retailer-price', function () {
-    $products = \App\Product::all();
-    foreach ($products as $product) {
-        $product->retailer_original_price = $product->original_price;
-        $product->retailer_sale_price = $product->sale_price;
-        $product->save();
-    }
-    
-    return response()->json([
-        'status' => 'success',
-        'products_count' => $products->count(),
-        'message' => 'Successfully updated all products back to default price'
-    ], 200);
-});
-
 Route::get('default-price', function () {
     $products = \App\Product::all();
     foreach ($products as $product) {
