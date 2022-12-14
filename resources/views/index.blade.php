@@ -259,7 +259,7 @@
 
     <hr class="mt-0 m-b-5">
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="info-boxes-slider owl-carousel owl-theme mb-2" data-owl-options="{
             'dots': false,
             'loop': false,
@@ -307,11 +307,11 @@
         </div>
         <!-- End .info-boxes-slider -->
     </div>
-    <!-- End .container -->
+    <!-- End .container --> --}}
 
     <section class="new-products-section">
         <div class="container">
-            <div class="banner banner-big-sale appear-animate" data-animation-delay="200" data-animation-name="fadeInUpShorter" style="background: #2A95CB center/cover url(&#x27;images/banner-4.jpg&#x27;);">
+            {{-- <div class="banner banner-big-sale appear-animate" data-animation-delay="200" data-animation-name="fadeInUpShorter" style="background: #2A95CB center/cover url(&#x27;images/banner-4.jpg&#x27;);">
                 <div class="banner-content row align-items-center mx-0">
                     <div class="col-md-9 col-sm-8">
                         <h2 class="text-white text-uppercase text-center text-sm-left ls-n-20 mb-md-0 px-4">
@@ -323,7 +323,7 @@
                         <a class="btn btn-dark btn-black btn-lg" href="{{ route('products.index') }}">View Sale</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate text-white" data-animation-delay="100" data-animation-name="fadeInUpShorter">Browse Our Categories</h2>
 
@@ -380,7 +380,7 @@
                                                 @endif
                                             @endif
                                             
-                                            {{ $subcategory->name }}
+                                            {{ $subcategory->name2 }}
                                         </a>
                                     </li>
                                     @endforeach
@@ -492,7 +492,7 @@
         </div>
     </section>
 
-    <section class="product-banner-section">
+    {{-- <section class="product-banner-section">
         <div class="banner" style="background-color: #111;">
             <figure class="w-100 appear-animate" data-animation-name="fadeIn">
                 <img class="w-100 h-400px" src="/images/site/21.webp" alt="product banner">
@@ -513,7 +513,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End .product-banner-section -->
 
     <hr class="mt-0 m-b-5">
@@ -660,7 +660,7 @@
                             <h3 class="text-white">Free Shipping</h3>
                             <h5 class="line-height-1">Made To Help You</h5>
 
-                            <p>Porto has very powerful admin features to help customer to build their own shop
+                            <p>Lovebites has very powerful admin features to help customer to build their own shop
                                 in minutes without any special skills in web development.</p>
                         </div>
                         <!-- End .feature-box-content -->

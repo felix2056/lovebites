@@ -10835,7 +10835,7 @@ img.slide-bg {
     transition: left 0.25s
 }
 
-.sticky-header.fixed {
+.sticky-header.fixed, .sticky-header.default {
     display: flex;
     position: fixed;
     right: 0;
@@ -10847,11 +10847,11 @@ img.slide-bg {
     z-index: 1040
 }
 
-.sticky-header.fixed .logo {
+.sticky-header.fixed .logo, .sticky-header.default .logo {
     max-width: 89px
 }
 
-.sticky-header.fixed .logo img {
+.sticky-header.fixed .logo img, .sticky-header.default .logo img {
     transform: scale(0.8);
     transform-origin: left
 }
@@ -10870,7 +10870,7 @@ img.slide-bg {
     padding-right: 0
 }
 
-.main .sticky-header.fixed {
+.main .sticky-header.fixed, .main .sticky-header.default {
     min-height: 38px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -10879,7 +10879,7 @@ img.slide-bg {
     z-index: 997
 }
 
-.main .sticky-header.fixed .container {
+.main .sticky-header.fixed .container, .main .sticky-header.default .container {
     margin: 0 auto
 }
 
@@ -10895,7 +10895,9 @@ img.slide-bg {
 }
 
 .mmenu-active .sticky-header.fixed,
-.sidebar-opened .sticky-header.fixed:not(.sticky-header) {
+.sidebar-opened .sticky-header.fixed:not(.sticky-header),
+.mmenu-active .sticky-header.default,
+.sidebar-opened .sticky-header.default:not(.sticky-header) {
     left: 260px;
     transition: left 0.25s
 }
@@ -10967,7 +10969,7 @@ img.slide-bg {
 }
 
 @media (max-width:991px) {
-    .sidebar-opened .sticky-header.fixed {
+    .sidebar-opened .sticky-header.fixed, .sidebar-opened .sticky-header.default {
         left: 260px;
         transition: left 0.25s
     }
@@ -13005,7 +13007,7 @@ footer .contact-info-label {
     margin-left: 0
 }
 
-.header-middle.sticky-header.fixed {
+.header-middle.sticky-header.fixed, .header-middle.sticky-header.default {
     background: #111
 }
 
@@ -13103,12 +13105,12 @@ footer .contact-info-label {
     top: -1px
 }
 
-.header-middle.sticky-header.fixed {
+.header-middle.sticky-header.fixed, .header-middle.sticky-header.default {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem
 }
 
-.header-middle.sticky-header.fixed .logo {
+.header-middle.sticky-header.fixed .logo, .header-middle.sticky-header.default .logo {
     max-width: 100px
 }
 
@@ -15660,7 +15662,7 @@ span.toggle:before {
     color: #222529
 }
 
-.product-single-container .cart-sticky .sticky-header.fixed {
+.product-single-container .cart-sticky .sticky-header.fixed, .product-single-container .cart-sticky .sticky-header.default {
     top: 58px;
     box-shadow: none;
     border: 1px solid #e7e7e7;
@@ -15678,7 +15680,9 @@ main .sticky-header:not(.fixed).container {
 }
 
 main .sticky-header.fixed .container,
-main .sticky-header.fixed .container-fluid {
+main .sticky-header.fixed .container-fluid,
+main .sticky-header.default .container,
+main .sticky-header.default .container-fluid {
     display: flex;
     display: -ms-flexbox;
     align-items: center;
@@ -15687,7 +15691,7 @@ main .sticky-header.fixed .container-fluid {
     -ms-flex-wrap: wrap
 }
 
-main .sticky-header.fixed .product-action {
+main .sticky-header.fixed .product-action, main .sticky-header.default .product-action {
     flex: 1;
     -ms-flex: 1;
     border: 0;

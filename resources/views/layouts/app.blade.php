@@ -54,7 +54,7 @@
 <body>
     <div class="page-wrapper">    
         <header class="header @if (Request::is('/') || Route::currentRouteName() == 'about') header-transparent @endif">
-            <div class="header-middle sticky-header">
+            <div class="header-middle sticky-header default">
                 <div class="container-fluid">
                     <div class="header-left">
                         <button class="mobile-menu-toggler text-white mr-2" type="button">

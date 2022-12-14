@@ -27,4 +27,17 @@ class SubCategory extends Model
     {
         return $value ? $value : asset('/images/icons/' . $this->slug . '.png');
     }
+
+    public function getName2Attribute()
+    {
+        if (strpos($this->name, 'women') !== false) {
+            return 'women';
+        }
+
+        if (strpos($this->name, 'men') !== false) {
+            return 'men';
+        }
+
+        return $this->name;
+    }
 }
