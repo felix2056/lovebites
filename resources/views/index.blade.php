@@ -605,8 +605,7 @@
                             <h3 class="text-white">Customer Support</h3>
                             <h5 class="line-height-1">Need Assistance?</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum
-                                magna, et dapib.</p>
+                            <p>Contact us 24/7. We are here to help you. Your satisfaction is our aim.</p>
                         </div>
                         <!-- End .feature-box-content -->
                     </div>
@@ -624,8 +623,7 @@
                             <h3 class="text-white">Secured Payment</h3>
                             <h5 class="line-height-1">Safe &amp; Fast</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum
-                                magna, et dapibus lacus. Lorem ipsum dolor sit amet.</p>
+                            <p>Feel Safe with us. We use the latest, fastest, and most secured payment technology to protect your information.</p>
                         </div>
                         <!-- End .feature-box-content -->
                     </div>
@@ -636,14 +634,13 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="feature-box feature-box-simple text-center mb-2">
                         <div class="feature-box-icon">
-                            <i class="icon-action-undo text-white"></i>
+                            <i class="icon-gift text-white"></i>
                         </div>
                         <div class="feature-box-content p-0">
-                            <h3 class="text-capitalize text-white">Free Returns</h3>
-                            <h5 class="line-height-1">Easy &amp; Free</h5>
+                            <h3 class="text-capitalize text-white">Pakaging</h3>
+                            <h5 class="line-height-1">Discreet &amp; Safe</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum
-                                magna, et dapib.</p>
+                            <p>Discreet packaging. We ship your order in a plain box or envelope with no mention of Lovebites.</p>
                         </div>
                         <!-- End .feature-box-content -->
                     </div>
@@ -657,11 +654,10 @@
                             <i class="icon-shipping text-white"></i>
                         </div>
                         <div class="feature-box-content p-0">
-                            <h3 class="text-white">Free Shipping</h3>
+                            <h3 class="text-white">Fast Worldwide Shipping</h3>
                             <h5 class="line-height-1">Made To Help You</h5>
 
-                            <p>Lovebites has very powerful admin features to help customer to build their own shop
-                                in minutes without any special skills in web development.</p>
+                            <p>Lovebites offers fast worldwide shipping on all orders. We ship discreetly and quickly.</p>
                         </div>
                         <!-- End .feature-box-content -->
                     </div>

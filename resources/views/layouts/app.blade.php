@@ -434,7 +434,7 @@
     </div>
     <!-- End .mobile-menu-container -->
 
-    <div class="sticky-navbar">
+    {{-- <div class="sticky-navbar">
         <div class="sticky-info">
             <a href="/">
                 <i class="icon-home"></i>Home
@@ -464,7 +464,7 @@
                 </i>Cart
             </a>
         </div>
-    </div>
+    </div> --}}
 
     <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form"
         style="background: #f1f1f1 no-repeat center/cover url(/images/newsletter_popup_bg.jpg)">
