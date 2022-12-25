@@ -61,7 +61,7 @@
                             <i class="fas fa-bars"></i>
                         </button>
                         <a href="/" class="logo">
-                            <img src="/images/logo/lovebites-logo.png" alt="LoveBites Logo">
+                            <img src="/images/logo/lovebites-logo-large.png" alt="LoveBites Logo">
                         </a>
                     </div>
                     <!-- End .header-left -->
@@ -96,7 +96,7 @@
                                 <a href="#">USD</a>
                                 <div class="header-menu">
                                     <ul>
-                                        <li><a href="#">USD</a></li>
+                                        <li><a href="http://localhost:7000">USD</a></li>
                                         <li><a href="#">EUR</a></li>
                                     </ul>
                                 </div>
@@ -282,12 +282,12 @@
                                 <img src="/images/logo/lovebites-logo.png" alt="Logo" class="logo">
                             </a>
 
-                            <p class="footer-desc">Lorem ipsum dolor sit amet, consectetur adipis.</p>
+                            {{-- <p class="footer-desc">Lorem ipsum dolor sit amet, consectetur adipis.</p> --}}
 
-                            <div class="ls-0 footer-question">
+                            {{-- <div class="ls-0 footer-question">
                                 <h6 class="mb-0 text-white">QUESTIONS?</h6>
                                 <h3 class="mb-3 text-white"><a href="tel:1-888-123-456">1-888-123-456</a></h3>
-                            </div>
+                            </div> --}}
                         </div>
                         <!-- End .col-lg-3 -->
 
@@ -303,12 +303,12 @@
                                             @auth
                                                 <li><a href="{{ route('dashboard') }}">My Account</a></li>
                                             @endauth
-                                            <li><a href="#">Payment Methods</a></li>
+                                            {{-- <li><a href="#">Payment Methods</a></li> --}}
                                         </ul>
                                     </div>
                                     <div class="col-md-6">
                                         <ul class="links">
-                                            <li><a href="order.html">Order history</a></li>
+                                            <li><a href="{{ route('dashboard') }}">Order history</a></li>
                                             <li><a href="#">Advanced search</a></li>
                                             @guest
                                                 <li><a href="{{ route('login') }}">Login</a></li>
@@ -337,8 +337,8 @@
                                     <div class="col-md-6">
                                         <ul class="links">
                                             <li><a href="#">Return Policy</a></li>
-                                            <li><a href="#">Intellectual Property Claims</a></li>
-                                            <li><a href="#">Site Map</a></li>
+                                            {{-- <li><a href="#">Intellectual Property Claims</a></li>
+                                            <li><a href="#">Site Map</a></li> --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -347,7 +347,7 @@
                         </div>
                         <!-- End .col-lg-3 -->
 
-                        <div class="col-lg-3">
+                        {{-- <div class="col-lg-3">
                             <div class="widget text-lg-right">
                                 <h4 class="widget-title">Features</h4>
 
@@ -358,14 +358,13 @@
                                 </ul>
                             </div>
                             <!-- End .widget -->
-                        </div>
+                        </div> --}}
                         <!-- End .col-lg-3 -->
                     </div>
                     <!-- End .row -->
                 </div>
                 <div class="footer-bottom">
-                    <p class="footer-copyright text-lg-center mb-0">&copy; LoveBites eCommerce. 2021. All Rights Reserved
-                    </p>
+                    <p class="footer-copyright text-lg-center mb-0">&copy; LoveBites eCommerce. 2023. All Rights Reserved</p>
                 </div>
                 <!-- End .footer-bottom -->
             </div>
