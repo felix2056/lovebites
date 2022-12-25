@@ -350,7 +350,7 @@
             <div class="row">
                 @foreach ($categories as $category)
                 <div class="col-md-2 col-6 product-category appear-animate" data-animation-name="fadeInUpShorter">
-                    <a href="{{ route('categories.show', $category->slug) }}">
+                    <a href="javascript:void(0)">
                         <figure>
                             <img src="{{ $category->icon }}" alt="category" width="280" height="240">
                         </figure>
