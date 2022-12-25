@@ -580,7 +580,7 @@
         </div>
     </section>
 
-    <section class="explore-section d-flex align-items-center"
+    {{-- <section class="explore-section d-flex align-items-center"
         data-parallax="{'speed': 1.8,  'enableOnMobile': true}"
         data-image-src="/images/site/dainis-graveris-04qxvvRE8Mo-unsplash.jpg" style="background-color: #111;">
         <div class="container-fluid text-center position-relative appear-animate"
@@ -589,7 +589,7 @@
             <a href="{{ route('login') }}" class="btn btn-dark">Signup Now</a>
         </div>
         <!-- End .container -->
-    </section>
+    </section> --}}
     <!-- End .explore-section -->
 
     <section class="feature-boxes-container">
