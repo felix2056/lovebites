@@ -200,7 +200,7 @@
 
     paypal.Buttons({
         onCancel: function (data) {
-            window.location.href = "{{ route('cart') }}";
+            window.location.href = "{{ route('checkout.cancel') }}";
         },
         // Sets up the transaction when a payment button is clicked
         createOrder: (data, actions) => {
@@ -216,7 +216,8 @@
         onApprove: (data, actions) => {
             return actions.order.capture().then(function(orderData) {
                 // Successful capture! For dev/demo purposes:
-                actions.redirect('/checkout/success');
+                // actions.redirect('/checkout/success');
+                window.location.href = "{{ route('checkout.success') }}";
                 
                 /************
                 console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
