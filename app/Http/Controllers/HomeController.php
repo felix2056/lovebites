@@ -48,10 +48,10 @@ class HomeController extends Controller
             return redirect()->route('products.index');
         }
 
-        return view('checkout');
+        return view('checkout-paypal');
     }
 
-    public function checkoutPayment(Request $request)
+    public function checkoutStripe(Request $request)
     {
         // return response()->json([
         //     'session' => session()->all(),
@@ -107,5 +107,20 @@ class HomeController extends Controller
         }
 
         return view('checkout-payment');
+    }
+
+    public function checkoutPaypal()
+    {
+        if (!session()->has('cart')) {
+            return redirect()->route('products.index');
+        }
+
+        if (!Auth::check()) {
+            if (!session()->has('user_information')) {
+                return redirect()->route('checkout');
+            }
+        }
+
+        return view('checkout-paypal');
     }
 }

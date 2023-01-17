@@ -121,7 +121,10 @@ Route::get('wishlist', 'HomeController@wishlist')->name('wishlist');
 Route::get('cart', 'HomeController@cart')->name('cart');
 Route::get('checkout', 'HomeController@checkout')->name('checkout');
 // only for Stripe Payment Flow or Stripe Elements
-Route::get('checkout-payment', 'HomeController@checkoutPayment')->name('checkout.payment');
+Route::get('checkout-stripe', 'HomeController@checkoutStripe')->name('checkout.stripe');
+
+// only for PayPal Standard Checkout or Advanced Checkout
+Route::get('checkout-paypal', 'HomeController@checkoutPaypal')->name('checkout.paypal');
 
 Route::prefix('stripe')->group(function () {
     Route::post('create', 'StripeController@create')->name('stripe.create');

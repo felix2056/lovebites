@@ -152,7 +152,7 @@
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: "{{ route('checkout.payment') }}",
+                return_url: "{{ route('checkout.stripe') }}",
                 receipt_email: "{{ auth()->user()->email ?? session()->get('user_information')['email'] }}",
             },
         });

@@ -6,6 +6,8 @@
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+    <!-- Replace "test" with your own sandbox Business account app client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=USD"></script>
 @endsection
 
 @section('content')
@@ -132,12 +134,23 @@
                                     <abbr class="required" title="required">*</abbr>
                                 </label>
                                 <select name="country" class="form-control" required>
-                                    <option value selected="selected">Vanuatu</option>
-                                    <option value="1">Brunei</option>
-                                    <option value="2">Bulgaria</option>
-                                    <option value="3">Burkina Faso</option>
-                                    <option value="4">Burundi</option>
-                                    <option value="5">Cameroon</option>
+                                    <option value="">Select Country</option>
+                                </select>
+                            </div>
+
+                            <div class="select-custom">
+                                <label>State / County <abbr class="required" title="required">*</abbr></label>
+                                <select name="state" class="form-control" required>
+                                    <option value="">Select State</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Town / City
+                                    <abbr class="required" title="required">*</abbr>
+                                </label>
+                                <select name="city" class="form-control" required>
+                                    <option value="">Select City</option>
                                 </select>
                             </div>
 
@@ -150,25 +163,6 @@
 
                             <div class="form-group">
                                 <input name="address_2" type="text" class="form-control" placeholder="Apartment, suite, unite, etc. (optional)">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Town / City
-                                    <abbr class="required" title="required">*</abbr>
-                                </label>
-                                <input name="city" type="text" class="form-control" required>
-                            </div>
-
-                            <div class="select-custom">
-                                <label>State / County <abbr class="required" title="required">*</abbr></label>
-                                <select name="state" class="form-control" required>
-                                    <option value selected="selected">NY</option>
-                                    <option value="1">Brunei</option>
-                                    <option value="2">Bulgaria</option>
-                                    <option value="3">Burkina Faso</option>
-                                    <option value="4">Burundi</option>
-                                    <option value="5">Cameroon</option>
-                                </select>
                             </div>
 
                             <div class="form-group">
@@ -407,7 +401,7 @@
 
                     <div class="payment-methods">
                         <h4 class>Payment methods</h4>
-                        <div class="form-group form-group-custom-control">
+                        {{-- <div class="form-group form-group-custom-control">
                             <div class="custom-control custom-radio d-flex">
                                 <input type="radio" class="custom-control-input" name="payment_method" checked>
                                 <label class="custom-control-label">Stripe</label>
@@ -423,13 +417,15 @@
                             </div>
                             <!-- End .custom-checkbox -->
                         </div>
-                        <!-- End .form-group -->
+                        <!-- End .form-group --> --}}
 
-                        <div class="info-box with-icon p-0">
-                            {{-- <p>
+                        {{-- <div class="info-box with-icon p-0">
+                            <p>
                                 Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.
-                            </p> --}}
-                        </div>
+                            </p>
+                        </div> --}}
+
+                        <div id="paypal-button-container" class="paypal-button-container"></div>
                     </div>
 
                     <button type="submit" class="btn btn-dark btn-place-order" form="checkout-form">
@@ -445,4 +441,98 @@
     <!-- End .container -->
 </main>
 <!-- End .main -->
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function () {
+        let headers = {
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-CSCAPI-KEY': 'WFhpbWRyOVBKbXRoemFYMlVNdVllVW90S01rZ3k4OGNjRmtRM1JmSQ=='
+        };
+
+        // get all countries via ajax
+        $.ajax({
+            url: 'https://api.countrystatecity.in/v1/countries',
+            type: 'GET',
+            headers: headers,
+            success: function (data) {
+                let countries = data;
+                let countryOptions = '';
+                countries.forEach(country => {
+                    countryOptions += `<option value="${country.iso2}">${country.name}</option>`;
+                });
+                $('select[name="country"]').append(countryOptions);
+            }
+        });
+
+        // get all states in the US via ajax
+        $('select[name="country"]').on('change', function () {
+            let country = $(this).val();
+            $.ajax({
+                url: `https://api.countrystatecity.in/v1/countries/${country}/states`,
+                type: 'GET',
+                headers: headers,
+                success: function (data) {
+                    let states = data;
+                    let stateOptions = '';
+                    states.forEach(state => {
+                        stateOptions += `<option value="${state.iso2}">${state.name}</option>`;
+                    });
+                    $('select[name="state"]').append(stateOptions);
+                }
+            });
+        });
+
+        // get all cities in the US via ajax
+        $('select[name="state"]').on('change', function () {
+            let state = $(this).val();
+            let country = $('select[name="country"]').val();
+            $.ajax({
+                url: `https://api.countrystatecity.in/v1/countries/${country}/states/${state}/cities`,
+                type: 'GET',
+                headers: headers,
+                success: function (data) {
+                    let cities = data;
+                    let cityOptions = '';
+                    cities.forEach(city => {
+                        cityOptions += `<option value="${city.name}">${city.name}</option>`;
+                    });
+                    $('select[name="city"]').append(cityOptions);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    paypal.Buttons({
+        onCancel: function (data) {
+            window.location.href = "{{ route('cart') }}";
+        },
+        // Sets up the transaction when a payment button is clicked
+        createOrder: (data, actions) => {
+            return actions.order.create({
+            purchase_units: [{
+                amount: {
+                value: "{{ $total }}" // Can also reference a variable or function
+                }
+            }]
+            });
+        },
+        // Finalize the transaction after payer approval
+        onApprove: (data, actions) => {
+            return actions.order.capture().then(function(orderData) {
+            // Successful capture! For dev/demo purposes:
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            const transaction = orderData.purchase_units[0].payments.captures[0];
+            alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+            // When ready to go live, remove the alert and show a success message within this page. For example:
+            // const element = document.getElementById('paypal-button-container');
+            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            // Or go to another URL:  actions.redirect('thank_you.html');
+            });
+        }
+    }).render('#paypal-button-container');
+  </script>
 @endsection

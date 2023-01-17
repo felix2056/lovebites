@@ -74,7 +74,7 @@ class StripeController extends Controller
                 $user = session()->get('user_information');
                 $customer = $this->stripe->customers->create([
                     'email' => $user['email'],
-                    'name' => $user['full_name'],
+                    'name' => $user['first_name'] . ' ' . $user['last_name'],
                     'phone' => $user['phone'],
                     'address' => [
                         'line1' => $user['address_1'],
@@ -214,7 +214,7 @@ class StripeController extends Controller
             $user->save();
         }
 
-        return redirect()->route('checkout.payment');
+        return redirect()->route('checkout.stripe');
     }
 
     public function checkoutWithCheckout(Request $request)
