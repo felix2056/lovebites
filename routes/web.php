@@ -126,6 +126,9 @@ Route::get('checkout-stripe', 'HomeController@checkoutStripe')->name('checkout.s
 // only for PayPal Standard Checkout or Advanced Checkout
 Route::get('checkout-paypal', 'HomeController@checkoutPaypal')->name('checkout.paypal');
 
+Route::get('checkout/success', 'HomeController@checkoutSuccess')->name('checkout.success');
+Route::get('checkout/cancel', 'HomeController@checkoutCancel')->name('checkout.cancel');
+
 Route::prefix('stripe')->group(function () {
     Route::post('create', 'StripeController@create')->name('stripe.create');
     Route::post('store', 'StripeController@store')->name('stripe.store');

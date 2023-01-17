@@ -123,4 +123,18 @@ class HomeController extends Controller
 
         return view('checkout-paypal');
     }
+
+    public function checkoutSuccess()
+    {
+        if (!session()->has('cart')) {
+            return redirect()->route('products.index');
+        }
+        
+        return view('checkout-success');
+    }
+
+    public function checkoutCancel()
+    {
+        return view('checkout-cancel');
+    }
 }
