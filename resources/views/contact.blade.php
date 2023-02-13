@@ -16,7 +16,9 @@
         </div><!-- End .container -->
     </nav>
 
-    <div id="map"></div><!-- End #map -->
+    <div class="mb-10"></div>
+
+    {{-- <div id="map"></div><!-- End #map --> --}}
 
     <div class="container-fluid">
         <div class="row ">
@@ -57,10 +59,10 @@
             </div><!-- End .col-md-8 -->
 
             <div class="col-md-6">
-                <h2 class="contact-title"><strong>Get in touch</strong></h2>
+                {{-- <h2 class="contact-title"><strong>Get in touch</strong></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit
                     imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus. Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit.</p>
+                    sit amet, consectetur adipiscing elit.</p> --}}
 
                 <hr class="mt-3 mb-0">
 
@@ -89,35 +91,6 @@
                             <strong>Email:</strong> mail@example.com</h3>
                     </div>
                 </div><!-- End .contact-info -->
-
-                <hr class="mt-1 mb-0">
-
-                <div class="contact-time">
-                    <h2 class="contact-title"><strong>Business Hours</strong></h2>
-
-                    <div class="porto-sicon-box d-flex align-items-center">
-                        <div class="porto-icon">
-                            <i class="far fa-clock"></i>
-                        </div>
-                        <h3 class="porto-sicon-title">Monday - Friday
-                            9am to 5pm</h3>
-                    </div>
-
-                    <div class="porto-sicon-box  d-flex align-items-center">
-                        <div class="porto-icon">
-                            <i class="far fa-clock"></i>
-                        </div>
-
-                        <h3 class="porto-sicon-title">Saturday - 9am
-                            to 2pm</h3>
-                    </div>
-
-                    <div class="porto-sicon-box d-flex align-items-center">
-                        <div class="porto-icon"><i class="far fa-clock"></i></div>
-                        <h3 class="porto-sicon-title">Sunday - Closed
-                        </h3>
-                    </div>
-                </div>
             </div><!-- End .col-md-4 -->
         </div><!-- End .row -->
     </div><!-- End .container -->

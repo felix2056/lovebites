@@ -78,13 +78,13 @@
                             <tr>
                                 <td class="product-col">
                                     <h3 class="product-title">
-                                        {{ $item['name'] }} ×
+                                        {{ $item['name'] }} x
                                         <span class="product-qty">{{ $item['quantity'] }}</span>
                                     </h3>
                                 </td>
 
                                 <td class="price-col">
-                                    <span>{{ $item['price'] }}</span>
+                                    <span>${{ $item['price'] }}</span>
                                 </td>
                             </tr>
                             @endforeach
@@ -128,7 +128,7 @@
                                     <h4>Tax</h4>
                                 </td>
                                 <td>
-                                    <b class="total-price"><span>${{ $tax }}</span></b>
+                                    <b class="total-price"><span>${{ number_format($tax, 2) }}</span></b>
                                 </td>
                             </tr>
 
@@ -137,7 +137,7 @@
                                     <h4>Shipping</h4>
                                 </td>
                                 <td>
-                                    <b class="total-price"><span>${{ $shipping }}</span></b>
+                                    <b class="total-price"><span>${{ number_format($shipping, 2) }}</span></b>
                                 </td>
                             </tr>
 
@@ -146,7 +146,7 @@
                                     <h4>Total</h4>
                                 </td>
                                 <td>
-                                    <b class="total-price"><span>${{ $total }}</span></b>
+                                    <b class="total-price"><span>${{ number_format($total, 2) }}</span></b>
                                 </td>
                             </tr>
                         </tfoot>
@@ -207,7 +207,8 @@
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: amount
+                        value: amount,
+                        currency_code: 'USD'
                     }
                 }]
             });
@@ -232,5 +233,5 @@
             });
         }
     }).render('#paypal-button-container');
-  </script>
+</script>
 @endsection

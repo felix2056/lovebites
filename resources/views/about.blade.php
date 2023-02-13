@@ -8,7 +8,7 @@
 <main class="main about">
     <div class="page-header page-header-bg text-left" style="background-image: url(/images/site/dark-surface-with-reflections-smooth-minimal-black-waves-background-blurry-silk-waves-minimal-soft-grayscale-ripples-flow.jpg); background-color: #111">
         <div class="container-fluid">
-            <h1 class="text-white"><span>About</span>Lovebites</h1>
+            <h1 class="text-white text-center"><span>About</span>Lovebites</h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
 
@@ -49,10 +49,10 @@
                         Our customer service team is always available for you!</p>
                 </div><!-- End .col-md-4 -->
 
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <h2 class="subtitle mb-2">OUR VISION</h2>
                     <p>Sexual education is very important for us and we aim to be part of an inclusive society where all adults feel happy with their sexuality and free to explore their pleasures. We embrace inclusion, we commit to support diversity and sexual wellness for all.</p>
-                </div><!-- End .col-md-4 -->
+                </div><!-- End .col-md-4 --> --}}
 
                 <div class="col-md-4">
                     <h2 class="subtitle mb-2">OUR VALUE</h2>
